@@ -64,6 +64,50 @@ function InsertLogin($conn,$table,$email,$password,$type)
     }
 }
 
+
+function ValidateLogin($conn,$table,$email,$password)
+{
+  $result = $conn->query("SELECT email,password,type FROM  $table WHERE email='$email' and password = '$password'");
+    #if ($conn->query($result) === TRUE) {
+        //echo "Login Successfully";
+      $row = mysqli_fetch_array($result);
+       if($row != False)
+        {
+          if($row["type"]=='Vendor')
+          {
+
+
+          header('Location: VendorHome.php');
+          return ;
+        }
+      else if($row["type"]=='driver')
+        {
+
+
+        header('Location: DriverHome.php');
+        return ;
+      }
+    else if($row["type"]=='customer')
+      {
+
+
+      header('Location: CustomerHome.php');
+      return ;
+    }
+
+    else {
+
+        echo "Invalid Login";
+        header('Location:login.php');
+
+    }
+      }
+
+    else {
+        echo "Error: " . $result . "<br>" . $conn->error;
+    }
+}
+
 function ShowAll($conn,$table)
  {
 $result = $conn->query("SELECT * FROM  $table");

@@ -17,7 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $connection = new db();
         $conobj = $connection->OpenCon();
-
+      $connection->ValidateLogin($conobj,"login",$email,$pass);
+        $connection->CloseCon($conobj);
 
 
         // $userQuery = $connection->InsertUser($conobj, "registration", $fname,$uname,$email, $pass,"12","male");

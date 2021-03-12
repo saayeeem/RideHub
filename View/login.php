@@ -1,3 +1,6 @@
+<?php
+include('../Control/ValidationLogin.php');
+?>
 <html>
 <body>
 
@@ -6,17 +9,18 @@
 
 <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
 <table>
-<tr><td> Username: </td>
-<td><input type="text" name="id">
+<tr><td> Email: </td>
+<td><input type="text" name="email">
 <br>
 <tr><td> Password: </td>
-<td><input type="password" name="name">
+<td><input type="password" name="pass">
 <br>
 </table>
 
 
 
 <input type="submit" value="SUBMIT">
+
 <br>
 <br>
 New User??
