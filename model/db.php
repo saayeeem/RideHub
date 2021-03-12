@@ -11,7 +11,7 @@ function OpenCon()
 
  return $conn;
  }
- function CheckUser($conn,$table,$email,$password)
+function CheckUser($conn,$table,$email,$password)
  {
 $result = $conn->query("SELECT * FROM ". $table." WHERE email='". $email."' AND password='". $password."'");
  return $result;
@@ -52,15 +52,23 @@ function InsertDriver($conn,$table,$name, $email,$password,$type,$phone,$birthda
         echo "Error: " . $result . "<br>" . $conn->error;
     }
 }
+function InsertLogin($conn,$table,$email,$password,$type)
+{
+    $result = "INSERT INTO " . $table . " (email,password,type)
+    VALUES('$email','$password','$type')";
+    if ($conn->query($result) === TRUE) {
+        echo "Data inserted into login table successfully";
+        return $result;
+    } else {
+        echo "Error: " . $result . "<br>" . $conn->error;
+    }
+}
 
-
- function ShowAll($conn,$table)
+function ShowAll($conn,$table)
  {
 $result = $conn->query("SELECT * FROM  $table");
  return $result;
  }
-
-
 function CloseCon($conn)
  {
  $conn -> close();
