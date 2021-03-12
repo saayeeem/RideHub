@@ -3,9 +3,7 @@ session_start();
 ?>
 
 <?php
-
 $msg="";
-
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {
     $name=$_REQUEST["name"];
