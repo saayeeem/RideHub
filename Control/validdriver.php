@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         $msg = "All fields are required";
     }
 
-    else if(!preg_match("/[a-zA-Z]$/", $name))
+    else if(!preg_match("/[a-zA-Z]/", $name))
     {
         $msg="Valid Name is required.";
     }
