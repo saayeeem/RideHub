@@ -12,7 +12,7 @@ include('../Control/validdriver.php');
  <img src="Pictures/driver.jpg" alt="Home" class="center">
  <br>
  <br>
- 
+
 <?php echo "$msg"; ?>
 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
     <table>
