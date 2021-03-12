@@ -36,7 +36,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
       {
           $msg="Valid Driving license Number is required.";
       }
-    else if ($pass != $cpass) {
+    else if ($pass != $cnpass) {
 
                   $msg = "Password Doesn't match";
               }
