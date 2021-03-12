@@ -1,5 +1,5 @@
 <?php
-include('../controller/UserValidation.php');
+include('../Control/UserValidation.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

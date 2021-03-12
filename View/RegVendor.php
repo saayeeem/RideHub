@@ -11,7 +11,7 @@ include('../Control/validvendor.php');
 </head>
 <body>
 <h1>Vendor Registation Form</h1>
-
+<?php echo "$msg"; ?>
 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
     <table>
     <tr>
@@ -44,7 +44,7 @@ include('../Control/validvendor.php');
         Trade license No:
         </td>
         <td>
-          <input type="number" name="tradel">
+          <input type="number" name="vtlic">
         </td>
       </tr>
       <tr>
@@ -55,16 +55,16 @@ include('../Control/validvendor.php');
           <input type="password" name="pass">
         </td>
       </tr>
-     
+
       <tr>
         <td>
          Confirm Password:
         </td>
         <td>
-          <input type="password" name="cnpass">
+          <input type="password" name="vpass">
         </td>
       </tr>
-        
+
     <tr>
       <td>
         <input type="submit" value="Submit">
