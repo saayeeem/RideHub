@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../model/db.php');
+include('../Model/db.php');
 
 $msg="";
 if($_SERVER["REQUEST_METHOD"]=="POST")
@@ -44,11 +44,10 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
    else{
      $connection = new db();
      $conobj = $connection->OpenCon();
-
-
-
      // $userQuery = $connection->InsertUser($conobj, "registration", $fname,$uname,$email, $pass,"12","male");
      $connection->InsertVendor($conobj,"vendor",$name, $email,$pass,'Vendor',$phone,$address,$tradel);
+     $connection->InsertLogin($conobj,"login",$email,$pass,'Vendor');
+
      $connection->CloseCon($conobj);
    }
 }

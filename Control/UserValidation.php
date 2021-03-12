@@ -25,7 +25,6 @@ include('../model/db.php');
         $birthday = $_REQUEST["birthday"];
         $address = $_REQUEST["address"];
 
-
         if (empty($name) || empty($email) || empty($phone) || empty($pass) || empty($cpass) || empty($address)) {
             $msg = "All fields are required";
         } else if (!preg_match("/[a-zA-Z]$/", $name)) {
@@ -44,10 +43,9 @@ include('../model/db.php');
             $connection = new db();
             $conobj = $connection->OpenCon();
 
-
-
             // $userQuery = $connection->InsertUser($conobj, "registration", $fname,$uname,$email, $pass,"12","male");
             $connection->InsertCustomer($conobj,"customer",$name, $email,$pass,'customer',$phone,$birthday,$address);
+            $connection->InsertLogin($conobj,"login",$email,$pass,'customer');
             $connection->CloseCon($conobj);
 
         }
