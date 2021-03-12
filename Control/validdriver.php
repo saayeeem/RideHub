@@ -4,11 +4,7 @@ session_start();
 
 <?php
 
-
-
 $msg="";
-
-
 
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {
@@ -21,9 +17,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     $cnpass=$_REQUEST["cnpass"];
     $dob=$_REQUEST["dob"];
     $address=$_REQUEST["address"];
-
-
-
 
     if (empty($name) || empty($email) || empty($phone) || empty($drivingl)|| empty($pass) || empty($cnpass)  || empty($address) ) {
         $msg = "All fields are required";
