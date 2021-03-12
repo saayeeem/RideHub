@@ -6,11 +6,11 @@
 <br>
 
 <b>Want to enjoy our awesome services? Register As
-<a href="url">Customer!!</a>
+<a href="UserRegistration.php">Customer!!</a>
 
 <br>
 <br>
 <b>Want to expand your business?Register As
-<a href="url">Vendor!!</a>
+<a href="RegVendor.php">Vendor!!</a>
 </body>
 </html>
