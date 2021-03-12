@@ -44,7 +44,7 @@ include('../Control/validvendor.php');
         Trade license No:
         </td>
         <td>
-          <input type="number" name="vtlic">
+          <input type="text" name="tradel">
         </td>
       </tr>
       <tr>
@@ -61,7 +61,7 @@ include('../Control/validvendor.php');
          Confirm Password:
         </td>
         <td>
-          <input type="password" name="vpass">
+          <input type="password" name="cnpass">
         </td>
       </tr>
 
@@ -73,7 +73,7 @@ include('../Control/validvendor.php');
               <textarea id="address" name="address" rows="3" cols="30"></textarea>
           </td>
       </tr>
-      
+
     <tr>
       <td>
         <input type="submit" value="Submit">

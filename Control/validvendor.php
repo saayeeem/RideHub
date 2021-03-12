@@ -1,7 +1,6 @@
 <?php
 session_start();
-?>
-<?php
+include('../model/db.php');
 
 $msg="";
 if($_SERVER["REQUEST_METHOD"]=="POST")
@@ -10,12 +9,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     $name=$_REQUEST["name"];
     $email=$_REQUEST["email"];
     $phone=$_REQUEST["phone"];
-    $vendorl=$_REQUEST["tradel"];
+    $tradel=$_REQUEST["tradel"];
     $pass=$_REQUEST["pass"];
     $cnpass=$_REQUEST["cnpass"];
     $address = $_REQUEST["address"];
 
-    if (empty($name) || empty($email) || empty($phone) || empty($vendor1)|| empty($pass) || empty($cnpass) || empty($address)) {
+    if (empty($name) || empty($email) || empty($phone) || empty($tradel)|| empty($pass) || empty($address)) {
         $msg = "All fields are required";
     }
 
@@ -34,16 +33,23 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     }
 
 
-      else if(!preg_match("/[0-9]/", $vendor1))
+      else if(!preg_match("/[0-9]/", $tradel))
       {
-          $msg="Valid Driving license Number is required.";
+          $msg="Valid Trade License Number is required.";
       }
       else if ($pass != $cnpass) {
 
                   $msg = "Password Doesn't match";
               }
    else{
-     header("Location: login.php");
+     $connection = new db();
+     $conobj = $connection->OpenCon();
+
+
+
+     // $userQuery = $connection->InsertUser($conobj, "registration", $fname,$uname,$email, $pass,"12","male");
+     $connection->InsertVendor($conobj,"vendor",$name, $email,$pass,'Vendor',$phone,$address,$tradel);
+     $connection->CloseCon($conobj);
    }
 }
 

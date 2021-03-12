@@ -29,6 +29,21 @@ function InsertCustomer($conn,$table,$name, $email,$password,$type,$phone,$birth
     }
 }
 
+
+function InsertVendor($conn,$table,$name, $email,$password,$type,$phone,$address,$tradelicense)
+{
+    $result = "INSERT INTO " . $table . " (name, email,password,type,phone,address,tradelicense)
+    VALUES('$name', '$email','$password','$type','$phone','$address','$tradelicense')";
+    if ($conn->query($result) === TRUE) {
+        echo "New record created successfully";
+        return $result;
+    } else {
+        echo "Error: " . $result . "<br>" . $conn->error;
+    }
+}
+
+
+
  function ShowAll($conn,$table)
  {
 $result = $conn->query("SELECT * FROM  $table");
