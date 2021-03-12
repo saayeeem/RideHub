@@ -19,7 +19,7 @@ include('../Control/UserValidation.php');
 
             <tr>
                 <td>
-                    Customer Full Name:
+                      Name:
                 </td>
                 <td>
                     <input type="text" name="cname">
@@ -28,7 +28,7 @@ include('../Control/UserValidation.php');
 
             <tr>
                 <td>
-                    Customer Email:
+                     Email:
                 </td>
                 <td>
                     <input type="text" name="email">
