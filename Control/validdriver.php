@@ -34,8 +34,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         $msg="Valid Phone is required.";
     }
 
-
-      else if(!preg_match("/[0-9]/", $drivingl))
+    else if(!preg_match("/[0-9]/", $drivingl))
       {
           $msg="Valid Driving license Number is required.";
       }
@@ -44,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                   $msg = "Password Doesn't match";
 
               }
-   else{
+    else{
      header("Location: login.php");
    }
 }
