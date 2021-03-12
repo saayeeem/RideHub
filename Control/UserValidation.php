@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../model/validvendor.php');
+include('../model/db.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,8 +41,15 @@ include('../model/validvendor.php');
         } else {
 
             // $_SESSION["eid"] = $id;
+            $connection = new db();
+            $conobj = $connection->OpenCon();
 
-            header("location: Success.php");
+
+
+            // $userQuery = $connection->InsertUser($conobj, "registration", $fname,$uname,$email, $pass,"12","male");
+            $connection->InsertCustomer($conobj,"customer",$name, $email,$pass,'customer',$phone,$birthday,$address);
+            $connection->CloseCon($conobj);
+
         }
     }
     ?>
