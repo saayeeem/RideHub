@@ -7,7 +7,12 @@ include('../Control/validdriver.php');
 
 <body>
 
-<h1>Driver Registation Form</h1>
+<h1><center>Driver Registation Form</center></h1>
+
+ <img src="Pictures/driver.jpg" alt="Home" class="center">
+ <br>
+ <br>
+
 <?php echo "$msg"; ?>
 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
     <table>
@@ -91,7 +96,7 @@ include('../Control/validdriver.php');
         <input type="submit" value="Submit">
         <input type="reset" value="Reset">
 
-  
+
       </td>
     </tr>
 
