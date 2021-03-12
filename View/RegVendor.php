@@ -19,7 +19,7 @@ include('../Control/validvendor.php');
          Company name:
       </td>
       <td>
-        <input type="text" name="vname">
+        <input type="text" name="name">
       </td>
     </tr>
 
@@ -28,7 +28,7 @@ include('../Control/validvendor.php');
          Email:
         </td>
         <td>
-          <input type="text" name="vemail">
+          <input type="text" name="email">
         </td>
       </tr>
       <tr>
@@ -36,7 +36,7 @@ include('../Control/validvendor.php');
         Phone No:
         </td>
         <td>
-          <input type="text" name="vphone">
+          <input type="text" name="phone">
         </td>
       </tr>
       <tr>
@@ -44,7 +44,7 @@ include('../Control/validvendor.php');
         Trade license No:
         </td>
         <td>
-          <input type="number" name="vtlic">
+          <input type="number" name="tradel">
         </td>
       </tr>
       <tr>
@@ -61,7 +61,7 @@ include('../Control/validvendor.php');
          Confirm Password:
         </td>
         <td>
-          <input type="password" name="vpass">
+          <input type="password" name="cnpass">
         </td>
       </tr>
         

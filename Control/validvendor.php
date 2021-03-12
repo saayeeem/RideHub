@@ -7,12 +7,12 @@ $msg="";
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {
 
-    $name=$_REQUEST["vname"];
-    $email=$_REQUEST["vemail"];
-    $phone=$_REQUEST["vphone"];
-    $vendorl=$_REQUEST["vtlic"];
+    $name=$_REQUEST["name"];
+    $email=$_REQUEST["email"];
+    $phone=$_REQUEST["phone"];
+    $vendorl=$_REQUEST["tradel"];
     $pass=$_REQUEST["pass"];
-    $cnpass=$_REQUEST["vpass"];
+    $cnpass=$_REQUEST["cnpass"];
 
     if (empty($name) || empty($email) || empty($phone) || empty($vendor1)|| empty($pass) || empty($cnpass)) {
         $msg = "All fields are required";
