@@ -43,7 +43,11 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
               }
     else{
-     header("Location: login.php");
+        $connection = new db();
+        $conobj = $connection->OpenCon();
+        // $userQuery = $connection->InsertUser($conobj, "registration", $fname,$uname,$email, $pass,"12","male");
+        $connection->InsertDriver($conobj,"driver",$name, $email,$pass,'driver',$phone,$dob,$address,$drivingl);
+        $connection->CloseCon($conobj);
    }
 }
 
