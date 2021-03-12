@@ -14,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     $cnpass=$_REQUEST["cnpass"];
     $address = $_REQUEST["address"];
 
-    if (empty($name) || empty($email) || empty($phone) || empty($tradel)|| empty($pass) || empty($address)) {
+    if (empty($name) || empty($email) || empty($phone) || empty($tradel)|| empty($pass) ||  empty($address)) {
         $msg = "All fields are required";
     }
 
