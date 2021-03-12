@@ -1,8 +1,6 @@
 <?php
 session_start();
-?>
-
-<?php
+include('../model/db.php');
 $msg="";
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {
@@ -49,6 +47,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         $connection->InsertDriver($conobj,"driver",$name, $email,$pass,'driver',$phone,$dob,$address,$drivingl);
         $connection->InsertLogin($conobj,"login",$email,$pass,'driver');
         $connection->CloseCon($conobj);
+        
    }
 }
 

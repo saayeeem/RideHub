@@ -12,7 +12,7 @@ include('../Control/UserValidation.php');
 </head>
 
 <body>
-    <h1>Customer Registation Form</h1>
+    <h1>Customer Registration Form</h1>
     <?php echo "$msg"; ?>
     <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
         <table>

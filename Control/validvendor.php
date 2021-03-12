@@ -16,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
     if (empty($name) || empty($email) || empty($phone) || empty($tradel)|| empty($pass) ||  empty($address)) {
         $msg = "All fields are required";
-     } 
+     }
 
     else if(!preg_match("/[a-zA-Z]/", $name))
     {
@@ -49,6 +49,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
      $connection->InsertLogin($conobj,"login",$email,$pass,'Vendor');
 
      $connection->CloseCon($conobj);
+     
    }
 }
 

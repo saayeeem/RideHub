@@ -7,7 +7,7 @@ include('../Control/validdriver.php');
 
 <body>
 
-<h1><center>Driver Registation Form</center></h1>
+<h1><center>Driver Registration Form</center></h1>
 
  <img src="Pictures/driver.jpg" alt="Home" class="center">
  <br>
