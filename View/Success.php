@@ -10,19 +10,17 @@
 
 <body>
     <?php
-    include('../control/Validation.php');
-    echo "Output" . "<br>";
-    echo "ID: ".$_SESSION["eid"] . "<br>";
-    echo "Name: ".$_SESSION["ename"] . "<br>";
+    include('../controller/UserValidation.php');
+    echo "Customer Profile" . "<br>";
+    // echo "ID: " . $_SESSION["eid"] . "<br>";
+    echo "Name: " . $_SESSION["cname"] . "<br>";
     echo "Email: " . $_SESSION["email"] . "<br>";
     echo "Birthday: " . $_SESSION["birthday"] . "<br>";
-    echo "State: " . $_SESSION["state"] . "<br>";
-    echo "Street: " . $_SESSION["street"] . "<br>";
-    echo "Post Code: " . $_SESSION["pcode"] . "<br>";
-    echo "Country: " . $_SESSION["country"]. "<br>";
-    echo "Profile Picture Succesfully Uploaded. Type is: ".$_SESSION["filetoupload"] . "<br>";
+    echo "Phone No.: " . $_SESSION["phone"] . "<br>";
+    echo "Password: " . $_SESSION["pass"] . "<br>";
+    echo "Address: " . $_SESSION["address"] . "<br>";
     ?>
-    <a href="RegistrationForm.php">Back to Registration Form</a>
+    <a href="UserRegistration.php">Back to Registration Form</a>
 </body>
 
 </html>
