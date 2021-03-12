@@ -3,7 +3,13 @@ session_start();
 ?>
 
 <?php
+
+
+
 $msg="";
+
+
+
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {
 
@@ -16,11 +22,14 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
     $dob=$_REQUEST["dob"];
     $address=$_REQUEST["address"];
 
+
+
+
     if (empty($name) || empty($email) || empty($phone) || empty($drivingl)|| empty($pass) || empty($cnpass)  || empty($address) ) {
         $msg = "All fields are required";
     }
 
-    else if(!preg_match("/[a-zA-Z]/", $name))
+    else if(!preg_match("/[a-zA-Z]$/", $name))
     {
         $msg="Valid Name is required.";
     }
