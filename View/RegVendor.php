@@ -65,6 +65,15 @@ include('../Control/validvendor.php');
         </td>
       </tr>
 
+      <tr>
+          <td>
+              Address:
+          </td>
+          <td>
+              <textarea id="address" name="address" rows="3" cols="30"></textarea>
+          </td>
+      </tr>
+      
     <tr>
       <td>
         <input type="submit" value="Submit">

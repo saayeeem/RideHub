@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('../model/validvendor.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,12 +41,7 @@ session_start();
         } else {
 
             // $_SESSION["eid"] = $id;
-            $_SESSION["cname"] = $name;
-            $_SESSION["email"] = $email;
-            $_SESSION["birthday"] = $birthday;
-            $_SESSION["phone"] = $phone;
-            $_SESSION["pass"] = $pass;
-            $_SESSION["address"] = $address;
+
             header("location: Success.php");
         }
     }
