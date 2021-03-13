@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,11 +10,15 @@
     <title>Document</title>
 </head>
 
+
+
 <body>
     <?php
     $msg = "";
     class db
     {
+
+
 
         function OpenCon()
         {
@@ -22,6 +28,8 @@
             $db = "ridehub";
             $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
 
+
+
             return $conn;
         }
         function CheckUser($conn, $table, $email, $password)
@@ -30,10 +38,12 @@
             return $result;
         }
 
+
+
         function InsertCustomer($conn, $table, $name, $email, $password, $type, $phone, $birthdate, $address)
         {
             $result = "INSERT INTO " . $table . " (name,email,password,type,phone,birthday,address)
-    VALUES('$name','$email','$password','$type','$phone','$birthdate','$address')";
+VALUES('$name','$email','$password','$type','$phone','$birthdate','$address')";
             if ($conn->query($result) === TRUE) {
                 echo "New record created successfully";
                 return $result;
@@ -43,10 +53,12 @@
         }
 
 
+
+
         function InsertVendor($conn, $table, $name, $email, $password, $type, $phone, $address, $tradelicense)
         {
             $result = "INSERT INTO " . $table . " (name, email,password,type,phone,address,tradelicense)
-    VALUES('$name', '$email','$password','$type','$phone','$address','$tradelicense')";
+VALUES('$name', '$email','$password','$type','$phone','$address','$tradelicense')";
             if ($conn->query($result) === TRUE) {
                 echo "New record created successfully";
                 return $result;
@@ -57,7 +69,7 @@
         function InsertDriver($conn, $table, $name, $email, $password, $type, $phone, $birthday, $address, $drivinglicense)
         {
             $result = "INSERT INTO " . $table . " (name,email,password,type,phone,birthday,address,drivinglicense)
-    VALUES('$name','$email','$password','$type','$phone','$birthday','$address','$drivinglicense')";
+VALUES('$name','$email','$password','$type','$phone','$birthday','$address','$drivinglicense')";
             if ($conn->query($result) === TRUE) {
                 echo "New record created successfully";
                 return $result;
@@ -68,7 +80,7 @@
         function InsertLogin($conn, $table, $email, $password, $type)
         {
             $result = "INSERT INTO " . $table . " (email,password,type)
-    VALUES('$email','$password','$type')";
+VALUES('$email','$password','$type')";
             if ($conn->query($result) === TRUE) {
                 $msg = "Data inserted into login table successfully";
                 header('Location:login.php');
@@ -78,15 +90,14 @@
             }
         }
 
-        function InsertCar($conn, $table, $carname, $carm, $scount,$carphoto)
+
+
+        function InsertCar($conn, $table, $carname, $carm, $scount, $carphoto)
         {
-          $carphoto = addslashes(file_get_contents($_FILES['carphoto']['tmp_name'])); //SQL Injection defence!
+            $carphoto = addslashes(file_get_contents($_FILES['carphoto']['tmp_name'])); //SQL Injection defence!
 
             $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto)
-      VALUES('$carname','$carm','$scount','$carphoto')";
-
-
-
+        VALUES('$carname','$carm','$scount','$carphoto')";
 
             if ($conn->query($result) === TRUE) {
                 $msg = "Data inserted into Car table successfully";
@@ -97,9 +108,11 @@
             }
         }
 
+
+
         function ValidateLogin($conn, $table, $email, $password)
         {
-            $result = $conn->query("SELECT email,password,type FROM  $table WHERE email='$email' and password = '$password'");
+            $result = $conn->query("SELECT email,password,type FROM $table WHERE email='$email' and password = '$password'");
             #if ($conn->query($result) === TRUE) {
             //echo "Login Successfully";
             try {
@@ -108,9 +121,13 @@
                     if ($row["type"] == 'Vendor') {
 
 
+
+
                         header('Location: VendorHome.php');
                         return;
                     } else if ($row["type"] == 'driver') {
+
+
 
 
                         header('Location: DriverHome.php');
@@ -118,25 +135,31 @@
                     } else if ($row["type"] == 'customer') {
 
 
+
+
                         header('Location: CustomerHome.php');
                         return;
                     } else {
- $msg= "Invalid Login";
-                      //  echo "Invalid Login";
+                        $msg = "Invalid Login";
+                        // echo "Invalid Login";
                         header('Location:login.php');
                     }
                 }
             } catch (Exception $e) {
 
-               $msg= "Invalid Login";
-              //  echo "Invalid Login";
+
+
+                $msg = "Invalid Login";
+                // echo "Invalid Login";
                 header('Location:login.php');
             }
         }
 
+
+
         function ShowAll($conn, $table, $email)
         {
-            $result = $conn->query("SELECT * FROM  $table WHERE email='$email' ");
+            $result = $conn->query("SELECT * FROM $table WHERE email='$email' ");
             return $result;
         }
         function CloseCon($conn)
@@ -146,5 +169,7 @@
     }
     ?>
 </body>
+
+
 
 </html>
