@@ -10,7 +10,6 @@
 
 <body>
     <?php
-    $msg = "";
     class db
     {
 
@@ -85,6 +84,7 @@
             #if ($conn->query($result) === TRUE) {
             //echo "Login Successfully";
             try {
+
                 $row = mysqli_fetch_array($result);
                 if ($row != False) {
                     if ($row["type"] == 'Vendor') {
@@ -103,15 +103,15 @@
                         header('Location: CustomerHome.php');
                         return;
                     } else {
- $msg= "Invalid Login";
-                      //  echo "Invalid Login";
+                        $msg = "Invalid Login";
+                        //  echo "Invalid Login";
                         header('Location:login.php');
                     }
                 }
             } catch (Exception $e) {
 
-               $msg= "Invalid Login";
-              //  echo "Invalid Login";
+                $msg = "Invalid Login";
+                //  echo "Invalid Login";
                 header('Location:login.php');
             }
         }
