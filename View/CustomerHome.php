@@ -20,13 +20,6 @@
     include('../Control/UserValidation.php');
     $email = $_SESSION["email"];
     echo "Customer Profile" . "<br>";
-    // echo "ID: " . $_SESSION["eid"] . "<br>";
-    // echo "Name: " . $_SESSION["cname"] . "<br>";
-    // echo "Email: " . $_SESSION["email"] . "<br>";
-    // echo "Birthday: " . $_SESSION["birthday"] . "<br>";
-    // echo "Phone No.: " . $_SESSION["phone"] . "<br>";
-    // echo "Password: " . $_SESSION["pass"] . "<br>";
-    // echo "Address: " . $_SESSION["address"] . "<br>";
 
     $connection = new db();
     $conobj = $connection->OpenCon();
@@ -46,8 +39,6 @@
     }
     $connection->CloseCon($conobj);
     ?>
-    <a href="UserRegistration.php">Back to Registration Form</a><br>
-    <a href="logout.php">Log Out</a>
 </body>
 
 </html>
