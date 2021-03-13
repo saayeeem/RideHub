@@ -14,7 +14,7 @@
         <a href="DriverProfile.php">My Profile</a> |
         <a href="logout.php">Log Out</a>
     </nav>
-    <p><img src="Pictures/driver.jpg" alt="Home"></p>
+    <p><img src="Pictures/driver1.jpg" alt="Home"></p>
     <?php
 
     require('../control/ValidationLogin.php');

@@ -14,6 +14,7 @@
         <a href="VendorProfile.php">My Profile</a> |
         <a href="logout.php">Log Out</a>
     </nav>
+    <p><img src="Pictures/vendor.jpg" alt="Home"></p>
     <?php
 
     require('../control/ValidationLogin.php');
