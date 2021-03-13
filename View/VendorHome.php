@@ -17,7 +17,9 @@
 
     <p><img src="Pictures/vendor1.jpg" alt="Home"></p>
     <a href="RegDriver.php">Add Driver</a>
-
+    <br>
+    <br>
+<a href="AddCar.php">Add New Car</a>
 
 
 </body>

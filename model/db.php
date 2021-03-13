@@ -77,6 +77,24 @@
             }
         }
 
+        function InsertCar($conn, $table, $carname, $carm, $scount,$carphoto)
+        {
+          $carphoto = addslashes(file_get_contents($_FILES['carphoto']['tmp_name'])); //SQL Injection defence!
+
+            $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto)
+      VALUES('$carname','$carm','$scount','$carphoto')";
+
+
+
+
+            if ($conn->query($result) === TRUE) {
+                $msg = "Data inserted into Car table successfully";
+                header('Location:VendorHome.php');
+                return $result;
+            } else {
+                echo "Error: " . $result . "<br>" . $conn->error;
+            }
+        }
 
         function ValidateLogin($conn, $table, $email, $password)
         {
