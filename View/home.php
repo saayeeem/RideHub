@@ -27,7 +27,7 @@ if (!isset($_SESSION['email'])) {
     <br>";
 
     echo 'New User? <a href="RegisterHome.php">Explore Our World!!</a>';
-} else if (isset($_SESSION['email'])) {
+} else {
     echo "Hi Bye";
 }
 ?>
