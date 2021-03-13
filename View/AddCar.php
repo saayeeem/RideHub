@@ -5,12 +5,17 @@ include('../Control/ValidateCar.php');
 <html>
 
 <body>
-
+    <nav>
+        <a href="VendorHome.php">Home</a> |
+        <a href="VendorProfile.php">My Profile</a> |
+        <a href="logout.php">Log Out</a>
+    </nav>
 
     <h1>
         <center>Car Add</center>
     </h1>
-
+    <p> <img src="Pictures/car_mg.gif" alt="Home">
+    </p>
 
 
     <?php echo "$msg"; ?>

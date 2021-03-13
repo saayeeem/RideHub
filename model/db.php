@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,12 +9,13 @@
 </head>
 
 
-
 <body>
     <?php
     $msg = "";
     class db
     {
+
+
 
 
 
@@ -30,6 +29,8 @@
 
 
 
+
+
             return $conn;
         }
         function CheckUser($conn, $table, $email, $password)
@@ -37,6 +38,8 @@
             $result = $conn->query("SELECT * FROM " . $table . " WHERE email='" . $email . "' AND password='" . $password . "'");
             return $result;
         }
+
+
 
 
 
@@ -51,6 +54,8 @@ VALUES('$name','$email','$password','$type','$phone','$birthdate','$address')";
                 echo "Error: " . $result . "<br>" . $conn->error;
             }
         }
+
+
 
 
 
@@ -92,12 +97,18 @@ VALUES('$email','$password','$type')";
 
 
 
+
+
         function InsertCar($conn, $table, $carname, $carm, $scount, $carphoto)
         {
             $carphoto = addslashes(file_get_contents($_FILES['carphoto']['tmp_name'])); //SQL Injection defence!
 
+
+
             $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto)
-        VALUES('$carname','$carm','$scount','$carphoto')";
+VALUES('$carname','$carm','$scount','$carphoto')";
+
+
 
             if ($conn->query($result) === TRUE) {
                 $msg = "Data inserted into Car table successfully";
@@ -107,6 +118,8 @@ VALUES('$email','$password','$type')";
                 echo "Error: " . $result . "<br>" . $conn->error;
             }
         }
+
+
 
 
 
@@ -123,6 +136,8 @@ VALUES('$email','$password','$type')";
 
 
 
+
+
                         header('Location: VendorHome.php');
                         return;
                     } else if ($row["type"] == 'driver') {
@@ -130,9 +145,13 @@ VALUES('$email','$password','$type')";
 
 
 
+
+
                         header('Location: DriverHome.php');
                         return;
                     } else if ($row["type"] == 'customer') {
+
+
 
 
 
@@ -149,11 +168,15 @@ VALUES('$email','$password','$type')";
 
 
 
+
+
                 $msg = "Invalid Login";
                 // echo "Invalid Login";
                 header('Location:login.php');
             }
         }
+
+
 
 
 
@@ -174,6 +197,8 @@ VALUES('$email','$password','$type')";
     }
     ?>
 </body>
+
+
 
 
 
