@@ -78,9 +78,9 @@
             }
         }
 
-        function InsertCar($conn, $table, $carname, $carm, $scount,$carphoto)
+        function InsertCar($conn, $table, $carname, $carm, $scount, $carphoto)
         {
-          $carphoto = addslashes(file_get_contents($_FILES['carphoto']['tmp_name'])); //SQL Injection defence!
+            $carphoto = addslashes(file_get_contents($_FILES['carphoto']['tmp_name'])); //SQL Injection defence!
 
             $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto)
       VALUES('$carname','$carm','$scount','$carphoto')";
@@ -103,9 +103,15 @@
             $result = $conn->query("SELECT email,password,type FROM  $table WHERE email='$email' and password = '$password'");
             #if ($conn->query($result) === TRUE) {
             //echo "Login Successfully";
+<<<<<<< HEAD
             
                 $row = mysqli_fetch_array($result);
                 if ($row != False) {
+=======
+            try {
+
+                if ($row = mysqli_fetch_array($result)) {
+>>>>>>> e653779ab17903355e14e5d1f5b66d895e1edc93
                     if ($row["type"] == 'Vendor') {
 
 
@@ -115,6 +121,7 @@
 
 
                         header('Location: DriverHome.php');
+
                         return;
                     } else if ($row["type"] == 'customer') {
 
