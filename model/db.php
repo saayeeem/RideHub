@@ -103,15 +103,15 @@
                         header('Location: CustomerHome.php');
                         return;
                     } else {
-
-                        echo "Invalid Login";
+ $msg= "Invalid Login";
+                      //  echo "Invalid Login";
                         header('Location:login.php');
                     }
                 }
-            } catch (Exception) {
+            } catch (Exception $e) {
 
-                // echo "Error: " . $result . "<br>" . $conn->error;
-                echo "Invalid Login";
+               $msg= "Invalid Login";
+              //  echo "Invalid Login";
                 header('Location:login.php');
             }
         }
