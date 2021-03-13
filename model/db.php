@@ -162,6 +162,11 @@ VALUES('$email','$password','$type')";
             $result = $conn->query("SELECT * FROM $table WHERE email='$email' ");
             return $result;
         }
+        function ShowCar($conn, $table)
+        {
+            $result = $conn->query("SELECT * FROM $table");
+            return $result;
+        }
         function CloseCon($conn)
         {
             $conn->close();

@@ -19,8 +19,8 @@
     <a href="RegDriver.php">Add Driver</a>
     <br>
     <br>
-<a href="AddCar.php">Add New Car</a>
-
+    <a href="AddCar.php">Add New Car</a>
+    <a href="Showcar.php">Show Car</a>
 
 </body>
 
