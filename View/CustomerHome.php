@@ -14,6 +14,8 @@
         <a href="CustomerHome.php">My Profile</a> |
         <a href="logout.php">Log Out</a>
     </nav>
+    <p> <img src="Pictures/home.gif" alt="Home">
+    </p>
     <?php
     include('../Control/UserValidation.php');
     $email = $_SESSION["email"];
