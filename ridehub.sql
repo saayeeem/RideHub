@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2021 at 03:02 PM
+-- Generation Time: Mar 13, 2021 at 04:23 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -41,7 +41,8 @@ CREATE TABLE `car` (
 
 INSERT INTO `car` (`id`, `carname`, `carmodel`, `sitcount`, `carphoto`) VALUES
 (1, 'dfdf', 'dfdf', 4, ''),
-(2, 'bf', 'drfsgg', 2, '');
+(2, 'bf', 'drfsgg', 2, ''),
+(3, 'srt', 'fgh', 56, '');
 
 -- --------------------------------------------------------
 
@@ -189,7 +190,7 @@ ALTER TABLE `vendor`
 -- AUTO_INCREMENT for table `car`
 --
 ALTER TABLE `car`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `customer`

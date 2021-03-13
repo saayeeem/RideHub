@@ -10,6 +10,7 @@
 
 <body>
     <?php
+    $msg = "";
     class db
     {
 
@@ -87,6 +88,7 @@
 
 
 
+
             if ($conn->query($result) === TRUE) {
                 $msg = "Data inserted into Car table successfully";
                 header('Location:VendorHome.php');
@@ -101,8 +103,7 @@
             $result = $conn->query("SELECT email,password,type FROM  $table WHERE email='$email' and password = '$password'");
             #if ($conn->query($result) === TRUE) {
             //echo "Login Successfully";
-            try {
-
+            
                 $row = mysqli_fetch_array($result);
                 if ($row != False) {
                     if ($row["type"] == 'Vendor') {
@@ -119,19 +120,10 @@
 
 
                         header('Location: CustomerHome.php');
-                        return;
-                    } else {
-                        $msg = "Invalid Login";
-                        //  echo "Invalid Login";
-                        header('Location:login.php');
+                        return $result;
                     }
                 }
-            } catch (Exception $e) {
 
-                $msg = "Invalid Login";
-                //  echo "Invalid Login";
-                header('Location:login.php');
-            }
         }
 
         function ShowAll($conn, $table, $email)
