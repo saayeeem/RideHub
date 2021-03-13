@@ -15,10 +15,6 @@
     class db
     {
 
-
-
-
-
         function OpenCon()
         {
             $dbhost = "localhost";
@@ -95,20 +91,14 @@ VALUES('$email','$password','$type')";
             }
         }
 
-
-
-
-
         function InsertCar($conn, $table, $carname, $carm, $scount, $carphoto)
         {
-            $carphoto = addslashes(file_get_contents($_FILES['carphoto']['tmp_name'])); //SQL Injection defence!
-
-
-
+            $carphoto = addslashes($_FILES["carphoto"]["tmp_name"]);
+            $name = addslashes($_FILES["name"]["tmp_name"]);
+            $carphoto = file_get_contents($carphoto);
+            $carphoto = base64_encode($carphoto);
             $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto)
-VALUES('$carname','$carm','$scount','$carphoto')";
-
-
+                VALUES('$carname','$carm','$scount','$carphoto')";
 
             if ($conn->query($result) === TRUE) {
                 $msg = "Data inserted into Car table successfully";
@@ -119,10 +109,6 @@ VALUES('$carname','$carm','$scount','$carphoto')";
             }
         }
 
-
-
-
-
         function ValidateLogin($conn, $table, $email, $password)
         {
             $result = $conn->query("SELECT email,password,type FROM $table WHERE email='$email' and password = '$password'");
@@ -132,29 +118,13 @@ VALUES('$carname','$carm','$scount','$carphoto')";
                 $row = mysqli_fetch_array($result);
                 if ($row != False) {
                     if ($row["type"] == 'Vendor') {
-
-
-
-
-
-
                         header('Location: VendorHome.php');
                         return;
                     } else if ($row["type"] == 'driver') {
 
-
-
-
-
-
                         header('Location: DriverHome.php');
                         return;
                     } else if ($row["type"] == 'customer') {
-
-
-
-
-
 
                         header('Location: CustomerHome.php');
                         return;
@@ -165,30 +135,29 @@ VALUES('$carname','$carm','$scount','$carphoto')";
                     }
                 }
             } catch (Exception $e) {
-
-
-
-
-
                 $msg = "Invalid Login";
                 // echo "Invalid Login";
                 header('Location:login.php');
             }
         }
 
-
-
-
-
         function ShowAll($conn, $table, $email)
         {
             $result = $conn->query("SELECT * FROM $table WHERE email='$email' ");
             return $result;
         }
+        function Show($conn, $table)
+        {
+            $result = $conn->query("SELECT * FROM $table ");
+            return $result;
+        }
         function ShowCar($conn, $table)
         {
             $result = $conn->query("SELECT * FROM $table");
-            return $result;
+
+            while ($row = mysqli_fetch_array($result)) {
+                echo '<img height ="300" width = "300" src="data:image;base64, ' . $row[4] . '">';
+            }
         }
         function CloseCon($conn)
         {
@@ -197,9 +166,5 @@ VALUES('$carname','$carm','$scount','$carphoto')";
     }
     ?>
 </body>
-
-
-
-
 
 </html>

@@ -47,7 +47,7 @@ include('../Control/ValidateCar.php');
                     Sit Count:
                 </td>
                 <td>
-                    <input type="number" name="scount">
+                    <input type="text" name="scount">
 
                 </td>
             </tr>
@@ -62,7 +62,7 @@ include('../Control/ValidateCar.php');
             </tr>
             <tr>
                 <td>
-                    <input type="submit" value="Submit">
+                    <input type="submit" name="submit" value="Submit">
                     <input type="reset" value="Reset">
 
 
