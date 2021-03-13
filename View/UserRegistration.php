@@ -19,16 +19,16 @@ include('../Control/UserValidation.php');
 
             <tr>
                 <td>
-                      Name:
+                    Name:
                 </td>
                 <td>
-                    <input type="text" name="cname">
+                    <input type="text" name="name">
                 </td>
             </tr>
 
             <tr>
                 <td>
-                     Email:
+                    Email:
                 </td>
                 <td>
                     <input type="text" name="email">

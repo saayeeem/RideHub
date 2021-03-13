@@ -15,9 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $msg = "Email address must contain @";
     } else {
+        $_SESSION["email"] = $email;
+
         $connection = new db();
         $conobj = $connection->OpenCon();
-      $connection->ValidateLogin($conobj,"login",$email,$pass);
+        $connection->ValidateLogin($conobj, "login", $email, $pass);
         $connection->CloseCon($conobj);
 
 

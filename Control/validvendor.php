@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../Model/db.php');
+include('../model/db.php');
 
 $msg="";
 if($_SERVER["REQUEST_METHOD"]=="POST")
@@ -52,5 +52,3 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
      
    }
 }
-
-?>

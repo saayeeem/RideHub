@@ -17,7 +17,7 @@ include('../model/db.php');
     $msg = "";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // $cuname = $_REQUEST["cuname"];
-        $name = $_REQUEST["cname"];
+        $name = $_REQUEST["name"];
         $email = $_REQUEST["email"];
         $phone = $_REQUEST["phone"];
         $pass = $_REQUEST["pass"];
