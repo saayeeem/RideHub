@@ -113,6 +113,7 @@
 
 
                         header('Location: DriverHome.php');
+
                         return;
                     } else if ($row["type"] == 'customer') {
 
@@ -136,10 +137,6 @@
         function ShowAll($conn, $table, $email)
         {
             $result = $conn->query("SELECT * FROM  $table WHERE email='$email' ");
-            $row = mysqli_fetch_array($result);
-            $fp = fopen('results.json', 'w');
-            fwrite($fp, json_encode($row, JSON_PRETTY_PRINT));
-            fclose($fp);
             return $result;
         }
         function CloseCon($conn)
