@@ -13,7 +13,7 @@ include('../Control/ValidateCar.php');
 
 
   <?php echo "$msg"; ?>
-        <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+        <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" enctype="multipart/form-data">
             <table>
 
                 <tr>
