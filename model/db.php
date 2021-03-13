@@ -77,9 +77,9 @@
             }
         }
 
-        function InsertCar($conn, $table, $carname, $carm, $scount,$carphoto)
+        function InsertCar($conn, $table, $carname, $carm, $scount, $carphoto)
         {
-          $carphoto = addslashes(file_get_contents($_FILES['carphoto']['tmp_name'])); //SQL Injection defence!
+            $carphoto = addslashes(file_get_contents($_FILES['carphoto']['tmp_name'])); //SQL Injection defence!
 
             $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto)
       VALUES('$carname','$carm','$scount','$carphoto')";
@@ -103,8 +103,7 @@
             //echo "Login Successfully";
             try {
 
-                $row = mysqli_fetch_array($result);
-                if ($row != False) {
+                if ($row = mysqli_fetch_array($result)) {
                     if ($row["type"] == 'Vendor') {
 
 
@@ -137,6 +136,10 @@
         function ShowAll($conn, $table, $email)
         {
             $result = $conn->query("SELECT * FROM  $table WHERE email='$email' ");
+            $row = mysqli_fetch_array($result);
+            $fp = fopen('results.json', 'w');
+            fwrite($fp, json_encode($row, JSON_PRETTY_PRINT));
+            fclose($fp);
             return $result;
         }
         function CloseCon($conn)
