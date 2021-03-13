@@ -33,7 +33,10 @@ include('../model/db.php');
             $msg = "Email address must contain @";
         } else if (!preg_match("/[0-9]/", $phone)) {
             $msg = "Phone Number will only allow numeric values";
-        } else if ($pass != $cpass) {
+        }else if (!preg_match("/[0-9]/", $pass) || ((strlen($pass)) < 4)) {
+            $msg = "Password Should be numeric and 4 words";
+        }
+         else if ($pass != $cpass) {
             $msg = "you have to write both password correctly";
         } else if (!isset($_REQUEST["birthday"])) {
             $msg = "you have to select birthday";

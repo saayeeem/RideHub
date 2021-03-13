@@ -35,6 +35,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
       {
           $msg="Valid Driving license Number is required.";
       }
+      else if (!preg_match("/[0-9]/", $pass) || ((strlen($pass)) < 4)) {
+        $msg = "Password Should be numeric and 4 words";
+    }
       else if ($pass != $cnpass) {
 
                   $msg = "Password Doesn't match";
