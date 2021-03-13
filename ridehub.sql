@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2021 at 07:55 PM
+-- Generation Time: Mar 13, 2021 at 03:02 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `ridehub`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `car`
+--
+
+CREATE TABLE `car` (
+  `id` int(20) NOT NULL,
+  `carname` text NOT NULL,
+  `carmodel` text NOT NULL,
+  `sitcount` int(10) NOT NULL,
+  `carphoto` longblob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `car`
+--
+
+INSERT INTO `car` (`id`, `carname`, `carmodel`, `sitcount`, `carphoto`) VALUES
+(1, 'dfdf', 'dfdf', 4, ''),
+(2, 'bf', 'drfsgg', 2, '');
 
 -- --------------------------------------------------------
 
@@ -126,6 +148,12 @@ INSERT INTO `vendor` (`id`, `name`, `email`, `password`, `type`, `phone`, `addre
 --
 
 --
+-- Indexes for table `car`
+--
+ALTER TABLE `car`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
@@ -156,6 +184,12 @@ ALTER TABLE `vendor`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `car`
+--
+ALTER TABLE `car`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `customer`
