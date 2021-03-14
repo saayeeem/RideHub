@@ -21,21 +21,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $msg = "Email address must contain @";
     } else if (!preg_match("/[0-9]/", $pass) || ((strlen($pass)) < 4)) {
         $msg = "Password Should be numeric and 4 words";
-    } 
-
-    else if (isset($_SESSION["email"]) && isset($_SESSION["pass"]) &&isset($_SESSION["type"]) ) {
-
-
+    } else {
+        if ($type == "Admin") {
+            header('Location: AdminHome.php');
+        } else if ($type == "Vendor") {
+            header('Location: VendorHome.php');
+        } else if ($type == "Customer") {
+            header('Location: CustomerHome.php');
+        } else if ($type == "Driver") {
+            header('Location: DriverHome.php');
+        } else {
+            $msg = "Type Ta thik kor re bhai..";
+        }
         $connection = new db();
         $conobj = $connection->OpenCon();
-        $connection->ValidateLogin($conobj, "login", $email, $pass);
+        $connection->ValidateLogin($conobj, "login", $email, $pass, $type);
         $connection->CloseCon($conobj);
-
-
-        // $userQuery = $connection->InsertUser($conobj, "registration", $fname,$uname,$email, $pass,"12","male");
-        //  $connection->InsertVendor($conobj,"vendor",$name, $email,$pass,'Vendor',$phone,$address,$tradel);
-        //  $connection->CloseCon($conobj);
-    } else {
-        $msg = "Invalid Login";
     }
 }

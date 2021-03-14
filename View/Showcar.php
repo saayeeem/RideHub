@@ -2,8 +2,7 @@
 
 <body>
     <nav>
-        <a href="VendorHome.php">Home</a> |
-        <a href="VendorProfile.php">My Profile</a> |
+        <a href="home.php">Home</a> |
         <a href="logout.php">Log Out</a>
     </nav>
     <h1>
