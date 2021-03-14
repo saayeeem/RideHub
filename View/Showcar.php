@@ -22,10 +22,21 @@
 
     if ($userQuery->num_rows > 0) {
 
-        echo "<table><tr><th>Name</th><th>Model</th><th>Sit Count</th><th>Availability</th></tr>";
+        echo "<table><tr><th>Name</th><th>Model</th><th>Sit Count</th><th>Availability</th><th>Action</th></tr>";
         // output data of each row
         while ($row = $userQuery->fetch_assoc()) {
-            echo "<tr><td>" . $row["carname"] . "</td><td>" . $row["carmodel"] . "</td><td>" . $row["sitcount"] . "</td><td>" . $row["availability"] . "</td><td>";
+            echo "<tr><td>";
+            echo (htmlentities($row['carname']));
+            echo ("</td><td>");
+            echo (htmlentities($row['carmodel']));
+            echo ("</td><td>");
+            echo (htmlentities($row['sitcount']));
+            echo ("</td><td>");
+            echo (htmlentities($row['availability']));
+            echo ("</td><td>");
+            echo ('<a href="caredit.php?user_id=' . $row['carmodel'] . '">Edit</a> / ');
+            echo ('<a href="cardelete.php?user_id=' . $row['carmodel'] . '">Delete</a>');
+            echo ("</td></tr>\n");
         }
         echo "</table>";
     } else {
