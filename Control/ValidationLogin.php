@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else if ($type == "Driver") {
             header('Location: DriverHome.php');
         } else {
-            $msg = "Type Ta thik kor re bhai..";
+            $msg = "Type is invalid";
         }
         $connection = new db();
         $conobj = $connection->OpenCon();
