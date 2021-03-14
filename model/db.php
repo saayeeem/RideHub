@@ -128,7 +128,13 @@ VALUES('$email','$password','$type')";
 
                         header('Location: CustomerHome.php');
                         return;
-                    } else {
+                    }
+                    else if ($row["type"] == 'admin') {
+
+                        header('Location: AdminHome.php');
+                        return;
+                    }
+                    else {
                         $msg = "Invalid Login";
                         // echo "Invalid Login";
                         header('Location:login.php');
