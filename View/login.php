@@ -24,11 +24,21 @@ include('../Control/ValidationLogin.php');
                 <td> Password: </td>
                 <td><input type="password" name="pass">
                     <br>
+            <tr>
+            <label for="type">Choose a type:</label>
+
+<select name="type" id="type">
+  <option value="admin">Admin</option>
+  <option value="vendor">Vendor</option>
+  <option value="customer">Customer</option>
+  <option value="driver">Driver</option>
+</select>
+            </tr>
         </table>
 
 
 
-        <input type="submit" value="SUBMIT">
+        <input type="submit" value="LOGIN">
 
         <br>
         <br>

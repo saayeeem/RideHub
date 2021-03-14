@@ -27,8 +27,18 @@ if (!isset($_SESSION['email'])) {
     <br>";
 
     echo 'New User? <a href="RegisterHome.php">Explore Our World!!</a>';
-} else {
-    $_SESSION["email"] = $email;
-    header('Location: login.php');
+} else if($_SESSION["type"]=="vendor"){
+    $_SESSION["type"] = $type;
+    header('Location: VendorHome.php');
+}
+else if($_SESSION["type"]=="customer"){
+    $_SESSION["type"] = $type;
+    header('Location: CustomerHome.php');
+}else if($_SESSION["type"]=="driver"){
+    $_SESSION["type"] = $type;
+    header('Location: DriverHome.php');
+}else if($_SESSION["type"]=="Admin"){
+    $_SESSION["type"] = $type;
+    header('Location: AdminHome.php');
 }
 ?>

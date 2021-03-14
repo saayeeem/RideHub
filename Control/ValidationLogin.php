@@ -7,19 +7,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $email = $_REQUEST["email"];
     $pass = $_REQUEST["pass"];
+    $type = $_REQUEST["type"];
     $_SESSION["email"] = $email;
     $_SESSION["pass"] = $pass;
+    $_SESSION["type"] = $type;
 
 
 
-    if (empty($email) || empty($pass)) {
+    if (empty($email) || empty($pass) || empty($type)) {
         $msg = "All fields are required";
     } else if (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email)) {
 
         $msg = "Email address must contain @";
     } else if (!preg_match("/[0-9]/", $pass) || ((strlen($pass)) < 4)) {
         $msg = "Password Should be numeric and 4 words";
-    } else if (isset($_SESSION["email"]) && isset($_SESSION["pass"])) {
+    } 
+
+    else if (isset($_SESSION["email"]) && isset($_SESSION["pass"]) &&isset($_SESSION["type"]) ) {
+
 
         $connection = new db();
         $conobj = $connection->OpenCon();
