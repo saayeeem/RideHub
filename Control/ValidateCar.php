@@ -18,10 +18,6 @@
         $carm = $_REQUEST["carm"];
         $scount = $_REQUEST["scount"];
 
-
-
-
-
         if (empty($carname) || empty($carm) || empty($scount)) {
             $msg = "All fields are required";
         } else if (!preg_match("/[a-zA-Z]$/", $carname)) {
