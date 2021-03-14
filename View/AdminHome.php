@@ -16,17 +16,17 @@
     </nav>
 
     <p><img src="Pictures/Admin.jpg" alt="Home"></p>
-    <a href="DriverProfile.php">Registered Driver</a>
+    <a href="AllDriver.php">Registered Driver</a>
     <br>
     <br>
 
     <a href="Showcar.php">Registered Cars</a>
     <br>
     <br>
-  <a href="AllVendor.php">Registered Vendors</a>
-  <br>
-  <br>
-<a href="AllUser.php">Registered Customers</a>
+    <a href="AllVendor.php">Registered Vendors</a>
+    <br>
+    <br>
+    <a href="AllUser.php">Registered Customers</a>
 
 </body>
 

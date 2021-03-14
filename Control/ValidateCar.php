@@ -30,7 +30,7 @@
             $connection = new db();
             $conobj = $connection->OpenCon();
             // $userQuery = $connection->InsertUser($conobj, "registration", $fname,$uname,$email, $pass,"12","male");
-            $connection->InsertCar($conobj, "car", $carname, $carm, $scount, $carphoto);
+            $connection->InsertCar($conobj, "car", $carname, $carm, $scount, $carphoto, "Yes");
             $connection->CloseCon($conobj);
         }
     }

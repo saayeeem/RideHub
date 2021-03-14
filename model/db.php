@@ -91,14 +91,14 @@ VALUES('$email','$password','$type')";
             }
         }
 
-        function InsertCar($conn, $table, $carname, $carm, $scount, $carphoto)
+        function InsertCar($conn, $table, $carname, $carm, $scount, $carphoto, $availability)
         {
             $carphoto = addslashes($_FILES["carphoto"]["tmp_name"]);
             $name = addslashes($_FILES["name"]["tmp_name"]);
             $carphoto = file_get_contents($carphoto);
             $carphoto = base64_encode($carphoto);
-            $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto)
-                VALUES('$carname','$carm','$scount','$carphoto')";
+            $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto,availability)
+                VALUES('$carname','$carm','$scount','$carphoto','$availability')";
 
             if ($conn->query($result) === TRUE) {
                 $msg = "Data inserted into Car table successfully";
@@ -128,13 +128,11 @@ VALUES('$email','$password','$type')";
 
                         header('Location: CustomerHome.php');
                         return;
-                    }
-                    else if ($row["type"] == 'admin') {
+                    } else if ($row["type"] == 'Admin') {
 
                         header('Location: AdminHome.php');
                         return;
-                    }
-                    else {
+                    } else {
                         $msg = "Invalid Login";
                         // echo "Invalid Login";
                         header('Location:login.php');

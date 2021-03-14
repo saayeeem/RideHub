@@ -22,10 +22,10 @@
 
     if ($userQuery->num_rows > 0) {
 
-        echo "<table><tr><th>Name</th><th>Model</th><th>Sit Count</th></tr>";
+        echo "<table><tr><th>Name</th><th>Model</th><th>Sit Count</th><th>Availability</th></tr>";
         // output data of each row
         while ($row = $userQuery->fetch_assoc()) {
-            echo "<tr><td>" . $row["carname"] . "</td><td>" . $row["carmodel"] . "</td><td>" . $row["sitcount"] . "</td><td>";
+            echo "<tr><td>" . $row["carname"] . "</td><td>" . $row["carmodel"] . "</td><td>" . $row["sitcount"] . "</td><td>" . $row["availability"] . "</td><td>";
         }
         echo "</table>";
     } else {
