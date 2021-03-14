@@ -6,7 +6,10 @@
         <a href="VendorProfile.php">My Profile</a> |
         <a href="logout.php">Log Out</a>
     </nav>
-    <h1>Your Cars</h1>
+    <h1>
+        <center>Your Cars Available</center>
+    </h1>
+
 
     <?php
     session_start();
