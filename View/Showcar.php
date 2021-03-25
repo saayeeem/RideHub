@@ -1,5 +1,28 @@
 <html>
 
+<?php
+session_start();
+include('../model/db.php');
+$connection = new db();
+$conobj = $connection->OpenCon();
+$connection->ShowAvailable($conobj, "Car", "Yes");
+$userQuery = $connection->ShowAvailableCar($conobj, "Car", "Yes");
+
+if ($userQuery->num_rows > 0) {
+
+    while ($row = $userQuery->fetch_assoc()) {
+        $Carname = $row['carname'];
+        $Carmodel = $row['carmodel'];
+        $Sitcount = $row['sitcount'];
+        $availablity = $row['availability'];
+    }
+} else {
+    echo "0 results";
+}
+
+$connection->CloseCon($conobj);
+?>
+
 <body>
     <nav>
         <a href="home.php">Home</a> |
@@ -9,40 +32,23 @@
         <center>Your Cars Available</center>
     </h1>
 
-
-    <?php
-    session_start();
-    include('../model/db.php');
-    $connection = new db();
-    $conobj = $connection->OpenCon();
-    $connection->ShowCar($conobj, "Car");
-
-    $userQuery = $connection->Show($conobj, "Car");
-
-    if ($userQuery->num_rows > 0) {
-
-        echo "<table><tr><th>Name</th><th>Model</th><th>Sit Count</th><th>Availability</th><th>Action</th></tr>";
-        // output data of each row
-        while ($row = $userQuery->fetch_assoc()) {
-            echo "<tr><td>";
-            echo (htmlentities($row['carname']));
-            echo ("</td><td>");
-            echo (htmlentities($row['carmodel']));
-            echo ("</td><td>");
-            echo (htmlentities($row['sitcount']));
-            echo ("</td><td>");
-            echo (htmlentities($row['availability']));
-            echo ("</td><td>");
-            echo ('<a href="caredit.php?user_id=' . $row['carmodel'] . '">Edit</a> / ');
-            echo ('<a href="cardelete.php?user_id=' . $row['carmodel'] . '">Delete</a>');
-            echo ("</td></tr>\n");
-        }
-        echo "</table>";
-    } else {
-        echo "0 results";
-    }
-    $connection->CloseCon($conobj);
-    ?>
+    <table style="width:100%">
+        <tr>
+            <th>Name</th>
+            <th>Model</th>
+            <th>Sit Count</th>
+            <th>Action</th>
+        </tr>
+        <?php foreach ($row as $rows) : ?>
+        <tr>
+            <?php $row = $userQuery->fetch_assoc(); ?>
+            <?php echo $row; ?> <td value="<?php echo $carname; ?>"> </td>
+            <td value="<?php echo $carmodel; ?>"> </td>
+            <td value="<?php echo $sitcount; ?>"></td>
+            <td value="<?php echo $availability; ?>"></td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
 </body>
 
 </html>

@@ -9,7 +9,12 @@
 </head>
 
 <body>
-    <nav>
+    <?php
+    include('../View/MenuFooter.php');
+
+
+    ?>
+    <nav class="topnav">
         <a href="VendorHome.php">Home</a> |
         <a href="VendorProfile.php">My Profile</a> |
         <a href="logout.php">Log Out</a>

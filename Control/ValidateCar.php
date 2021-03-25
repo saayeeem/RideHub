@@ -13,6 +13,8 @@
     session_start();
     include('../model/db.php');
     $msg = "";
+    $connection = new db();
+    $conobj = $connection->OpenCon();
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $carname = $_REQUEST["carname"];
         $carm = $_REQUEST["carm"];
