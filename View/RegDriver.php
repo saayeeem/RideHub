@@ -13,6 +13,8 @@ include('../Control/validdriver.php');
             <a href="logout.php">Log Out</a>
         </nav>
         <h1>
+            <script src="../js/DriverValidation.js"></script>
+
             <center>Driver Registration Form</center>
         </h1>
 
@@ -21,7 +23,9 @@ include('../Control/validdriver.php');
         <br>
 
         <?php echo "$msg"; ?>
-        <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+        <p id="error">
+
+        <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()" method="post">
             <table>
 
                 <tr>
@@ -29,7 +33,7 @@ include('../Control/validdriver.php');
                         Driver Name:
                     </td>
                     <td>
-                        <input type="text" name="name">
+                        <input type="text" id="name" name="name">
 
                     </td>
                 </tr>
@@ -39,7 +43,7 @@ include('../Control/validdriver.php');
                         Email:
                     </td>
                     <td>
-                        <input type="email" name="email">
+                        <input type="email" id="email" name="email">
 
                     </td>
                 </tr>
@@ -49,7 +53,7 @@ include('../Control/validdriver.php');
                         Phone No:
                     </td>
                     <td>
-                        <input type="text" name="phone">
+                        <input type="text" id="phone" name="phone">
 
                     </td>
                 </tr>
@@ -58,7 +62,7 @@ include('../Control/validdriver.php');
                         Driving license No:
                     </td>
                     <td>
-                        <input type="text" name="drivingl">
+                        <input type="text" id="dlicense" name="drivingl">
 
                     </td>
                 </tr>
@@ -67,7 +71,7 @@ include('../Control/validdriver.php');
                         Password:
                     </td>
                     <td>
-                        <input type="password" name="pass">
+                        <input type="password" id="pass" name="pass">
                     </td>
                 </tr>
 
@@ -76,7 +80,7 @@ include('../Control/validdriver.php');
                         Confirm Password:
                     </td>
                     <td>
-                        <input type="password" name="cnpass">
+                        <input type="password" id="cpass" name="cnpass">
                     </td>
                 </tr>
 
