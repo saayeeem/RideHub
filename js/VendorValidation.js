@@ -4,11 +4,8 @@ function validateUserForm() {
     var phone = document.getElementById("phone").value;
     var tradel = document.getElementById("tradel").value;
     var pass = document.getElementById("pass").value;
-
     var cpass = document.getElementById("cpass").value;
-
     var error = document.getElementById("error");
-    var birthday = document.getElementById("birthday");
     var address = document.getElementById("address");
     var patt = /^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/;
     var res = patt.test(email);
@@ -17,8 +14,8 @@ function validateUserForm() {
         error.innerHTML = "ALL fields required js";
         return false;
     }
-    else if (name.length < 5) {
-        error.innerHTML = "User Name should be 5 characters long";
+    else if (name.length < 3) {
+        error.innerHTML = "Company Name should be 3 characters long";
         return false;
     }
     else if (!res) {
