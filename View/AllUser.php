@@ -18,7 +18,7 @@
 
     <?php
     include('../Control/UserValidation.php');
-    
+
     echo "Customer Profile" . "<br>";
 
     $connection = new db();
