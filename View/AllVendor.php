@@ -10,7 +10,7 @@
 
 <body>
     <nav>
-      <a href="AdminHome.php">Home</a> |
+        <a href="AdminHome.php">Home</a> |
     </nav>
     <p><img src="Pictures/vendor.jpg" alt="Home"></p>
     <?php
