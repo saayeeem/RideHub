@@ -22,11 +22,6 @@
             $dbpass = "";
             $db = "ridehub";
             $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
-
-
-
-
-
             return $conn;
         }
         function CheckUser($conn, $table, $email, $password)
@@ -34,10 +29,6 @@
             $result = $conn->query("SELECT * FROM " . $table . " WHERE email='" . $email . "' AND password='" . $password . "'");
             return $result;
         }
-
-
-
-
 
         function InsertCustomer($conn, $table, $name, $email, $password, $type, $phone, $birthdate, $address)
         {
@@ -50,11 +41,6 @@ VALUES('$name','$email','$password','$type','$phone','$birthdate','$address')";
                 echo "Error: " . $result . "<br>" . $conn->error;
             }
         }
-
-
-
-
-
 
         function InsertVendor($conn, $table, $name, $email, $password, $type, $phone, $address, $tradelicense)
         {
