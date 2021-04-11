@@ -149,7 +149,7 @@ VALUES('$email','$password','$type')";
                 echo '<img height ="300" width = "300" src="data:image;base64, ' . $row[4] . '">';
             }
         }
-<<<<<<< HEAD
+
 
         function UpdateVendor($conn,$table,$name,$email,$password,$address,$phone)
 
@@ -163,7 +163,7 @@ VALUES('$email','$password','$type')";
     }
     return  $result;
  }
-=======
+
         function ShowAvailable($conn, $table, $availability)
         {
             $result = $conn->query("SELECT * FROM $table  WHERE availability= '$availability'");
@@ -194,7 +194,7 @@ VALUES('$email','$password','$type')";
                 echo "Error: " . $result . "<br>" . $conn->error;
             }
         }
->>>>>>> 78ec5ac0c9a827ebe161c4e604a3cf211be10f97
+
         function CloseCon($conn)
         {
             $conn->close();
