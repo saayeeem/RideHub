@@ -12,6 +12,7 @@ include('../Control/ValidationLogin.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/mycss.css">
+    <script src="../js/UserValidation.js"></script>
     <title>Document</title>
 </head>
 
@@ -32,18 +33,19 @@ include('../Control/ValidationLogin.php');
         <div id="content-wrap">
             <div class="bg" id="center">
                 <?php echo "$msg"; ?>
-
-                <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+                <p id="error">
+                </p>
+                <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateLoginForm()" method="post">
                     <img src="Pictures/login1.png" alt="login" class="center">
                     <h1>Login</h1>
                     <table>
                         <tr>
                             <td> Email: </td>
-                            <td><input type="text" name="email">
+                            <td><input type="text" id="email" name="email">
                                 <br>
                         <tr>
                             <td> Password: </td>
-                            <td><input type="password" name="pass">
+                            <td><input type="password" id="pass" name="pass">
                                 <br>
                         <tr>
                             <label for="type">Choose a type:</label>

@@ -28,8 +28,7 @@ include('../Control/validvendor.php');
             <div class="bg" id="center">
                 <h1>Vendor Registation Form</h1>
                 <?php echo "$msg"; ?>
-                <p id="error">
-
+                <p id="error"></p>
                 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()" method="post">
                     <table>
                         <tr>
