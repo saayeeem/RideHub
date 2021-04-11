@@ -7,9 +7,14 @@ include('../Control/validdriver.php');
 <body>
 
     <body>
-        <nav>
-            <a href="home.php">Home</a> |
-            <a href="VendorHome.php">My Profile</a> |
+        <?php
+        include('../View/MenuFooter.php');
+
+
+        ?>
+        <nav class="topnav">
+            <a href="DriverHome.php">Home</a> |
+            <a href="DriverProfile.php">My Profile</a> |
             <a href="logout.php">Log Out</a>
         </nav>
         <h1>
