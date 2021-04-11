@@ -16,7 +16,7 @@ function validateUserForm() {
         return false;
     }
     else if (!isNaN(name)) {
-      error.innerHTML = "User Name should be string";
+      error.innerHTML = "User Name should be start with string";
         return false;
     }
     else if (name.length < 5) {
