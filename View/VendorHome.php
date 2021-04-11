@@ -9,12 +9,20 @@
 </head>
 
 <body>
+  <link rel="stylesheet" type="text/css" href="../css/vendorp.css">
+
+
+    <div class="header">
+  <h1>Vendor</h1>
+  </div>
+
+  <div class="topnav">
     <nav>
         <a href="VendorHome.php">Home</a> |
         <a href="VendorProfile.php">My Profile</a> |
         <a href="logout.php">Log Out</a>
     </nav>
-
+</div>
     <p><img src="Pictures/vendor1.jpg" alt="Home"></p>
     <a href="RegDriver.php">Add Driver</a>
     <br>

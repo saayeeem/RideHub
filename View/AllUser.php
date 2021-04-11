@@ -18,8 +18,8 @@
 
     <?php
     include('../Control/UserValidation.php');
-    
-    echo "Customer Profile" . "<br>";
+
+    echo "Customer Profiles" . "<br>";
 
     $connection = new db();
     $conobj = $connection->OpenCon();
@@ -28,21 +28,10 @@
     $userQuery = $connection->Show($conobj, "customer");
 
     if ($userQuery->num_rows > 0) {
-        echo "<table><tr><th>Name</th><th>Email</th><th>Address</th><th>Phone</th><th>Action</th></tr>";
+        echo "<table><tr><th>Name</th><th>Email</th><th>Address</th><th>Phone</th></tr>";
         // output data of each row
         while ($row = $userQuery->fetch_assoc()) {
-            echo "<tr><td>";
-            echo (htmlentities($row['name']));
-            echo ("</td><td>");
-            echo (htmlentities($row['email']));
-            echo ("</td><td>");
-            echo (htmlentities($row['address']));
-            echo ("</td><td>");
-            echo (htmlentities($row['phone']));
-            echo ("</td><td>");
-            echo ('<a href="caredit.php?user_id=' . $row['cid'] . '">Edit</a> / ');
-            echo ('<a href="cardelete.php?user_id=' . $row['cid'] . '">Delete</a>');
-            echo ("</td></tr>\n");
+            echo "<tr><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td><td>" . $row["address"] . "</td><td>" . $row["phone"] . "</td></tr>";
         }
         echo "</table>";
     } else {

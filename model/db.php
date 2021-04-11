@@ -163,12 +163,26 @@ VALUES('$email','$password','$type')";
                 echo '<img height ="300" width = "300" src="data:image;base64, ' . $row[4] . '">';
             }
         }
+
+        function UpdateVendor($conn,$table,$name,$email,$password,$address,$phone)
+
+ {
+     $sql = "UPDATE $table SET name='$name', email='$email',password='$password',phone='$phone', address='$address' WHERE email='$email'";
+
+    if ($conn->query($sql) === TRUE) {
+        $result= TRUE;
+    } else {
+        $result= FALSE ;
+    }
+    return  $result;
+ }
         function CloseCon($conn)
         {
             $conn->close();
         }
     }
-    ?>
+
+?>
 </body>
 
 </html>
