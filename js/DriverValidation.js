@@ -8,8 +8,10 @@ function validateUserForm() {
     var birthday = document.getElementById("birthday");
     var error = document.getElementById("error");
     var address = document.getElementById("address");
-    var patt = /^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/;
-    var res = patt.test(email);
+    var pattem = /^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/;
+    var pattdl=/^([0-9])*$/;
+    var resem = pattem.test(email);
+      var resdl = pattdl.test(dlicense);
     console.log("print...")
     if (name == "" || email == "" || phone == "" || pass == "" || cpass == "" || birthday == "" || address == "") {
         error.innerHTML = "ALL fields required js";
@@ -23,8 +25,12 @@ function validateUserForm() {
         error.innerHTML = "Driver Name should be 5 characters long";
         return false;
     }
-    else if (!res) {
+    else if (!resem) {
         error.innerHTML = "Email format is not correct";
+        return false;
+    }
+    else if (!resdl) {
+        error.innerHTML = "drivinglicense format is not correct";
         return false;
     }
     else if (pass.length < 8) {
