@@ -37,7 +37,7 @@ include('../Control/ValidationLogin.php');
                 </p>
                 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateLoginForm()" method="post">
                     <img src="Pictures/login1.png" alt="login" class="center">
-                    <h1>Login</h1>
+                    <h1 id="login">Login</h1>
                     <table>
                         <tr>
                             <td> Email: </td>
@@ -61,11 +61,11 @@ include('../Control/ValidationLogin.php');
 
 
 
-                    <input type="submit" value="LOGIN">
+                    <input type="submit" id="loginButton" value="LOGIN">
 
                     <br>
                     <br>
-                    <h3>New User??</h3>
+                    <h3 id="newUser">New User??</h3>
                     <a class="div" href="RegisterHome.php">Register Now!!</a>
             </div>
         </div>
