@@ -14,6 +14,10 @@ function validateUserForm() {
         error.innerHTML = "ALL fields required js";
         return false;
     }
+    else if (!isNaN(name)) {
+      error.innerHTML = "User Name should be string";
+        return false;
+    }
     else if (name.length < 3) {
         error.innerHTML = "Company Name should be 3 characters long";
         return false;
