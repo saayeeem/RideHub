@@ -22,11 +22,6 @@
             $dbpass = "";
             $db = "ridehub";
             $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
-
-
-
-
-
             return $conn;
         }
         function CheckUser($conn, $table, $email, $password)
@@ -34,10 +29,6 @@
             $result = $conn->query("SELECT * FROM " . $table . " WHERE email='" . $email . "' AND password='" . $password . "'");
             return $result;
         }
-
-
-
-
 
         function InsertCustomer($conn, $table, $name, $email, $password, $type, $phone, $birthdate, $address)
         {
@@ -50,11 +41,6 @@ VALUES('$name','$email','$password','$type','$phone','$birthdate','$address')";
                 echo "Error: " . $result . "<br>" . $conn->error;
             }
         }
-
-
-
-
-
 
         function InsertVendor($conn, $table, $name, $email, $password, $type, $phone, $address, $tradelicense)
         {
@@ -163,6 +149,7 @@ VALUES('$email','$password','$type')";
                 echo '<img height ="300" width = "300" src="data:image;base64, ' . $row[4] . '">';
             }
         }
+<<<<<<< HEAD
 
         function UpdateVendor($conn,$table,$name,$email,$password,$address,$phone)
 
@@ -176,6 +163,38 @@ VALUES('$email','$password','$type')";
     }
     return  $result;
  }
+=======
+        function ShowAvailable($conn, $table, $availability)
+        {
+            $result = $conn->query("SELECT * FROM $table  WHERE availability= '$availability'");
+
+            while ($row = mysqli_fetch_array($result)) {
+                echo '<img height ="300" width = "300" src="data:image;base64, ' . $row[4] . '">';
+            }
+        }
+        function ShowAvailableCar($conn, $table, $availability)
+        {
+            $result = $conn->query("SELECT * FROM $table  WHERE availability= '$availability'");
+            return $result;
+        }
+        function InsertCarRequest($conn, $table, $carname, $carm, $scount, $carphoto, $status)
+        {
+            $carphoto = addslashes($_FILES["carphoto"]["tmp_name"]);
+            $name = addslashes($_FILES["name"]["tmp_name"]);
+            $carphoto = file_get_contents($carphoto);
+            $carphoto = base64_encode($carphoto);
+            $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto,status)
+                VALUES('$carname','$carm','$scount','$carphoto','$status')";
+
+            if ($conn->query($result) === TRUE) {
+                echo "Reuested successfully";
+                header('Location: CustomerHome.php');
+                return $result;
+            } else {
+                echo "Error: " . $result . "<br>" . $conn->error;
+            }
+        }
+>>>>>>> 78ec5ac0c9a827ebe161c4e604a3cf211be10f97
         function CloseCon($conn)
         {
             $conn->close();

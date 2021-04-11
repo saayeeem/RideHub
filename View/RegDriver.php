@@ -7,109 +7,125 @@ include('../Control/validdriver.php');
 <body>
 
     <body>
-        <nav>
-            <a href="home.php">Home</a> |
-            <a href="VendorHome.php">My Profile</a> |
+        <?php
+        include('../View/MenuFooter.php');
+
+
+        ?>
+        <nav class="topnav">
+            <a href="DriverHome.php">Home</a> |
+            <a href="DriverProfile.php">My Profile</a> |
             <a href="logout.php">Log Out</a>
         </nav>
-        <h1>
-            <center>Driver Registration Form</center>
-        </h1>
 
-        <img src="Pictures/driver.jpg" alt="Home" class="center">
         <br>
-        <br>
+        <div id="page-container">
+            <div id="content-wrap">
+                <div class="bg" id="center">
+                    <h1>
+                        <script src="../js/DriverValidation.js"></script>
 
-        <?php echo "$msg"; ?>
-        <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
-            <table>
+                        <center>Driver Registration Form</center>
+                    </h1>
+                    <img src="Pictures/driver.jpg" alt="Home" class="center">
 
-                <tr>
-                    <td>
-                        Driver Name:
-                    </td>
-                    <td>
-                        <input type="text" name="name">
+                    <?php echo "$msg"; ?>
+                    <p id="error">
 
-                    </td>
-                </tr>
+                    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()"
+                        method="post">
+                        <table>
 
-                <tr>
-                    <td>
-                        Email:
-                    </td>
-                    <td>
-                        <input type="email" name="email">
+                            <tr>
+                                <td>
+                                    Driver Name:
+                                </td>
+                                <td>
+                                    <input type="text" id="name" name="name">
 
-                    </td>
-                </tr>
+                                </td>
+                            </tr>
 
-                <tr>
-                    <td>
-                        Phone No:
-                    </td>
-                    <td>
-                        <input type="text" name="phone">
+                            <tr>
+                                <td>
+                                    Email:
+                                </td>
+                                <td>
+                                    <input type="email" id="email" name="email">
 
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Driving license No:
-                    </td>
-                    <td>
-                        <input type="text" name="drivingl">
+                                </td>
+                            </tr>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Password:
-                    </td>
-                    <td>
-                        <input type="password" name="pass">
-                    </td>
-                </tr>
+                            <tr>
+                                <td>
+                                    Phone No:
+                                </td>
+                                <td>
+                                    <input type="text" id="phone" name="phone">
 
-                <tr>
-                    <td>
-                        Confirm Password:
-                    </td>
-                    <td>
-                        <input type="password" name="cnpass">
-                    </td>
-                </tr>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Driving license No:
+                                </td>
+                                <td>
+                                    <input type="text" id="dlicense" name="drivingl">
 
-                <tr>
-                    <td>
-                        Date of Birth:
-                    </td>
-                    <td>
-                        <input type="date" id="birthday" name="dob">
-                    </td>
-                </tr>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Password:
+                                </td>
+                                <td>
+                                    <input type="password" id="pass" name="pass">
+                                </td>
+                            </tr>
 
-                <tr>
-                    <td>
-                        Address:
-                    </td>
-                    <td>
-                        <textarea id="address" name="address" rows="3" cols="30"></textarea>
-                    </td>
-                </tr>
+                            <tr>
+                                <td>
+                                    Confirm Password:
+                                </td>
+                                <td>
+                                    <input type="password" id="cpass" name="cnpass">
+                                </td>
+                            </tr>
 
-                <tr>
-                    <td>
-                        <input type="submit" value="Submit">
-                        <input type="reset" value="Reset">
+                            <tr>
+                                <td>
+                                    Date of Birth:
+                                </td>
+                                <td>
+                                    <input type="date" id="birthday" name="dob">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Address:
+                                </td>
+                                <td>
+                                    <textarea id="address" name="address" rows="3" cols="30"></textarea>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <input type="submit" value="Submit">
+                                    <input type="reset" value="Reset">
 
 
-                    </td>
-                </tr>
+                                </td>
+                            </tr>
 
 
-            </table>
-        </form>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+
     </body>
 
 </html>

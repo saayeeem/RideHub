@@ -1,48 +1,82 @@
 <html>
+<?php
+include('../View/MenuFooter.php');
+
+
+?>
+
 
 <body>
-    <nav>
-        <a href="home.php">Home</a> |
+
+
+    <nav class="topnav">
+        <a href="CustomerHome.php">Home</a> |
+        <a href="CustomerProfile.php">My Profile</a> |
         <a href="logout.php">Log Out</a>
     </nav>
     <h1>
         <center>Your Cars Available</center>
     </h1>
-
-
     <?php
     session_start();
     include('../model/db.php');
     $connection = new db();
     $conobj = $connection->OpenCon();
-    $connection->ShowCar($conobj, "Car");
-
-    $userQuery = $connection->Show($conobj, "Car");
+    $result = $connection->ShowAvailable($conobj, "Car", "Yes");
+    $userQuery = $connection->ShowAvailableCar($conobj, "Car", "Yes");
 
     if ($userQuery->num_rows > 0) {
 
-        echo "<table><tr><th>Name</th><th>Model</th><th>Sit Count</th><th>Availability</th><th>Action</th></tr>";
-        // output data of each row
         while ($row = $userQuery->fetch_assoc()) {
-            echo "<tr><td>";
-            echo (htmlentities($row['carname']));
-            echo ("</td><td>");
-            echo (htmlentities($row['carmodel']));
-            echo ("</td><td>");
-            echo (htmlentities($row['sitcount']));
-            echo ("</td><td>");
-            echo (htmlentities($row['availability']));
-            echo ("</td><td>");
-            echo ('<a href="caredit.php?user_id=' . $row['carmodel'] . '">Edit</a> / ');
-            echo ('<a href="cardelete.php?user_id=' . $row['carmodel'] . '">Delete</a>');
-            echo ("</td></tr>\n");
+            $Carname = $row['carname'];
+            $Carmodel = $row['carmodel'];
+            $Sitcount = $row['sitcount'];
+            $availablity = $row['availability'];
         }
-        echo "</table>";
     } else {
         echo "0 results";
     }
+
     $connection->CloseCon($conobj);
     ?>
+    <div id="page-container">
+        <div id="content-wrap">
+            <div class="bg" id="center">
+                <?php
+                if ($userQuery->num_rows > 0) {
+                ?>
+                <table style="width:100%">
+                    <tr>
+                        <th>Name</th>
+                        <th>Model</th>
+                        <th>Sit Count</th>
+                        <th>Action</th>
+                    </tr>
+                    <?php
+                        $i = 0;
+                        while ($row = $userQuery->fetch_assoc()) {
+                        ?>
+
+                    <tr>
+                        <td><?php echo $row["carname"]; ?></td>
+                        <td><?php echo $row["carmodel"]; ?></td>
+                        <td><?php echo $row["sitcount"]; ?></td>
+                        <td><?php echo $row["availability"]; ?></td>
+                    </tr>
+                    <?php
+                            $i++;
+                        }
+                        ?>
+                </table>
+                <?php
+                } else {
+                    echo "No result found";
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>

@@ -8,13 +8,26 @@ include('../Control/UserValidation.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="../js/UserValidation.js"></script>
+    <title>User Registration</title>
 </head>
 
 <body>
+    <?php
+    include('../View/MenuFooter.php');
+
+
+    ?>
+    <nav class="topnav">
+        <a href="Home.php">Home</a> |
+        <a href="Profile.php">My Profile</a> |
+        <a href="#"></a>
+    </nav>
+
     <h1>Customer Registration Form</h1>
     <?php echo "$msg"; ?>
-    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+    <p id="error">
+    <form action=" <?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()" method="post">
         <table>
 
             <tr>
@@ -22,7 +35,7 @@ include('../Control/UserValidation.php');
                     Name:
                 </td>
                 <td>
-                    <input type="text" name="name">
+                    <input type="text" id="name" name="name">
                 </td>
             </tr>
 
@@ -31,7 +44,7 @@ include('../Control/UserValidation.php');
                     Email:
                 </td>
                 <td>
-                    <input type="text" name="email">
+                    <input type="text" id="email" name="email">
                 </td>
             </tr>
 
@@ -40,7 +53,7 @@ include('../Control/UserValidation.php');
                     Phone No:
                 </td>
                 <td>
-                    <input type="text" name="phone">
+                    <input type="text" id="phone" name="phone">
                 </td>
             </tr>
             <tr>
@@ -48,7 +61,7 @@ include('../Control/UserValidation.php');
                     Password:
                 </td>
                 <td>
-                    <input type="password" name="pass">
+                    <input type="password" id="pass" name="pass">
                 </td>
             </tr>
 
@@ -57,7 +70,7 @@ include('../Control/UserValidation.php');
                     Confirm Password:
                 </td>
                 <td>
-                    <input type="password" name="cpass">
+                    <input type="password" id="cpass" name="cpass">
                 </td>
             </tr>
 

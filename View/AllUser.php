@@ -19,7 +19,11 @@
     <?php
     include('../Control/UserValidation.php');
 
+<<<<<<< HEAD
     echo "Customer Profiles" . "<br>";
+=======
+    echo "Customer Profile" . "<br>";
+>>>>>>> 78ec5ac0c9a827ebe161c4e604a3cf211be10f97
 
     $connection = new db();
     $conobj = $connection->OpenCon();

@@ -1,0 +1,111 @@
+body {
+     
+     background-color: rgb(15, 183, 189);
+     text-align: center;
+    
+}
+h1{
+    text-align: center;
+}
+h2 {
+    text-align: center;
+    color: #1f1e1c;
+    font-family: "Times New Roman",
+    Times,
+    serif;
+}
+p.center {
+    text-align: center;
+    font-family: "Times New Roman",
+    Times,
+    serif;
+}
+img {
+    border: 5px solid #555;
+   
+}
+form {
+    
+    display: inline-block;
+    margin-top: 10px;
+}
+/* Style the top navigation bar */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.topnav a:hover {
+    background-color: #88d9e7;
+    color: #f2f2f2;
+}
+
+/* Style the header */
+.header {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+}
+
+.center {
+    margin-bottom: 30px;
+    background-color:#c2d0d3;
+     border: 5px solid rgb(208, 224, 228);
+}
+div.bg{
+    display: block;
+    margin:auto ;
+    margin-top: 5%;
+    background-color:#f1f1f1;
+    width: 25%;
+    height: 25%;
+    border: 5px solid rgb(18, 89, 107);
+}
+
+/* Style the topnav links */
+a.div {
+    display: block;
+    background-color:#30cfeb;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    margin: auto;
+    margin-bottom: 10%;
+    width: 35%;
+}
+
+/* Change color on hover */
+a.div:hover {
+    background-color: #096575;
+    color: #f2f2f2;
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 2.5rem;
+    /* Footer height */
+}
+.footer {
+   position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #F1F1F1;
+    color: rgb(19, 8, 8);
+    text-align: center;
+}
