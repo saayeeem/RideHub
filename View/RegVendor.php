@@ -23,83 +23,90 @@ include('../Control/validvendor.php');
         <a href="VendorProfile.php">My Profile</a> |
         <a href="logout.php">Log Out</a>
     </nav>
+    <div id="page-container">
+        <div id="content-wrap">
+            <div class="bg" id="center">
+                <h1>Vendor Registation Form</h1>
+                <?php echo "$msg"; ?>
+                <p id="error">
 
-    <h1>Vendor Registation Form</h1>
-    <?php echo "$msg"; ?>
-    <p id="error">
+                <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()" method="post">
+                    <table>
+                        <tr>
+                            <td>
+                                Company name:
+                            </td>
+                            <td>
+                                <input type="text" id="cname" name="name">
+                            </td>
+                        </tr>
 
-    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()" method="post">
-        <table>
-            <tr>
-                <td>
-                    Company name:
-                </td>
-                <td>
-                    <input type="text" id="cname" name="name">
-                </td>
-            </tr>
+                        <tr>
+                            <td>
+                                Email:
+                            </td>
+                            <td>
+                                <input type="text" id="email" name="email">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Phone No:
+                            </td>
+                            <td>
+                                <input type="text" id="phone" name="phone">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Trade license No:
+                            </td>
+                            <td>
+                                <input type="text" id="tradel" name="tradel">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Password:
+                            </td>
+                            <td>
+                                <input type="password" id="pass" name="pass">
+                            </td>
+                        </tr>
 
-            <tr>
-                <td>
-                    Email:
-                </td>
-                <td>
-                    <input type="text" id="email" name="email">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Phone No:
-                </td>
-                <td>
-                    <input type="text" id="phone" name="phone">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Trade license No:
-                </td>
-                <td>
-                    <input type="text" id="tradel" name="tradel">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Password:
-                </td>
-                <td>
-                    <input type="password" id="pass" name="pass">
-                </td>
-            </tr>
+                        <tr>
+                            <td>
+                                Confirm Password:
+                            </td>
+                            <td>
+                                <input type="password" id="cpass" name="cnpass">
+                            </td>
+                        </tr>
 
-            <tr>
-                <td>
-                    Confirm Password:
-                </td>
-                <td>
-                    <input type="password" id="cpass" name="cnpass">
-                </td>
-            </tr>
+                        <tr>
+                            <td>
+                                Address:
+                            </td>
+                            <td>
+                                <textarea id="address" name="address" rows="3" cols="30"></textarea>
+                            </td>
+                        </tr>
 
-            <tr>
-                <td>
-                    Address:
-                </td>
-                <td>
-                    <textarea id="address" name="address" rows="3" cols="30"></textarea>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <input type="submit" value="Submit">
-                    <input type="reset" value="Reset">
-                </td>
-            </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" value="Submit">
+                                <input type="reset" value="Reset">
+                            </td>
+                        </tr>
 
 
-        </table>
-    </form>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
 </body>
 
 </html>
