@@ -63,6 +63,10 @@
 
 
 
+    include('../View/MenuFooter.php');
+
+
+    
   ?>
   <form action='' method='post'>
   Name : <input type='text' name='name' value="<?php echo $name; ?>" >

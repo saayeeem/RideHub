@@ -151,18 +151,18 @@ VALUES('$email','$password','$type')";
         }
 
 
-        function UpdateVendor($conn, $table, $name, $email, $password, $address, $phone)
+        function UpdateVendor($conn,$table,$name,$email,$password,$address,$phone)
 
-        {
-            $sql = "UPDATE $table SET name='$name', email='$email',password='$password',phone='$phone', address='$address' WHERE email='$email'";
+ {
+     $sql = "UPDATE $table SET name='$name', email='$email',password='$password',phone='$phone', address='$address' WHERE email='$email'";
 
-            if ($conn->query($sql) === TRUE) {
-                $result = TRUE;
-            } else {
-                $result = FALSE;
-            }
-            return  $result;
-        }
+    if ($conn->query($sql) === TRUE) {
+        $result= TRUE;
+    } else {
+        $result= FALSE ;
+    }
+    return  $result;
+ }
 
         function ShowAvailable($conn, $table, $availability)
         {
@@ -201,7 +201,7 @@ VALUES('$email','$password','$type')";
         }
     }
 
-    ?>
+?>
 </body>
 
 </html>
