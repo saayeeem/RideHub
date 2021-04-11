@@ -10,16 +10,32 @@
 </head>
 
 <body>
+<<<<<<< HEAD
+  <link rel="stylesheet" type="text/css" href="../css/vendorp.css">
+
+
+    <div class="header">
+  <h1>Vendor</h1>
+  </div>
+
+  <div class="topnav">
+    <nav>
+=======
     <?php
     include('../View/MenuFooter.php');
 
 
     ?>
     <nav class="topnav">
+>>>>>>> 78ec5ac0c9a827ebe161c4e604a3cf211be10f97
         <a href="VendorHome.php">Home</a> |
         <a href="VendorProfile.php">My Profile</a> |
         <a href="logout.php">Log Out</a>
     </nav>
+<<<<<<< HEAD
+</div>
+=======
+>>>>>>> 78ec5ac0c9a827ebe161c4e604a3cf211be10f97
     <p><img src="Pictures/vendor1.jpg" alt="Home"></p>
     <div id="page-container">
         <div id="content-wrap">
