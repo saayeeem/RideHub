@@ -13,19 +13,11 @@
 
     <?php
     include('../View/MenuFooter.php');
-
-
     ?>
-
-
     <div class="header">
-
-
     </div>
 
     <div class="topnav">
-
-
 
         <nav class="topnav">
 
@@ -37,17 +29,13 @@
 
             </nav>
 
-
             <div class="pic">
                 <p><img src="Pictures/driver1.jpg" alt="Home"></p>
             </div>
 
-
             <?php
             require('../control/ValidationLogin.php');
             $email = $_SESSION["email"];
-
-
             $connection = new db();
             $conobj = $connection->OpenCon();
             $connection->ShowAll($conobj, "Driver", $email);
