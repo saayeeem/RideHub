@@ -21,37 +21,36 @@
     </nav>
     <p> <img src="Pictures/customer.png" alt="Home">
     </p>
-  </body>
+</body>
 
-  </html>
-    <?php
-    include('../Control/UserValidation.php');
-    $email = $_SESSION["email"];
-    echo "Customer Profile" . "<br>";
+</html>
+<?php
+include('../Control/UserValidation.php');
+$email = $_SESSION["email"];
+echo "Customer Profile" . "<br>";
 header('Content-Type: text/xml');
-    $connection = new db();
-    $conobj = $connection->OpenCon();
-    // $connection->ShowAll($conobj, "customer", $email);
+$connection = new db();
+$conobj = $connection->OpenCon();
+// $connection->ShowAll($conobj, "customer", $email);
 $e = new SimpleXMLElement('<detils/>');
-    $userQuery = $connection->ShowAll($conobj, "customer", $email);
+$userQuery = $connection->ShowAll($conobj, "customer", $email);
 
-    if ($userQuery->num_rows > 0) {
-     echo "<table><tr><th>Name</th><th>Email</th><th>Address</th><th>Phone</th></tr>";
-        // output data of each row
-        while ($row = $userQuery->fetch_assoc()) {
-          $add=$e->addChild('customer');
-          	$add=$e->addChild('name', $row[name]);
-          	$add=$e->addChild('email', $row[email]);
-            $add=$e->addChild('address',$row[address]);
-          	$add=$e->addChild('phone',$row[phone]);
-
-          }
-          //  echo "<tr><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td><td>" . $row["address"] . "</td><td>" . $row["phone"] . "</td></tr>";
-
-        echo "</table>";
-    } else {
-        echo "0 results";
+if ($userQuery->num_rows > 0) {
+    echo "<table><tr><th>Name</th><th>Email</th><th>Address</th><th>Phone</th></tr>";
+    // output data of each row
+    while ($row = $userQuery->fetch_assoc()) {
+        $add = $e->addChild('customer');
+        $add = $e->addChild('name', $row[name]);
+        $add = $e->addChild('email', $row[email]);
+        $add = $e->addChild('address', $row[address]);
+        $add = $e->addChild('phone', $row[phone]);
     }
-    echo $e->asXML();
-    $connection->CloseCon($conobj);
-    ?>
+    //  echo "<tr><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td><td>" . $row["address"] . "</td><td>" . $row["phone"] . "</td></tr>";
+
+    echo "</table>";
+} else {
+    echo "0 results";
+}
+echo $e->asXML();
+$connection->CloseCon($conobj);
+?>
