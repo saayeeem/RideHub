@@ -10,55 +10,62 @@
 </head>
 
 <body>
+
     <?php
     include('../View/MenuFooter.php');
 
+
     ?>
+
+
     <div class="header">
-        <h1>Driver Profile</h1>
+
+
     </div>
 
     <div class="topnav">
 
+
+
         <nav class="topnav">
 
-            <a href="DriverHome.php">Home</a> |
-            <a href="DriverProfile.php">My Profile</a> |
-            <a href="logout.php">Log Out</a>
+            <nav class="topnav">
 
-        </nav>
+                <a href="DriverHome.php">Home</a> |
+                <a href="DriverProfile.php">My Profile</a> |
+                <a href="logout.php">Log Out</a>
 
-
-        <div class="pic">
-            <p><img src="Pictures/driver1.jpg" alt="Home"></p>
-        </div>
+            </nav>
 
 
+            <div class="pic">
+                <p><img src="Pictures/driver1.jpg" alt="Home"></p>
+            </div>
 
-        <?php
 
-        require('../control/ValidationLogin.php');
-        $email = $_SESSION["email"];
-        echo "Driver Profile" . "<br>";
+            <?php
+            require('../control/ValidationLogin.php');
+            $email = $_SESSION["email"];
 
-        $connection = new db();
-        $conobj = $connection->OpenCon();
-        $connection->ShowAll($conobj, "Driver", $email);
 
-        $userQuery = $connection->ShowAll($conobj, "Driver", $email);
+            $connection = new db();
+            $conobj = $connection->OpenCon();
+            $connection->ShowAll($conobj, "Driver", $email);
 
-        if ($userQuery->num_rows > 0) {
-            echo "<table><tr><th>Name</th><th>Email</th><th>Address</th><th>Phone</th></tr>";
-            // output data of each row
-            while ($row = $userQuery->fetch_assoc()) {
-                echo "<tr><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td><td>" . $row["address"] . "</td><td>" . $row["phone"] . "</td></tr>";
+            $userQuery = $connection->ShowAll($conobj, "Driver", $email);
+
+            if ($userQuery->num_rows > 0) {
+                echo "<table><tr><th>Name</th><th>Email</th><th>Address</th><th>Phone</th></tr>";
+                // output data of each row
+                while ($row = $userQuery->fetch_assoc()) {
+                    echo "<tr><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td><td>" . $row["address"] . "</td><td>" . $row["phone"] . "</td></tr>";
+                }
+                echo "</table>";
+            } else {
+                echo "0 results";
             }
-            echo "</table>";
-        } else {
-            echo "0 results";
-        }
-        $connection->CloseCon($conobj);
-        ?>
+            $connection->CloseCon($conobj);
+            ?>
 </body>
 
 </html>
