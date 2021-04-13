@@ -151,10 +151,12 @@ VALUES('$email','$password','$type')";
         }
 
 
-        function UpdateVendor($conn,$table,$name,$email,$password,$address,$phone)
+        function UpdateVendor($conn,$table,$name,$email,$pass,$address,$phone)
 
  {
-     $sql = "UPDATE $table SET name='$name', email='$email',password='$password',phone='$phone', address='$address' WHERE email='$email'";
+   echo $address;
+   echo $phone;
+     $sql = "UPDATE $table SET name='$name', email='$email',password='$pass', address='$address' , phone='$phone' WHERE email='$email'";
 
     if ($conn->query($sql) === TRUE) {
         $result= TRUE;

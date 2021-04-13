@@ -18,7 +18,7 @@ $connection = new db();
 $conobj=$connection->OpenCon();
 echo $_SESSION["email"];
 echo $_SESSION["pass"];
-$userQuery=$connection->UpdateVendor($conobj,"vendor",$_POST['name'],$_SESSION["email"],$_SESSION["pass"],$_POST['phone'],$_POST['address']);
+$userQuery=$connection->UpdateVendor($conobj,"vendor",$_POST['name'],$_SESSION["email"],$_POST["pass"],$_POST['address'],$_POST['phone']);
 if($userQuery==TRUE)
 {
     echo "update successful";
