@@ -9,27 +9,23 @@
     <title>Document</title>
 </head>
 <body>
-<<<<<<< HEAD
+
   <?php
   include('../View/MenuFooter.php');
 
 
   ?>
-=======
-  
+
+
     <div class="header">
-  <h1>Driver Profile</h1>
+
+
   </div>
 
   <div class="topnav">
->>>>>>> 7d62ea29d9e805eb67992ef711edc03420d55f1b
+
     <nav>
 
-    <?php
-    include('../View/MenuFooter.php');
-
-
-    ?>
 
     <nav class="topnav">
 
@@ -50,7 +46,7 @@
 
     require('../control/ValidationLogin.php');
     $email = $_SESSION["email"];
-    echo "Driver Profile" . "<br>";
+
 
     $connection = new db();
     $conobj = $connection->OpenCon();
