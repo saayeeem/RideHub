@@ -12,13 +12,12 @@ function validateUserForm() {
     var pattdl=/^([0-9])*$/;
     var resem = pattem.test(email);
       var resdl = pattdl.test(dlicense);
-    console.log("print...")
     if (name == "" || email == "" || phone == "" || pass == "" || cpass == "" || birthday == "" || address == "") {
         error.innerHTML = "ALL fields required js";
         return false;
     }
     else if (!isNaN(name)) {
-      error.innerHTML = "User Name should be start with string";
+      error.innerHTML = "User Name should be string";
         return false;
     }
     else if (name.length < 5) {

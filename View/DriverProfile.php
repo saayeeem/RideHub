@@ -9,6 +9,11 @@
 </head>
 
 <body>
+  <?php
+  include('../View/MenuFooter.php');
+
+
+  ?>
     <nav>
         <a href="DriverHome.php">Home</a> |
         <a href="DriverProfile.php">My Profile</a> |
