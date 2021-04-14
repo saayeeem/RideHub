@@ -1,3 +1,12 @@
+
+<?php
+session_start();
+if(empty($_SESSION["email"]))
+{
+header("Location: ../control/login.php"); // Redirecting To Home Page
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,11 +28,7 @@
     <?php
     include('../Control/UserValidation.php');
 
-<<<<<<< HEAD
     echo "Customer Profiles" . "<br>";
-=======
-    echo "Customer Profile" . "<br>";
->>>>>>> 78ec5ac0c9a827ebe161c4e604a3cf211be10f97
 
     $connection = new db();
     $conobj = $connection->OpenCon();

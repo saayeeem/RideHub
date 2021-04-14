@@ -1,3 +1,12 @@
+<?php
+session_start();
+if(empty($_SESSION["email"]))
+{
+header("Location: ../control/login.php"); // Redirecting To Home Page
+}
+
+?>
+
 <html>
 <?php
 include('../View/MenuFooter.php');

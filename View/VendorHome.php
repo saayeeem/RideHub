@@ -1,3 +1,13 @@
+
+<?php
+session_start();
+if(empty($_SESSION["email"]))
+{
+header("Location: ../control/login.php"); // Redirecting To Home Page
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +20,7 @@
 </head>
 
 <body>
-<<<<<<< HEAD
+
   <link rel="stylesheet" type="text/css" href="../css/vendorp.css">
 
 

@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(empty($_SESSION["email"]))
+{
+header("Location: ../control/login.php"); // Redirecting To Home Page
+}
+
+?>
   <!DOCTYPE html>
 <html>
 
@@ -66,7 +74,7 @@
     include('../View/MenuFooter.php');
 
 
-    
+
   ?>
   <form action='' method='post'>
   Name : <input type='text' name='name' value="<?php echo $name; ?>" >
