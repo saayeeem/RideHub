@@ -33,10 +33,9 @@ include('../model/db.php');
             $msg = "Email address must contain @";
         } else if (!preg_match("/[0-9]/", $phone)) {
             $msg = "Phone Number will only allow numeric values";
-        }else if (!preg_match("/[0-9]/", $pass) || ((strlen($pass)) < 4)) {
+        } else if (!preg_match("/[0-9]/", $pass) || ((strlen($pass)) < 4)) {
             $msg = "Password Should be numeric and 4 words";
-        }
-         else if ($pass != $cpass) {
+        } else if ($pass != $cpass) {
             $msg = "you have to write both password correctly";
         } else if (!isset($_REQUEST["birthday"])) {
             $msg = "you have to select birthday";
@@ -47,10 +46,9 @@ include('../model/db.php');
             $conobj = $connection->OpenCon();
 
             // $userQuery = $connection->InsertUser($conobj, "registration", $fname,$uname,$email, $pass,"12","male");
-            $connection->InsertCustomer($conobj,"customer",$name, $email,$pass,'customer',$phone,$birthday,$address);
-            $connection->InsertLogin($conobj,"login",$email,$pass,'customer');
+            $connection->InsertCustomer($conobj, "customer", $name, $email, $pass, 'customer', $phone, $birthday, $address);
+            $connection->InsertLogin($conobj, "login", $email, $pass, 'customer');
             $connection->CloseCon($conobj);
-
         }
     }
     ?>

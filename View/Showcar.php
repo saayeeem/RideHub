@@ -24,7 +24,7 @@ include('../View/MenuFooter.php');
         <a href="logout.php">Log Out</a>
     </nav>
     <h1>
-        <center>Your Cars Available</center>
+        Your Cars Available
     </h1>
     <?php
     session_start();

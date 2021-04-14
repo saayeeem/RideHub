@@ -20,7 +20,7 @@ header("Location: ../control/login.php"); // Redirecting To Home Page
 <body>
     <?php
     include('../View/MenuFooter.php');
-
+    
 
     ?>
     <nav class="topnav">
