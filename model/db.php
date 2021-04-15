@@ -84,7 +84,7 @@ VALUES('$email','$password','$type')";
             $carphoto = file_get_contents($carphoto);
             $carphoto = base64_encode($carphoto);
             $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto,availability)
-                VALUES('$carname','$carm','$scount','$carphoto','$availability')";
+VALUES('$carname','$carm','$scount','$carphoto','$availability')";
 
             if ($conn->query($result) === TRUE) {
                 $msg = "Data inserted into Car table successfully";
@@ -151,20 +151,20 @@ VALUES('$email','$password','$type')";
         }
 
 
-        function UpdateVendor($conn,$table,$name,$email,$pass,$address,$phone)
+        function UpdateVendor($conn, $table, $name, $email, $pass, $address, $phone)
 
- {
-   echo $address;
-   echo $phone;
-     $sql = "UPDATE $table SET name='$name', email='$email',password='$pass', address='$address' , phone='$phone' WHERE email='$email'";
+        {
+            echo $address;
+            echo $phone;
+            $sql = "UPDATE $table SET name='$name', email='$email',password='$pass', address='$address' , phone='$phone' WHERE email='$email'";
 
-    if ($conn->query($sql) === TRUE) {
-        $result= TRUE;
-    } else {
-        $result= FALSE ;
-    }
-    return  $result;
- }
+            if ($conn->query($sql) === TRUE) {
+                $result = TRUE;
+            } else {
+                $result = FALSE;
+            }
+            return  $result;
+        }
 
         function ShowAvailable($conn, $table, $availability)
         {
@@ -186,7 +186,7 @@ VALUES('$email','$password','$type')";
             $carphoto = file_get_contents($carphoto);
             $carphoto = base64_encode($carphoto);
             $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto,status)
-                VALUES('$carname','$carm','$scount','$carphoto','$status')";
+VALUES('$carname','$carm','$scount','$carphoto','$status')";
 
             if ($conn->query($result) === TRUE) {
                 echo "Reuested successfully";
@@ -203,7 +203,7 @@ VALUES('$email','$password','$type')";
         }
     }
 
-?>
+    ?>
 </body>
 
 </html>

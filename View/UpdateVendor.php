@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (empty($_SESSION["email"])) {
-  header("Location: ../control/login.php"); // Redirecting To Home Page
+    header("Location: ../control/login.php"); // Redirecting To Home Page
 }
 
 include('../control/UpdateCheckVendor.php');
@@ -9,7 +9,7 @@ include('../control/UpdateCheckVendor.php');
 
 if (empty($_SESSION["email"])) // Destroying All Sessions
 {
-  header("Location: ../control/login.php"); // Redirecting To Home Page
+    header("Location: ../control/login.php"); // Redirecting To Home Page
 }
 
 
@@ -23,18 +23,18 @@ $connection->ShowAll($conobj, "Vendor", $email);
 $userQuery = $connection->ShowAll($conobj, "Vendor", $email);
 if ($userQuery->num_rows > 0) {
 
-  // output data of each row
-  while ($row = $userQuery->fetch_assoc()) {
-    $name = $row["name"];
-    $email = $row["email"];
+    // output data of each row
+    while ($row = $userQuery->fetch_assoc()) {
+        $name = $row["name"];
+        $email = $row["email"];
 
-    $address = $row["address"];
-    $phone = $row["phone"];
+        $address = $row["address"];
+        $phone = $row["phone"];
 
-    $pass = $row["password"];
-  }
+        $pass = $row["password"];
+    }
 } else {
-  echo "0 results";
+    echo "0 results";
 }
 
 ?>
@@ -65,10 +65,11 @@ if ($userQuery->num_rows > 0) {
         <a href="VendorProfile.php">My Profile</a> |
         <a href="logout.php">Log Out</a>
     </nav>
+
     <!-- main  -->
+    <?php echo $error ?>
     <section class="pad-70">
         <div class="container">
-
             <form action='' method='post'>
                 Name : <input type='text' name='name' value="<?php echo $name; ?>">
                 <br>
