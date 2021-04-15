@@ -6,13 +6,6 @@ if (empty($_SESSION["email"])) {
 
 include('../control/UpdateCheckVendor.php');
 
-
-if (empty($_SESSION["email"])) // Destroying All Sessions
-{
-    header("Location: ../control/login.php"); // Redirecting To Home Page
-}
-
-
 $email = $_SESSION["email"];
 
 $connection = new db();

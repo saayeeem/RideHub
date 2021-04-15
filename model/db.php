@@ -154,16 +154,14 @@ VALUES('$carname','$carm','$scount','$carphoto','$availability')";
         function UpdateVendor($conn, $table, $name, $email, $pass, $address, $phone)
 
         {
-            echo $address;
-            echo $phone;
-            $sql = "UPDATE $table SET name='$name', email='$email',password='$pass', address='$address' , phone='$phone' WHERE email='$email'";
-
-            if ($conn->query($sql) === TRUE) {
-                $result = TRUE;
+            $result = "UPDATE $table SET name='$name', email='$email',password='$pass', address='$address' , phone='$phone' WHERE email='$email'";
+            $msg = "";
+            if ($conn->query($result) === TRUE) {
+                echo "Data Updated successfully";
+                return $result;
             } else {
-                $result = FALSE;
+                echo "Error: " . $result . "<br>" . $conn->error;
             }
-            return  $result;
         }
 
         function ShowAvailable($conn, $table, $availability)

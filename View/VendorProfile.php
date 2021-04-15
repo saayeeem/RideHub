@@ -5,7 +5,6 @@ $email = $_SESSION["email"];
 
 $connection = new db();
 $conobj = $connection->OpenCon();
-$connection->ShowAll($conobj, "Vendor", $email);
 
 $userQuery = $connection->ShowAll($conobj, "Vendor", $email);
 
@@ -20,11 +19,7 @@ if ($userQuery->num_rows > 0) {
 } else {
     echo "0 results";
 }
-?>
-
-
-<?php
-if ($userQuery->num_rows > 0) {
+$connection->CloseCon($conobj);
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +41,7 @@ if ($userQuery->num_rows > 0) {
 
     <div class="header">
         <h1>Welcome To RideHub</h1>
-        <h2>Vendor</h2>
+        <h2>Vendor Profile</h2>
     </div>
 
     <nav>
@@ -79,13 +74,6 @@ if ($userQuery->num_rows > 0) {
                     <td><a href="UpdateVendor.php">Update </a></td>
                 </tr>
             </table>
-
-            <?php
-        } else {
-            echo "No result found";
-        }
-        $connection->CloseCon($conobj);
-            ?>
         </div>
     </section>
     <section class="pad-70 right">
