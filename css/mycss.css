@@ -59,6 +59,9 @@ h2 {
     font-family: "Times New Roman", Times, serif;
 
 }
+section{
+    margin: 0 auto;
+}
 .container {
     width: 1140px;
     margin: 0 auto;
@@ -79,6 +82,7 @@ h2 {
     display: inline-block;
     font-size: 125%;
     background: #ffffff;
+    margin-bottom: 2%;
     text-align: left;
     font-family: "Times New Roman", Times, serif;
 

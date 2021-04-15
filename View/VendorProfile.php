@@ -79,12 +79,26 @@ if ($userQuery->num_rows > 0) {
                     <td><a href="UpdateVendor.php">Update </a></td>
                 </tr>
             </table>
+
             <?php
         } else {
             echo "No result found";
         }
         $connection->CloseCon($conobj);
             ?>
+        </div>
+    </section>
+    <section class="pad-70 right">
+        <div class="container">
+            Name: <?php echo $name; ?>
+            <hr>
+            Email: <?php echo $email; ?>
+            <hr>
+            Address: <?php echo $address; ?>
+            <hr>
+            Phone Number: <?php echo $phone; ?>
+            <br>
+            <a href="UpdateVendor.php">Update </a>
         </div>
     </section>
     <footer>
