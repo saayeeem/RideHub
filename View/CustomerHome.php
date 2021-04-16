@@ -1,9 +1,7 @@
-
 <?php
 session_start();
-if(empty($_SESSION["email"]))
-{
-header("Location: ../control/login.php"); // Redirecting To Home Page
+if (empty($_SESSION["email"])) {
+    header("Location: ../control/login.php"); // Redirecting To Home Page
 }
 
 ?>
@@ -20,24 +18,26 @@ header("Location: ../control/login.php"); // Redirecting To Home Page
 <body>
     <?php
     include('../View/MenuFooter.php');
-    
+
 
     ?>
-    <nav class="topnav">
+    <nav>
         <a href="CustomerHome.php">Home</a> |
         <a href="CustomerProfile.php">My Profile</a> |
         <a href="logout.php">Log Out</a>
     </nav>
-    <p> <img src="Pictures/home.gif" alt="Home">
-    </p>
-    <div id="page-container">
-        <div id="content-wrap">
-            <div class="bg" id="center">
-                <a class="center div" href="Showcar.php">Show Car</a>
+    <!-- main  -->
+    <section class="pad-70">
+        <div class="container">
+            <div class="row">
+                <div class="post post-left">
+                    <img src="Pictures/img3.jpg" alt="show car">
+                    <div class="tag"> <a href=" Showcar.php">Show Car</a></div>
+                </div>
             </div>
         </div>
-    </div>
-    <a href="Showcar.php">Show Car</a>
+    </section>
+    <!-- main  -->
 </body>
 
 </html>

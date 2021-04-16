@@ -53,29 +53,6 @@ $connection->CloseCon($conobj);
 
     <p><img src="Pictures/vendor.jpg" alt="Home"></p>
 
-
-    <section class="pad-70">
-        <div class="container">
-            <h2>Vendor Profile</h2>
-            <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Phone</th>
-                    <th>Action</th>
-                </tr>
-
-                <tr>
-                    <td><?php echo $name; ?></td>
-                    <td><?php echo $email; ?></td>
-                    <td><?php echo $address; ?></td>
-                    <td><?php echo $phone; ?></td>
-                    <td><a href="UpdateVendor.php">Update </a></td>
-                </tr>
-            </table>
-        </div>
-    </section>
     <section class="pad-70 right">
         <div class="container">
             Name: <?php echo $name; ?>
