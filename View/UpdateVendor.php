@@ -60,29 +60,35 @@ if ($userQuery->num_rows > 0) {
     </nav>
 
     <!-- main  -->
-    <?php echo $error ?>
+    <p id="msg">
+        <?php echo $error ?>
+    </p>
     <section class="pad-70">
         <div class="container">
             <form action='' method='post'>
                 <div class="row">
                     <div class="form-group">
-
+                        Name:
                         <input type="text" name="name" value="<?php echo $name; ?>" class="form-control">
                     </div>
                     <div class="form-group">
+                        Email:
                         <input type="text" name="email" value="<?php echo $email; ?>" class="form-control">
                     </div>
                     <div class="form-group">
+                        Password:
                         <input type="text" name="pass" value="<?php echo $pass; ?>" class="form-control">
                     </div>
                     <div class="form-group">
+                        Phone Number:
                         <input type="text" name="phone" value="<?php echo $phone; ?>" class="form-control">
                     </div>
                     <div class="form-group">
+                        Address:
                         <input type="text" name="address" value="<?php echo $address; ?>" class="form-control">
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Update" name="" class="btn btn-lg btn-primary btn-submit">
+                        <input type="submit" value="Update" name="update" class="btn btn-lg btn-primary btn-submit">
                     </div>
                 </div>
 

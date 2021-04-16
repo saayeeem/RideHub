@@ -110,6 +110,7 @@ section{
     font-size: 20px;
     font-family: 'Playfair Display', serif;
 }
+
 .form-group {
     margin-bottom: 20px;
 }
@@ -123,7 +124,9 @@ section{
     font-family: "Open Sans", sans-serif;
 }
 
-
+#msg{
+    color: #48ff00;
+}
 .btn {
     padding: 10px 20px;
     border: none;
@@ -221,9 +224,8 @@ a {
     margin-bottom: 30px;
 
 }
-
 .row {
-    overflow: auto;
+    overflow: visible;
     margin-bottom: 70px;
 }
 
