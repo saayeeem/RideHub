@@ -128,7 +128,10 @@ section{
 }
 
 #msg{
-    color: #48ff00;
+    color: #22570e;
+}
+#error {
+    color: #ff0000;
 }
 .btn {
     padding: 10px 20px;

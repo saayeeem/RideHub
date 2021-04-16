@@ -22,7 +22,7 @@ include('../Control/ValidationLogin.php');
 <body>
     <div class="header">
         <h1>Welcome To RideHub</h1>
-        <h2>Update Vendor</h2>
+        <h2>Login</h2>
     </div>
     <nav class="topnav">
         <a href="home.php">Home</a>
