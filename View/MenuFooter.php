@@ -14,11 +14,12 @@
         <h1>Welcome To RideHub</h1>
 
     </div>
+    <section class="pad-70">
+        <div class="container">
 
+        </div>
+    </section>
 
-    <div class="footer">
-        <p></p>
-    </div>
 
 
     <body>

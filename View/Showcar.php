@@ -46,7 +46,7 @@ include('../View/MenuFooter.php');
         echo "0 results";
     }
 
-    $connection->CloseCon($conobj);
+
     ?>
     <div id="page-container">
         <div id="content-wrap">
@@ -63,7 +63,9 @@ include('../View/MenuFooter.php');
                     </tr>
                     <?php
                         $i = 0;
+
                         while ($row = $userQuery->fetch_assoc()) {
+                            echo $row['carname'];
                         ?>
 
                     <tr>
@@ -81,6 +83,7 @@ include('../View/MenuFooter.php');
                 } else {
                     echo "No result found";
                 }
+                $connection->CloseCon($conobj);
                 ?>
             </div>
         </div>

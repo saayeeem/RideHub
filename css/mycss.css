@@ -1,82 +1,210 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap');
 body {
-     
-     background-color: rgb(15, 183, 189);
-     text-align: center;
+    margin: 1%;
+    background-color: rgb(15, 183, 189);
+    text-align: center;
+    
     
 }
-h1{
+h1 {
     text-align: center;
+    color: #1f1e1c;
+    font-size: 150%;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Times New Roman", Times, serif;
 }
 h2 {
     text-align: center;
     color: #1f1e1c;
-    font-family: "Times New Roman",
-    Times,
-    serif;
+    font-size: 150%;
+    font-family: "Times New Roman", Times, serif;
+
 }
-p.center {
+a {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 15px;
+}
+
+nav {
     text-align: center;
-    font-family: "Times New Roman",
-    Times,
-    serif;
 }
-img {
-    border: 5px solid #555;
-   
+
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 150%;
+    background-color: #ebe8e850;
+    color: #000000;
+    width: 15%;
+    padding: 1%;
+    border-radius: 4px;
+    margin: 6px;
 }
+
+nav a:hover {
+    background-color: #ffffff;
+    color: #0000ff;
+}
+
 form {
-    
+
     display: inline-block;
     margin-top: 10px;
 }
-/* Style the top navigation bar */
-.topnav {
-    overflow: hidden;
-    background-color: #333;
-}
-
-/* Style the topnav links */
-.topnav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
+h2 {
     text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+    color: #1f1e1c;
+    font-size: 150%;
+    font-family: "Times New Roman", Times, serif;
+
+}
+section{
+    margin: 0 auto;
 }
 
-.topnav a:hover {
-    background-color: #88d9e7;
-    color: #f2f2f2;
-}
+.container {
+    width: 1140px;
+    margin: 0 auto;
 
-/* Style the header */
+}
 .header {
     background-color: #f1f1f1;
     padding: 20px;
     text-align: center;
 }
 
-.center {
-    margin-bottom: 30px;
-    background-color:#c2d0d3;
-     border: 5px solid rgb(208, 224, 228);
-}
-div.bg{
-    display: block;
-    margin:auto ;
-    margin-top: 5%;
-    background-color:#f1f1f1;
-    width: 25%;
-    height: 25%;
-    border: 5px solid rgb(18, 89, 107);
+.pad-70 {
+    padding: 70px;
 }
 
-/* Style the topnav links */
-a.div {
+.right {
+    width: 80%;
+    display: inline-block;
+    font-size: 125%;
+    background: #ffffff;
+    margin-bottom: 2%;
+    text-align: left;
+    font-family: "Times New Roman", Times, serif;
+
+}
+.left {
+    background-color: #808000;
+    padding: 1%;
+    width: 15%;
+    margin-right: 2%;
+    float: left;
+    height: 575px;
+
+}
+.row {
+    overflow: auto;
+    margin-bottom: 70px;
+}
+.left img {
+    width: 80%;
+    border: 2px solid #000000;
+    margin: 20px 20px 10px 20px;
+}
+.btn {
+    padding: 20px 30px;
+    border: 1px solid #626262;
+    background-color: transparent;
+    font-size: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control{
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    height: 30px;
+    padding: 13px;
+    font-family: "Open Sans", sans-serif;
+}
+
+#msg{
+    color: #48ff00;
+}
+.btn {
+    padding: 10px 20px;
+    border: none;
+    display: inline-block;
+    font-family: "Open Sans", sans-serif;
+    border-radius: 5px;
+}
+
+.btn-lg {
+    padding: 17px 30px;
+}
+
+.btn-primary {
+    background-color: #39c9da;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    transition: .5s;
+}
+
+.btn-primary:hover {
+    background-color: #046d79;
+}
+/* Change color on hover */
+
+
+table {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 100%;
+    font-weight: bold;
+    line-height: 100%;
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+}
+
+tr th {
+    border: 1px solid #b6cb1b;
+    border-bottom: 3px solid #b6cb1b;
+    border-radius: 5px 5px 0 0;
+    background: #38bdb6;
+    background: -moz-linear-gradient(top, #38bdb6 0%, #747d20 100%);
+    background: -webkit-linear-gradient(#38bdb6 0%, #747d20 100%);
+    background: -o-linear-gradient(#38bdb6 0%, #747d20 100%);
+    background: linear-gradient(#38bdb6 0%, #747d20 100%);
+    height: 50px;
+    padding-left: 10px;
+
+}
+
+tr td {
+    opacity: 0.8;
+    padding: 1%;
+    background-color: #dfefe6;
+    color: #6a752a;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    font-size: 90%;
+}
+
+tr td:first-child,
+table tr th:first-child {
+    text-align: left;
+}
+
+tr:hover td {
+    opacity: 1;
+    text-shadow: 2px 2px 2px #949e59;
+}
+a {
     display: block;
-    background-color:#30cfeb;
-    color: #f2f2f2;
+    background-color: #dfefe6;
+    color: #6a752a;
     text-align: center;
     padding: 10px 10px;
     text-decoration: none;
@@ -84,28 +212,79 @@ a.div {
     margin-bottom: 10%;
     width: 35%;
 }
-
-/* Change color on hover */
-a.div:hover {
-    background-color: #096575;
-    color: #f2f2f2;
+/* main */
+.tag{
+    text-transform: uppercase;
+    color: #b4ad9e;
+    font-size: 20px;
+}
+.post {
+    width: 48%;
 }
 
-#page-container {
-    position: relative;
-    min-height: 100vh;
-}
-
-#content-wrap {
-    padding-bottom: 2.5rem;
-    /* Footer height */
-}
-.footer {
-   position: fixed;
-    left: 0;
-    bottom: 0;
+.post img {
     width: 100%;
-    background-color: #F1F1F1;
-    color: rgb(19, 8, 8);
-    text-align: center;
+    margin-bottom: 30px;
+
 }
+.from-row {
+    overflow: visible;
+    margin-bottom: 70px;
+}
+
+.post-left {
+    float: left;
+}
+
+.post-right {
+    float: right;
+}
+
+/* main */
+/*footer start*/
+footer {
+    background-color: #f0f0f0;
+    padding: 20px 0;
+}
+
+.footer-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+
+}
+
+.footer-menu li {
+    float: left;
+    margin-right: 10px;
+
+}
+
+.footer-menu li a {
+    color: #444;
+    font-weight: bold;
+    text-decoration: none;
+
+
+}
+
+.footer-left {
+    float: left;
+
+}
+
+.footer-right {
+    float: right;
+
+}
+
+.footer-wrap {
+    overflow: auto;
+}
+
+/*footer end*/
+
+
+
+

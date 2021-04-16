@@ -1,11 +1,27 @@
 <?php
-session_start();
-if(empty($_SESSION["email"]))
-{
-header("Location: ../control/login.php"); // Redirecting To Home Page
-}
 
+require('../control/ValidationLogin.php');
+$email = $_SESSION["email"];
+
+$connection = new db();
+$conobj = $connection->OpenCon();
+
+$userQuery = $connection->ShowAll($conobj, "Customer", $email);
+
+if ($userQuery->num_rows > 0) {
+
+    while ($row = $userQuery->fetch_assoc()) {
+        $name = $row['name'];
+        $email = $row['email'];
+        $address = $row['address'];
+        $phone = $row['phone'];
+    }
+} else {
+    echo "0 results";
+}
+$connection->CloseCon($conobj);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,52 +29,89 @@ header("Location: ../control/login.php"); // Redirecting To Home Page
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/mycss.css">
+    <title>Vendor Profile</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap"
+        rel="stylesheet">
+
+
 </head>
 
 <body>
-    <?php
-    include('../View/MenuFooter.php');
 
+    <div class="header">
+        <h1>Welcome To RideHub</h1>
+        <h2>Customer Profile</h2>
+    </div>
 
-    ?>
-    <nav class="topnav">
+    <nav>
+
         <a href="CustomerHome.php">Home</a> |
         <a href="CustomerProfile.php">My Profile</a> |
         <a href="logout.php">Log Out</a>
     </nav>
-    <p> <img src="Pictures/customer.png" alt="Home">
-    </p>
+
+    <p><img src="Pictures/customer.png" alt="Home"></p>
+
+
+    <section class="pad-70">
+        <div class="container">
+            <h2>Vendor Profile</h2>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                </tr>
+
+                <tr>
+                    <td><?php echo $name; ?></td>
+                    <td><?php echo $email; ?></td>
+                    <td><?php echo $address; ?></td>
+                    <td><?php echo $phone; ?></td>
+                    <td><a href="UpdateVendor.php">Update </a></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <section class="pad-70 right">
+        <div class="container">
+            Name: <?php echo $name; ?>
+            <hr>
+            Email: <?php echo $email; ?>
+            <hr>
+            Address: <?php echo $address; ?>
+            <hr>
+            Phone Number: <?php echo $phone; ?>
+            <br>
+            <a href="UpdateVendor.php">Update </a>
+        </div>
+    </section>
+    <footer>
+        <div class="container footer-wrap">
+            <div class="footer-left">
+                <ul class="footer-menu">
+                    <li><a href="">Terms and Conditions</a></li>
+                    <li><a href="">Privacy</a></li>
+                </ul>
+
+            </div>
+            <div class="footer-right">
+                <ul class="footer-menu">
+                    <li><a href="">Follow</a></li>
+                    <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                    <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
+
+                </ul>
+            </div>
+        </div>
+
+
+    </footer>
+    <script src="https://kit.fontawesome.com/2065a5e896.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
-<?php
-include('../Control/UserValidation.php');
-$email = $_SESSION["email"];
-echo "Customer Profile" . "<br>";
-header('Content-Type: text/xml');
-$connection = new db();
-$conobj = $connection->OpenCon();
-// $connection->ShowAll($conobj, "customer", $email);
-$e = new SimpleXMLElement('<detils/>');
-$userQuery = $connection->ShowAll($conobj, "customer", $email);
-
-if ($userQuery->num_rows > 0) {
-    echo "<table><tr><th>Name</th><th>Email</th><th>Address</th><th>Phone</th></tr>";
-    // output data of each row
-    while ($row = $userQuery->fetch_assoc()) {
-        $add = $e->addChild('customer');
-        $add = $e->addChild('name', $row[name]);
-        $add = $e->addChild('email', $row[email]);
-        $add = $e->addChild('address', $row[address]);
-        $add = $e->addChild('phone', $row[phone]);
-    }
-    //  echo "<tr><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td><td>" . $row["address"] . "</td><td>" . $row["phone"] . "</td></tr>";
-
-    echo "</table>";
-} else {
-    echo "0 results";
-}
-echo $e->asXML();
-$connection->CloseCon($conobj);
-?>
