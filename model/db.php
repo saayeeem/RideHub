@@ -64,6 +64,17 @@ VALUES('$name','$email','$password','$type','$phone','$birthday','$address','$dr
                 echo "Error: " . $result . "<br>" . $conn->error;
             }
         }
+        function InsertAdmin($conn, $table, $name, $email, $password, $type, $phone, $birthday, $address, $drivinglicense)
+        {
+            $result = "INSERT INTO " . $table . " (name,email,password,type,phone,birthday,address,drivinglicense)
+VALUES('$name','$email','$password','$type','$phone','$birthday','$address','$drivinglicense')";
+            if ($conn->query($result) === TRUE) {
+                echo "New record created successfully";
+                return $result;
+            } else {
+                echo "Error: " . $result . "<br>" . $conn->error;
+            }
+        }
         function InsertLogin($conn, $table, $email, $password, $type)
         {
             $result = "INSERT INTO " . $table . " (email,password,type)

@@ -1,10 +1,27 @@
 <?php
-session_start();
-if (empty($_SESSION["email"])) {
-    header("Location: ../control/login.php"); // Redirecting To Home Page
-}
 
+require('../control/ValidationLogin.php');
+$email = $_SESSION["email"];
+
+$connection = new db();
+$conobj = $connection->OpenCon();
+
+$userQuery = $connection->ShowAll($conobj, "Admin", $email);
+
+if ($userQuery->num_rows > 0) {
+
+    while ($row = $userQuery->fetch_assoc()) {
+        $name = $row['name'];
+        $email = $row['email'];
+        $address = $row['address'];
+        $phone = $row['phone'];
+    }
+} else {
+    echo "0 results";
+}
+$connection->CloseCon($conobj);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +30,7 @@ if (empty($_SESSION["email"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/mycss.css">
-    <title>Vendor Home</title>
+    <title>Vendor Profile</title>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap"
         rel="stylesheet">
 
@@ -21,45 +38,37 @@ if (empty($_SESSION["email"])) {
 </head>
 
 <body>
+
     <div class="header">
         <h1>Welcome To RideHub</h1>
-        <h2>Admin Home</h2>
+        <h2>Admin Profile</h2>
     </div>
 
     <nav>
+
         <a href="AdminHome.php">Home</a> |
-        <a href="AdminProfile.php">Admin Profile</a> |
+        <a href="AdminProfile.php">My Profile</a> |
         <a href="logout.php">Log Out</a>
     </nav>
 
-    <!-- main  -->
-    <section class="pad-70">
+    <!-- main -->
+    <p><img src="Pictures/admin.jpg" alt="Home"></p>
+    <section class="pad-70 right">
         <div class="container">
-            <div class="row">
-                <div class="post post-left">
-                    <img src="../View/Pictures/img1.jpeg" alt="add driver">
-                    <div class="tag"><a href="AllDriver.php">Registered Driver</a></div>
-                </div>
-                <div class="post post-right">
-                    <img src="../View/Pictures/img2.jpg" alt="add car">
-                    <div class="tag"> <a href="Showcar.php">Registered Cars</a></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="post post-left">
-                    <img src="Pictures/img3.jpg" alt="show car">
-                    <div class="tag"><a href="AllVendor.php">Registered Vendors</a></div>
-                </div>
-                <div class="post post-right">
-                    <img src="Pictures/img4.png" alt="show car">
-                    <div class="tag"><a href="AllUser.php">Registered Customers</a></div>
-                </div>
-            </div>
+            Name: <?php echo $name; ?>
+            <hr>
+            Email: <?php echo $email; ?>
+            <hr>
+            Address: <?php echo $address; ?>
+            <hr>
+            Phone Number: <?php echo $phone; ?>
+            <br>
+            <a href="UpdateVendor.php">Update </a>
         </div>
     </section>
-    <!-- main  -->
 
-    <!-- footer  -->
+    <!-- main -->
+    <!-- footer -->
     <footer>
         <div class="container footer-wrap">
             <div class="footer-left">
@@ -79,8 +88,10 @@ if (empty($_SESSION["email"])) {
                 </ul>
             </div>
         </div>
+
+
     </footer>
-    <!-- footer  -->
+    <!-- footer -->
     <script src="https://kit.fontawesome.com/2065a5e896.js" crossorigin="anonymous"></script>
 </body>
 
