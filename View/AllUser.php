@@ -28,7 +28,7 @@
     </nav>
     <p> <img src="Pictures/customer.png" alt="Home">
     </p>
-
+    <!-- main -->
     <section class="pad-70 right">
         <div class="container">
             <?php
@@ -55,7 +55,7 @@
 
         </div>
     </section>
-
+    <!-- main -->
     <!-- footer -->
     <footer>
         <div class="container footer-wrap">
