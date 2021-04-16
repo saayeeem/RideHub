@@ -66,7 +66,7 @@ if ($userQuery->num_rows > 0) {
     <section class="pad-70">
         <div class="container">
             <form action='' method='post'>
-                <div class="row">
+                <div class="form-row">
                     <div class="form-group">
                         Name:
                         <input type="text" name="name" value="<?php echo $name; ?>" class="form-control">
