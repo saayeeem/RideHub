@@ -30,7 +30,7 @@ $connection->CloseCon($conobj);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/mycss.css">
-    <title>Vendor Profile</title>
+    <title>Driver Profile</title>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap"
         rel="stylesheet">
 
@@ -41,7 +41,7 @@ $connection->CloseCon($conobj);
 
     <div class="header">
         <h1>Welcome To RideHub</h1>
-        <h2>Vendor Profile</h2>
+        <h2>Driver Profile</h2>
     </div>
 
     <nav>
@@ -51,7 +51,7 @@ $connection->CloseCon($conobj);
         <a href="logout.php">Log Out</a>
     </nav>
 
-    <p><img src="Pictures/vendor.jpg" alt="Home"></p>
+    <p><img src="Pictures/driver.jpg" alt="Home"></p>
 
     <section class="pad-70 right">
         <div class="container">
