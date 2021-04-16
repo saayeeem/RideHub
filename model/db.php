@@ -206,7 +206,7 @@ VALUES('$carname','$carm','$scount','$carphoto','$status')";
         }
     }
 
-    ?>
+?>
 </body>
 
 </html>
