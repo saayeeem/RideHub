@@ -157,7 +157,7 @@ VALUES('$carname','$carm','$scount','$carphoto','$availability')";
             $result = "UPDATE $table SET name='$name', email='$email',password='$pass', address='$address' , phone='$phone' WHERE email='$email'";
             $msg = "";
             if ($conn->query($result) === TRUE) {
-                echo "Data Updated successfully";
+
                 return $result;
             } else {
                 echo "Error: " . $result . "<br>" . $conn->error;

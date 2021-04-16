@@ -13,8 +13,6 @@ if (isset($_POST['update'])) {
     } else {
         $connection = new db();
         $conobj = $connection->OpenCon();
-        echo $_SESSION["email"];
-        echo $_SESSION["pass"];
         $userQuery = $connection->UpdateVendor($conobj, "vendor", $_POST['name'], $_SESSION["email"], $_POST["pass"], $_POST['address'], $_POST['phone']);
         if ($userQuery == TRUE) {
             $error = "update successful";
