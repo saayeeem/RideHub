@@ -64,25 +64,29 @@ if ($userQuery->num_rows > 0) {
     <section class="pad-70">
         <div class="container">
             <form action='' method='post'>
-                Name : <input type='text' name='name' value="<?php echo $name; ?>">
-                <br>
-                <br>
-                Email : <input type='text' name='email' value="<?php echo $email; ?>">
+                <div class="row">
+                    <div class="form-group">
 
-                <br>
-                <br>
-                Password : <input type='text' name='pass' value="<?php echo $pass; ?>">
+                        <input type="text" name="name" value="<?php echo $name; ?>" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="email" value="<?php echo $email; ?>" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="pass" value="<?php echo $pass; ?>" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="phone" value="<?php echo $phone; ?>" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="address" value="<?php echo $address; ?>" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Update" name="" class="btn btn-lg btn-primary btn-submit">
+                    </div>
+                </div>
 
-                <br>
-                <br>
-                Address : <input type='text' name='address' value="<?php echo $address; ?>">
-                <br>
-                <br>
-                Phone : <input type='text' name='phone' value="<?php echo $phone; ?>">
-                <br>
-                <br>
-
-                <input name='update' type='submit' value='Update'>
+            </form>
         </div>
     </section>
     <!-- footer  -->
