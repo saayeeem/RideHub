@@ -153,11 +153,19 @@ VALUES('$carname','$carm','$scount','$carphoto','$availability')";
 
         function UpdateVendor($conn, $table, $name, $email, $pass, $address, $phone)
 
+ {
+
+     $sql = "UPDATE $table SET name='$name', email='$email',password='$pass', address='$address' , phone='$phone' WHERE email='$email'";
+
         {
             $result = "UPDATE $table SET name='$name', email='$email',password='$pass', address='$address' , phone='$phone' WHERE email='$email'";
             $msg = "";
             if ($conn->query($result) === TRUE) {
+<<<<<<< HEAD
+=======
 
+
+>>>>>>> 889a5f893d92d5d787b9bfd4cb2cf325635e578c
                 return $result;
             } else {
                 echo "Error: " . $result . "<br>" . $conn->error;
