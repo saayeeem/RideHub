@@ -9,9 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_REQUEST["email"];
     $pass = $_REQUEST["pass"];
     $type = $_REQUEST["type"];
-    $_SESSION["email"] = $email;
-    $_SESSION["pass"] = $pass;
-    $_SESSION["type"] = $type;
+
 
 
 
@@ -34,6 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $msg = "Type is invalid";
         }
+        $_SESSION["email"] = $email;
+        $_SESSION["pass"] = $pass;
+        $_SESSION["type"] = $type;
         $connection = new db();
         $conobj = $connection->OpenCon();
         $connection->ValidateLogin($conobj, "login", $email, $pass, $type);

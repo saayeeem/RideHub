@@ -1,5 +1,22 @@
 <?php
 require('../control/ValidationLogin.php');
+if (!isset($_SESSION['email'])) {
+    die('Not logged in');
+}
+
+if (isset($_POST['cancel'])) {
+    // Redirect the browser to CustomerHome.php
+    header("Location: CustomerHome.php");
+    return;
+}
+if (isset($_POST['update']) && isset($_POST['carname'])) {
+    $connection = new db();
+    $conobj = $connection->OpenCon();
+    $connection->InsertCarRequest($conn, $table, $carname, $carmodel, $sitcount, $carphoto, "Requested");
+    $connection->CloseCon($conobj);
+    header("Location: CustomerHome.php");
+    return;
+}
 // Guardian: Make sure that pcar name is present
 if (!isset($_GET['carname'])) {
     $_SESSION['error'] = "Missing car name";
@@ -19,6 +36,7 @@ if ($userQuery->num_rows > 0) {
         $carmodel = $row['carmodel'];
         $sitcount = $row['sitcount'];
         $availablity = $row['availability'];
+        $carphoto = $row['carphoto'];
     }
 } else {
     echo "0 results";
@@ -71,11 +89,17 @@ $connection->CloseCon($conobj);
 
         </div>
     </section>
-    <section class="right">
-        <h1>Do you want to Request it?</h1>
+    <section class="pad-70">
         <div class="container">
-            <a href="UpdateVendor.php">Update </a>
-            <a href="UpdateVendor.php">Cancel </a>
+            <form action='' method='post'>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="submit" value="Update" name="update" class="btn btn-lg btn-primary btn-submit">
+                        <input type="submit" value="Cancel" name="cancel" class="btn btn-lg btn-primary btn-submit">
+                    </div>
+                </div>
+
+            </form>
         </div>
     </section>
 

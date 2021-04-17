@@ -1,8 +1,10 @@
 <?php
 session_start();
-if (empty($_SESSION["email"])) {
-    header("Location: ../control/login.php"); // Redirecting To Home Page
+if (!isset($_SESSION['email'])) {
+    header("Location: login.php");
+    return;
 }
+
 
 ?>
 <!DOCTYPE html>

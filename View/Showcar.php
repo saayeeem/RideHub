@@ -47,7 +47,6 @@
                         echo "<tr><td>" . $row["carname"] . "</td><td>" . $row["carmodel"] . "</td><td>" . $row["sitcount"] . "</td><td>" . $row["availability"] . "</td><td>" . '<a href="Request.php?carname=' . $row["carname"] . '">Request</a>' . "</td></tr>";
                     }
                     echo "</table>";
-                    $_SESSION["email"] = $row['carname'];
                 }
             } else {
                 echo "0 results";
