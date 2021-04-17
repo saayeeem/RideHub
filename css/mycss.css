@@ -206,14 +206,19 @@ tr:hover td {
 }
 a {
     display: block;
-    background-color: #dfefe6;
-    color: #6a752a;
+    background-color: #10e46c;
+    color: #353535;
     text-align: center;
     padding: 10px 10px;
     text-decoration: none;
     margin: auto;
-    margin-bottom: 10%;
+    margin-bottom: 2%;
     width: 35%;
+}
+a:hover {
+    background-color: #00ad79;
+    color: #615c5c;
+
 }
 /* main */
 .tag{

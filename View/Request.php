@@ -1,3 +1,32 @@
+<?php
+require('../control/ValidationLogin.php');
+// Guardian: Make sure that pcar name is present
+if (!isset($_GET['carname'])) {
+    $_SESSION['error'] = "Missing car name";
+    header('Location: CustomerHome.php');
+    return;
+}
+$name = $_GET['carname'];
+$connection = new db();
+$conobj = $connection->OpenCon();
+
+$userQuery = $connection->ShowRequestedCar($conobj, "Car", $name);
+
+if ($userQuery->num_rows > 0) {
+
+    while ($row = $userQuery->fetch_assoc()) {
+        $carname = $row['carname'];
+        $carmodel = $row['carmodel'];
+        $sitcount = $row['sitcount'];
+        $availablity = $row['availability'];
+    }
+} else {
+    echo "0 results";
+}
+
+$connection->CloseCon($conobj);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +35,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/mycss.css">
-    <title>Available Car</title>
+    <title>Vendor Profile</title>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap"
         rel="stylesheet">
 
@@ -15,48 +44,42 @@
 
 <body>
 
+    <div class="header">
+        <h1>Welcome To RideHub</h1>
+        <h2>Car Request</h2>
+    </div>
 
     <nav>
+
         <a href="CustomerHome.php">Home</a> |
         <a href="CustomerProfile.php">My Profile</a> |
         <a href="logout.php">Log Out</a>
     </nav>
-    <h1>
-        Your Cars Available
-    </h1>
+
+    <p><img src="Pictures/home.jpg" alt="Home"></p>
     <!-- main -->
     <section class="pad-70 right">
         <div class="container">
-            <?php
-            session_start();
-            include('../model/db.php');
-            $connection = new db();
-            $conobj = $connection->OpenCon();
-            $userQuery = $connection->ShowAvailableCar($conobj, "Car", "Yes");
+            Car Name: <?php echo $carname; ?>
+            <hr>
+            Car Model <?php echo $carmodel; ?>
+            <hr>
+            Sit Count: <?php echo $sitcount; ?>
+            <hr>
+            Availablity: <?php echo $availablity; ?>
+            <br>
 
-            if ($userQuery->num_rows > 0) {
-
-                while ($row = $userQuery->fetch_assoc()) {
-                    $carname = $row['carname'];
-                    $carmodel = $row['carmodel'];
-                    $sitcount = $row['sitcount'];
-                    $availablity = $row['availability'];
-                    echo "<table><tr><th>Car Name</th><th>Model</th><th>Sit Count</th><th>Availability</th><th>Action</th></tr>";
-                    // output data of each row
-                    while ($row = $userQuery->fetch_assoc()) {
-                        echo "<tr><td>" . $row["carname"] . "</td><td>" . $row["carmodel"] . "</td><td>" . $row["sitcount"] . "</td><td>" . $row["availability"] . "</td><td>" . '<a href="Request.php?carname=' . $row["carname"] . '">Request</a>' . "</td></tr>";
-                    }
-                    echo "</table>";
-                    $_SESSION["email"] = $row['carname'];
-                }
-            } else {
-                echo "0 results";
-            }
-
-
-            ?>
         </div>
     </section>
+    <section class="right">
+        <h1>Do you want to Request it?</h1>
+        <div class="container">
+            <a href="UpdateVendor.php">Update </a>
+            <a href="UpdateVendor.php">Cancel </a>
+        </div>
+    </section>
+
+
     <!-- main -->
     <!-- footer -->
     <footer>
@@ -83,9 +106,6 @@
     </footer>
     <!-- footer -->
     <script src="https://kit.fontawesome.com/2065a5e896.js" crossorigin="anonymous"></script>
-</body>
-
-</html>
 </body>
 
 </html>

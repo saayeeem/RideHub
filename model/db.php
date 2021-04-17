@@ -174,9 +174,9 @@ VALUES('$carname','$carm','$scount','$carphoto','$availability')";
             }
         }
 
-        function ShowRequestedCar($conn, $table, $availability)
+        function ShowRequestedCar($conn, $table, $name)
         {
-            $result = $conn->query("SELECT * FROM $table  WHERE availability= '$availability'");
+            $result = $conn->query("SELECT * FROM $table  WHERE carname= '$name'");
             return $result;
         }
         function ShowAvailableCar($conn, $table, $availability)
