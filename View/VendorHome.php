@@ -53,7 +53,7 @@ if (empty($_SESSION["email"])) {
                 </div>
                 <div class="post post-right">
                     <img src="Pictures/img4.png" alt="show car">
-                    <div class="tag"><a href="RequestedCar.php">Requested Car</a></div>
+                    <div class="tag"><a href="RequestedCarVendor.php">Requested Car</a></div>
                 </div>
             </div>
         </div>

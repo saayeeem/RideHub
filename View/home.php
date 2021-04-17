@@ -1,22 +1,3 @@
-<?php
-require('../Control/ValidationLogin.php');
-if (isset($_SESSION['type']) == "Customer") {
-    header("Location: CustomerHome.php");
-    return;
-}
-if (isset($_SESSION['type']) == "Admin") {
-    header("Location: AdminHome.php");
-    return;
-}
-if (isset($_SESSION['type']) == "Vendor") {
-    header("Location: VendorHome.php");
-    return;
-}
-if (isset($_SESSION['type']) == "Vendor") {
-    header("Location: DriverHome.php");
-    return;
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 

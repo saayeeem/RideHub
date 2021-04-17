@@ -187,7 +187,7 @@ VALUES('$carname','$carm','$scount','$carphoto','$availability')";
         function InsertCarRequest($conn, $table, $carname, $carm, $scount, $status)
         {
             $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,status)
-VALUES('$carname','$carm','$scount',$status)";
+VALUES('$carname','$carm','$scount','$status')";
 
             if ($conn->query($result) === TRUE) {
                 return $result;

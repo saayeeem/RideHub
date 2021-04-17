@@ -1,12 +1,3 @@
-<?php
-session_start();
-if (!isset($_SESSION['email'])) {
-    header("Location: login.php");
-    return;
-}
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,26 +13,44 @@ if (!isset($_SESSION['email'])) {
 <body>
     <div class="header">
         <h1>Welcome To RideHub</h1>
-        <h2>Customer Home</h2>
+        <h2>Customer Requested Cars</h2>
     </div>
     <nav>
         <a href="CustomerHome.php">Home</a> |
         <a href="CustomerProfile.php">My Profile</a> |
         <a href="logout.php">Log Out</a>
     </nav>
+
     <!-- main  -->
     <section class="pad-70">
         <div class="container">
-            <div class="row">
-                <div class="post post-left">
-                    <img src="Pictures/img3.jpg" alt="show car">
-                    <div class="tag"> <a href="Showcar.php">Show Car</a></div>
-                </div>
-                <div class="post post-right">
-                    <img src="Pictures/img4.png" alt="show car">
-                    <div class="tag"> <a href="RequestedCarUser.php">Requested Car</a></div>
-                </div>
-            </div>
+            <?php
+            session_start();
+            include('../model/db.php');
+            $connection = new db();
+            $conobj = $connection->OpenCon();
+            $userQuery = $connection->Show($conobj, "requested_car");
+            if ($userQuery->num_rows > 0) {
+
+                echo "<table><tr><th>Name</th><th>Model</th><th>Sit Count</th><th>Status</th></tr>";
+                // output data of each row
+                while ($row = $userQuery->fetch_assoc()) {
+                    echo "<tr><td>";
+                    echo (htmlentities($row['carname']));
+                    echo ("</td><td>");
+                    echo (htmlentities($row['carmodel']));
+                    echo ("</td><td>");
+                    echo (htmlentities($row['sitcount']));
+                    echo ("</td><td>");
+                    echo (htmlentities($row['status']));
+                    echo ("</td></tr>\n");
+                }
+                echo "</table>";
+            } else {
+                echo "0 results";
+            }
+            $connection->CloseCon($conobj);
+            ?>
         </div>
     </section>
     <!-- main  -->
