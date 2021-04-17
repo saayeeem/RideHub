@@ -12,7 +12,7 @@ if (isset($_SESSION['type']) == "Vendor") {
     header("Location: VendorHome.php");
     return;
 }
-if (isset($_SESSION['type']) == "Vendor") {
+if (isset($_SESSION['type']) == "Driver") {
     header("Location: DriverHome.php");
     return;
 }

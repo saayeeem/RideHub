@@ -1,17 +1,20 @@
 <?php
-include('../control/ValidationLogin.php');
-if ($_SESSION["type"] == "vendor") {
-    $_SESSION["type"] = $type;
-    header('Location: VendorHome.php');
-} else if ($_SESSION["type"] == "customer") {
-    $_SESSION["type"] = $type;
-    header('Location: CustomerHome.php');
-} else if ($_SESSION["type"] == "driver") {
-    $_SESSION["type"] = $type;
-    header('Location: DriverHome.php');
-} else if ($_SESSION["type"] == "Admin") {
-    $_SESSION["type"] = $type;
-    header('Location: AdminHome.php');
+require('../Control/ValidationLogin.php');
+if (isset($_SESSION['type']) == "Customer") {
+    header("Location: CustomerHome.php");
+    return;
+}
+if (isset($_SESSION['type']) == "Admin") {
+    header("Location: AdminHome.php");
+    return;
+}
+if (isset($_SESSION['type']) == "Vendor") {
+    header("Location: VendorHome.php");
+    return;
+}
+if (isset($_SESSION['type']) == "Vendor") {
+    header("Location: DriverHome.php");
+    return;
 }
 ?>
 <!DOCTYPE html>

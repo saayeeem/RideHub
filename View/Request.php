@@ -9,14 +9,7 @@ if (isset($_POST['cancel'])) {
     header("Location: CustomerHome.php");
     return;
 }
-if (isset($_POST['update']) && isset($_POST['carname'])) {
-    $connection = new db();
-    $conobj = $connection->OpenCon();
-    $connection->InsertCarRequest($conn, $table, $carname, $carmodel, $sitcount, $carphoto, "Requested");
-    $connection->CloseCon($conobj);
-    header("Location: CustomerHome.php");
-    return;
-}
+
 // Guardian: Make sure that pcar name is present
 if (!isset($_GET['carname'])) {
     $_SESSION['error'] = "Missing car name";
@@ -36,7 +29,14 @@ if ($userQuery->num_rows > 0) {
         $carmodel = $row['carmodel'];
         $sitcount = $row['sitcount'];
         $availablity = $row['availability'];
-        $carphoto = $row['carphoto'];
+    }
+    if (isset($_POST['update']) && isset($_GET['carname'])) {
+        $connection = new db();
+        $conobj = $connection->OpenCon();
+        $connection->InsertCarRequest($conobj, "requested_car", $carname, $carmodel, $sitcount, "Requested");
+        $connection->CloseCon($conobj);
+        header("Location: CustomerHome.php");
+        return;
     }
 } else {
     echo "0 results";
@@ -94,7 +94,7 @@ $connection->CloseCon($conobj);
             <form action='' method='post'>
                 <div class="form-row">
                     <div class="form-group">
-                        <input type="submit" value="Update" name="update" class="btn btn-lg btn-primary btn-submit">
+                        <input type="submit" value="Request" name="update" class="btn btn-lg btn-primary btn-submit">
                         <input type="submit" value="Cancel" name="cancel" class="btn btn-lg btn-primary btn-submit">
                     </div>
                 </div>
