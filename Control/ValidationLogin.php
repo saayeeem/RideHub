@@ -3,7 +3,7 @@ session_start();
 include('../model/db.php');
 
 
-$msg = "";
+$error = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $email = $_REQUEST["email"];
@@ -14,12 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     if (empty($email) || empty($pass) || empty($type)) {
-        $msg = "All fields are required";
+        $error = "All fields are required";
     } else if (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email)) {
 
-        $msg = "Email address must contain @";
+        $error = "Email address must contain @";
     } else if (!preg_match("/[0-9]/", $pass) || ((strlen($pass)) < 4)) {
-        $msg = "Password Should be numeric and 4 words";
+        $error = "Password Should be numeric and 4 words";
     } else {
         if ($type == "Admin") {
             header('Location: AdminHome.php');
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else if ($type == "Driver") {
             header('Location: DriverHome.php');
         } else {
-            $msg = "Type is invalid";
+            $error = "Type is invalid";
         }
         $_SESSION["email"] = $email;
         $_SESSION["pass"] = $pass;
