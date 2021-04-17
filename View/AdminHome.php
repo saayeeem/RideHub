@@ -37,21 +37,21 @@ if (empty($_SESSION["email"])) {
         <div class="container">
             <div class="row">
                 <div class="post post-left">
-                    <img src="../View/Pictures/img1.jpeg" alt="add driver">
+                    <img src="../View/Pictures/img5.jpg" alt="add driver">
                     <div class="tag"><a href="AllDriver.php">Registered Driver</a></div>
                 </div>
                 <div class="post post-right">
-                    <img src="../View/Pictures/img2.jpg" alt="add car">
-                    <div class="tag"> <a href="Showcar.php">Registered Cars</a></div>
+                    <img src="../View/Pictures/img7.jpg" alt="Registed Car">
+                    <div class="tag"> <a href="AllCars.php">Registered Cars</a></div>
                 </div>
             </div>
             <div class="row">
                 <div class="post post-left">
-                    <img src="Pictures/img3.jpg" alt="show car">
+                    <img src="Pictures/img8.jpg" alt="vendor">
                     <div class="tag"><a href="AllVendor.php">Registered Vendors</a></div>
                 </div>
                 <div class="post post-right">
-                    <img src="Pictures/img4.png" alt="show car">
+                    <img src="Pictures/img6.png" alt="show car">
                     <div class="tag"><a href="AllUser.php">Registered Customers</a></div>
                 </div>
             </div>
