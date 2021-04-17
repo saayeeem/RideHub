@@ -44,7 +44,7 @@
                     echo "<table><tr><th>Car Name</th><th>Model</th><th>Sit Count</th><th>Availability</th><th>Action</th></tr>";
                     // output data of each row
                     while ($row = $userQuery->fetch_assoc()) {
-                        echo "<tr><td>" . $row["carname"] . "</td><td>" . $row["carmodel"] . "</td><td>" . $row["sitcount"] . "</td><td>" . $row["availability"] . "</td><td>" . '<a href="AdminHome.php">Request</a>' . "</td></tr>";
+                        echo "<tr><td>" . $row["carname"] . "</td><td>" . $row["carmodel"] . "</td><td>" . $row["sitcount"] . "</td><td>" . $row["availability"] . "</td><td>" . '<a href="AdminHome.php?carname=' . $row["carname"] . '">Request</a>' . "</td></tr>";
                     }
                     echo "</table>";
                 }

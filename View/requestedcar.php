@@ -32,8 +32,8 @@
             echo ("</td><td>");
             echo (htmlentities($row['status']));
             echo ("</td><td>");
-            echo ('<a href="AdminHome.php">' . 'Edit</a> / ');
-            echo ('<a href="AdminHome.php">' . 'Delete</a> ');
+            echo ('<a href="AdminHome.php">Edit</a> / ');
+            echo ('<a href="AdminHome.php">Delete</a> ');
             echo ("</td></tr>\n");
         }
         echo "</table>";
