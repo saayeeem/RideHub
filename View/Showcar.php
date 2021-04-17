@@ -32,7 +32,6 @@
             include('../model/db.php');
             $connection = new db();
             $conobj = $connection->OpenCon();
-            $result = $connection->ShowAvailable($conobj, "Car", "Yes");
             $userQuery = $connection->ShowAvailableCar($conobj, "Car", "Yes");
 
             if ($userQuery->num_rows > 0) {

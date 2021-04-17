@@ -174,13 +174,10 @@ VALUES('$carname','$carm','$scount','$carphoto','$availability')";
             }
         }
 
-        function ShowAvailable($conn, $table, $availability)
+        function ShowRequestedCar($conn, $table, $availability)
         {
             $result = $conn->query("SELECT * FROM $table  WHERE availability= '$availability'");
-
-            while ($row = mysqli_fetch_array($result)) {
-                echo '<img height ="300" width = "300" src="data:image;base64, ' . $row[4] . '">';
-            }
+            return $result;
         }
         function ShowAvailableCar($conn, $table, $availability)
         {

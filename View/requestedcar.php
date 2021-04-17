@@ -5,9 +5,9 @@
         <a href="home.php">Home</a> |
         <a href="logout.php">Log Out</a>
     </nav>
-    <h1>
-        <center>Your Cars Available</center>
-    </h1>
+
+    <h1>Your Requested Cars </h1>
+
 
 
     <?php
@@ -15,9 +15,8 @@
     include('../model/db.php');
     $connection = new db();
     $conobj = $connection->OpenCon();
-    $connection->ShowAvailable($conobj, "requested_car", "Yes");
-
-    $userQuery = $connection->ShowAvailableCar($conobj, "Car", "Yes");
+    $connection->Show($conobj, "requested_car");
+    $userQuery = $connection->Show($conobj, "requested_car");
 
     if ($userQuery->num_rows > 0) {
 
@@ -33,7 +32,8 @@
             echo ("</td><td>");
             echo (htmlentities($row['status']));
             echo ("</td><td>");
-            echo (' <input type="submit" name="request" value="Request">');
+            echo ('<a href="AdminHome.php">' . 'Edit</a> / ');
+            echo ('<a href="AdminHome.php">' . 'Delete</a> ');
             echo ("</td></tr>\n");
         }
         echo "</table>";

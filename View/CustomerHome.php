@@ -32,7 +32,11 @@ if (empty($_SESSION["email"])) {
             <div class="row">
                 <div class="post post-left">
                     <img src="Pictures/img3.jpg" alt="show car">
-                    <div class="tag"> <a href=" Showcar.php">Show Car</a></div>
+                    <div class="tag"> <a href="Showcar.php">Show Car</a></div>
+                </div>
+                <div class="post post-right">
+                    <img src="Pictures/img4.png" alt="show car">
+                    <div class="tag"> <a href="RequestedCar.php">Requested Car</a></div>
                 </div>
             </div>
         </div>
