@@ -63,7 +63,7 @@ section{
 
 }
 .header {
-    background-color: #f1f1f1;
+    background-color: #f2f2f2;
     padding: 20px;
     text-align: center;
 }
@@ -76,14 +76,14 @@ section{
     width: 80%;
     display: inline-block;
     font-size: 125%;
-    background: #ffffff;
+    background:#f2f2f2;
     margin-bottom: 2%;
     text-align: left;
     font-family: "Times New Roman", Times, serif;
 
 }
 .left {
-    background-color: #808000;
+    background-color: #f2f2f2;
     padding: 1%;
     width: 15%;
     margin-right: 2%;
@@ -114,8 +114,8 @@ section{
 
 .form-control{
     width: 100%;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: #f2f2f2;
+    border: 1px solid rgba(221, 221, 221, 0.089);
     height: 30px;
     padding: 13px;
     font-family: "Open Sans", sans-serif;
@@ -140,8 +140,8 @@ section{
 }
 
 .btn-primary {
-    background-color: #39c9da;
-    color: #fff;
+    background-color: #3aafa9;
+    color: #f2f2f2;
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 600;
@@ -200,18 +200,19 @@ tr:hover td {
 }
 a {
     display: block;
-    background-color: #10e46c;
-    color: #353535;
+    background-color: #0C504B;
+    color: #f5f5f5;
     text-align: center;
     padding: 10px 10px;
     text-decoration: none;
     margin: auto;
     margin-bottom: 2%;
-    width: 35%;
+    width: 60%;
+    
 }
 a:hover {
-    background-color: #00ad79;
-    color: #615c5c;
+   background-color: #ffffff;
+   color: #15333a;
 
 }
 /* main */
@@ -245,8 +246,9 @@ a:hover {
 /* main */
 /*footer start*/
 footer {
-    background-color: #f0f0f0;
+    background-color: #f2f2f2d7;
     padding: 20px 0;
+    
 }
 
 .footer-menu {
@@ -264,7 +266,8 @@ footer {
 }
 
 .footer-menu li a {
-    color: #444;
+    color: #98c4ce;
+    font-size: medium;
     font-weight: bold;
     text-decoration: none;
 
