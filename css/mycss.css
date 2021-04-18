@@ -140,7 +140,7 @@ section{
 }
 
 .btn-primary {
-    background-color: #3aafa9;
+    background-color: #1c7e79;
     color: #f2f2f2;
     text-transform: uppercase;
     font-size: 16px;
@@ -149,7 +149,8 @@ section{
 }
 
 .btn-primary:hover {
-    background-color: #046d79;
+    background-color: #b6dce0;
+    color: #1a1616;
 }
 /* Change color on hover */
 
@@ -266,7 +267,7 @@ footer {
 }
 
 .footer-menu li a {
-    color: #98c4ce;
+    color: #368a9c;
     font-size: medium;
     font-weight: bold;
     text-decoration: none;
