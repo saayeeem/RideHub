@@ -13,7 +13,7 @@
 <body>
     <div class="header">
         <h1>Welcome To RideHub</h1>
-        <h2>Customer Requested Cars</h2>
+        <h2> Requested Cars</h2>
     </div>
     <nav>
         <a href="CustomerHome.php">Home</a> |
@@ -32,7 +32,7 @@
             $userQuery = $connection->Show($conobj, "requested_car");
             if ($userQuery->num_rows > 0) {
 
-                echo "<table><tr><th>Name</th><th>Model</th><th>Sit Count</th><th>Status</th></tr>";
+                echo "<table><tr><th>Name</th><th>Model</th><th>Sit Count</th><th>Fare/Hour</th><th>Status</th></tr>";
                 // output data of each row
                 while ($row = $userQuery->fetch_assoc()) {
                     echo "<tr><td>";
@@ -42,8 +42,12 @@
                     echo ("</td><td>");
                     echo (htmlentities($row['sitcount']));
                     echo ("</td><td>");
+                    echo (htmlentities($row['fareperh']));
+                    echo ("</td><td>");
                     echo (htmlentities($row['status']));
                     echo ("</td></tr>\n");
+
+
                 }
                 echo "</table>";
             } else {

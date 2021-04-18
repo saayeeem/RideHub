@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/mycss.css">
-    <title>Customer Home</title>
+    <title>Vendor Home</title>
 </head>
 
 
 <body>
     <div class="header">
         <h1>Welcome To RideHub</h1>
-        <h2>Customer Requested Cars</h2>
+        <h2>Customers Requested Cars</h2>
     </div>
     <nav>
-        <a href="CustomerHome.php">Home</a> |
-        <a href="CustomerProfile.php">My Profile</a> |
+        <a href="VendorHome.php">Home</a> |
+        <a href="VendorProfile.php">My Profile</a> |
         <a href="logout.php">Log Out</a>
     </nav>
 
@@ -32,7 +32,7 @@
             $userQuery = $connection->Show($conobj, "requested_car");
             if ($userQuery->num_rows > 0) {
 
-                echo "<table><tr><th>Name</th><th>Model</th><th>Sit Count</th><th>Status</th><th>Action</th></tr>";
+                echo "<table><tr><th>Name</th><th>Model</th><th>Sit Count</th><th>Fare/Hour</th><th>Status</th><th>Action</th></tr>";
                 // output data of each row
                 while ($row = $userQuery->fetch_assoc()) {
                     echo "<tr><td>";
@@ -42,10 +42,12 @@
                     echo ("</td><td>");
                     echo (htmlentities($row['sitcount']));
                     echo ("</td><td>");
+                    echo (htmlentities($row['fareperh']));
+                    echo ("</td><td>");
                     echo (htmlentities($row['status']));
                     echo ("</td><td>");
-                    echo ('<a href="Home.php">Edit</a> / ');
-                    echo ('<a href="Home.php">Delete</a> ');
+                    echo ('<a href="Home.php">Confirm</a> / ');
+                    echo ('<a href="Home.php">Cancel</a> ');
                     echo ("</td></tr>\n");
                 }
                 echo "</table>";
