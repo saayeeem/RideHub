@@ -21,7 +21,7 @@ include('../Control/ValidateCar.php');
     </nav>
 
     <h1>
-        <center>Car Add</center>
+        <center>Car Add </center>
     </h1>
     <p> <img src="Pictures/car_mg.gif" alt="Home">
     </p>
@@ -29,57 +29,38 @@ include('../Control/ValidateCar.php');
 
     <?php echo "$msg"; ?>
     <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" enctype="multipart/form-data">
-        <table>
+    <section class="pad-70">
+        <div class="container">
+            <form action='' method='post'>
+                <div class="form-row">
+                    <div class="form-group">
+                       Car Name:
+                        <input type="text" name="carname" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        Car Model:
+                        <input type="text" name="carm"  class="form-control">
+                    </div>
+                    <div class="form-group">
+                        sit Count:
+                        <input type="text" name="scount"  class="form-control">
+                    </div>
+                    <div class="form-group">
+                        Upload Car Photo:
+                        <input type="file" name="carphptp" class="form-control">
+                    </div>
+                   
+                    <div class="form-group">
+                        <input type="submit" value="Update" name="update" class="btn btn-lg btn-primary btn-submit">
+                    </div>
+                    <div class="form-group">
+                        <input type="reset" value="reset" name="reset" class="btn btn-lg btn-primary btn-submit">
+                    </div>
+                </div>
 
-            <tr>
-                <td>
-                    Car Name:
-                </td>
-                <td>
-                    <input type="text" name="carname">
-
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    Car Model:
-                </td>
-                <td>
-                    <input type="text" name="carm">
-
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    Sit Count:
-                </td>
-                <td>
-                    <input type="text" name="scount">
-
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Upload Car Photo:
-                </td>
-                <td>
-                    <input type="file" name="carphoto">
-
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="submit" name="submit" value="Submit">
-                    <input type="reset" value="Reset">
-
-
-                </td>
-            </tr>
-
-
-        </table>
+            </form>
+        </div>
+    </section>
     </form>
 </body>
 
