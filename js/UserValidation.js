@@ -52,8 +52,8 @@ function validateLoginForm() {
     error.innerHTML="Email format is not correct";
     return false; 
   }
-    else if (pass.length < 8) {
-    error.innerHTML = "Password should be 8 characters long";
+    else if (pass.length < 4) {
+    error.innerHTML = "Password should be 4 characters long";
     return false;
 }
 

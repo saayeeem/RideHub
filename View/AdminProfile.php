@@ -1,3 +1,27 @@
+<?php
+
+require('../control/ValidationLogin.php');
+$email = $_SESSION["email"];
+
+$connection = new db();
+$conobj = $connection->OpenCon();
+
+$userQuery = $connection->ShowAll($conobj, "Admin", $email);
+
+if ($userQuery->num_rows > 0) {
+
+    while ($row = $userQuery->fetch_assoc()) {
+        $name = $row['name'];
+        $email = $row['email'];
+        $address = $row['address'];
+        $phone = $row['phone'];
+    }
+} else {
+    echo "0 results";
+}
+$connection->CloseCon($conobj);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,36 +29,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/mycss.css">
-    <title>Home</title>
+    <link rel="stylesheet" href="../css/mycss.css">
+    <title>Vendor Profile</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap"
+        rel="stylesheet">
+
+
 </head>
 
 <body>
+
     <div class="header">
         <h1>Welcome To RideHub</h1>
-        <h2>Home</h2>
+        <h2>Admin Profile</h2>
     </div>
+
     <nav>
-        <a href="home.php">Home</a>
-        <a href="home.php">About Us</a>
-        <a href="home.php">Profile</a>
-        <a href="home.php">Cars</a>
+
+        <a href="AdminHome.php">Home</a> |
+        <a href="AdminProfile.php">My Profile</a> |
+        <a href="logout.php">Log Out</a>
     </nav>
-    <p><img src="Pictures/home.jpg" alt="Home" class="center"></p>
+
+    <!-- main -->
+    <p><img src="Pictures/admin.jpg" alt="Home"></p>
     <section class="pad-70 right">
         <div class="container">
-            <h2>Returning User?</h2>
-
-            <a class="div" href="login.php">Login Now!!</a>
+            Name: <?php echo $name; ?>
+            <hr>
+            Email: <?php echo $email; ?>
+            <hr>
+            Address: <?php echo $address; ?>
+            <hr>
+            Phone Number: <?php echo $phone; ?>
             <br>
-
-            <h2>Explore our World</h2>
-            <a class="div" href=" RegisterHome.php">Register with us</a>
+            <a href="UpdateVendor.php">Update </a>
         </div>
     </section>
 
-
-
+    <!-- main -->
     <!-- footer -->
     <footer>
         <div class="container footer-wrap">

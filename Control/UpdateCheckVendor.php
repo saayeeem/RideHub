@@ -2,32 +2,23 @@
 include('../model/db.php');
 
 
- $error="";
+$error = "";
 
-if (isset($_POST['update']))
- {
+if (isset($_POST['update'])) {
 
-if (empty($_POST['name']) ) {
+    if (empty($_POST['name'])) {
 
 
-echo  "input given is invalid";
-}
-else
-{
-$connection = new db();
-$conobj=$connection->OpenCon();
-echo $_SESSION["email"];
-echo $_SESSION["pass"];
-$userQuery=$connection->UpdateVendor($conobj,"vendor",$_POST['name'],$_SESSION["email"],$_SESSION["pass"],$_POST['phone'],$_POST['address']);
-if($userQuery==TRUE)
-{
-    echo "update successful";
-}
-else
-{
-    echo "could not update";
-}
-$connection->CloseCon($conobj);
-
-}
+        echo  "input given is invalid";
+    } else {
+        $connection = new db();
+        $conobj = $connection->OpenCon();
+        $userQuery = $connection->UpdateVendor($conobj, "vendor", $_POST['name'], $_SESSION["email"], $_POST["pass"], $_POST['address'], $_POST['phone']);
+        if ($userQuery == TRUE) {
+            $error = "update successful";
+        } else {
+            $error = "could not update";
+        }
+        $connection->CloseCon($conobj);
+    }
 }

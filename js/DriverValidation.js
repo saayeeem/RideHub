@@ -9,21 +9,25 @@ function validateUserForm() {
     var error = document.getElementById("error");
     var address = document.getElementById("address");
     var pattem = /^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/;
-    var pattdl=/^([0-9])*$/;
+    var pattdl = /^([0-9])*$/;
     var resem = pattem.test(email);
-      var resdl = pattdl.test(dlicense);
-    console.log("print...")
+    var resdl = pattdl.test(dlicense);
     if (name == "" || email == "" || phone == "" || pass == "" || cpass == "" || birthday == "" || address == "") {
-        error.innerHTML = "ALL fields required js";
+        error.innerHTML = "All fields are required ";
         return false;
     }
     else if (!isNaN(name)) {
-      error.innerHTML = "User Name should be start with string";
+        error.innerHTML = "User Name should be string";
         return false;
     }
     else if (name.length < 5) {
         error.innerHTML = "Driver Name should be 5 characters long";
         return false;
+    }
+    else if (phone < 11) {
+        error.innerHTML = "Invalid Phone Number";
+        return false;
+
     }
     else if (!resem) {
         error.innerHTML = "Email format is not correct";

@@ -1,5 +1,5 @@
 function validateUserForm() {
-    var name = document.getElementById("cname").value;
+    var name = document.getElementById("name").value;
     var email = document.getElementById("email").value;
     var phone = document.getElementById("phone").value;
     var tradel = document.getElementById("tradel").value;
@@ -9,7 +9,7 @@ function validateUserForm() {
     var address = document.getElementById("address");
     var patt = /^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/;
     var res = patt.test(email);
-    console.log("print...")
+   
     if (name == "" || email == "" || phone == "" || pass == "" || cpass == "" || birthday == "" || address == "") {
         error.innerHTML = "ALL fields required js";
         return false;

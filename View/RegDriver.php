@@ -1,3 +1,12 @@
+
+<?php
+session_start();
+if(empty($_SESSION["email"]))
+{
+header("Location: ../control/login.php"); // Redirecting To Home Page
+}
+
+?>
 <?php
 include('../Control/validdriver.php');
 ?>
@@ -32,8 +41,7 @@ include('../Control/validdriver.php');
                     <?php echo "$msg"; ?>
                     <p id="error">
 
-                    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()"
-                        method="post">
+                    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()" method="post">
                         <table>
 
                             <tr>
@@ -51,7 +59,7 @@ include('../Control/validdriver.php');
                                     Email:
                                 </td>
                                 <td>
-                                    <input type="email" id="email" name="email">
+                                    <input type="text" id="email" name="email">
 
                                 </td>
                             </tr>

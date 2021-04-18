@@ -1,24 +1,47 @@
 <?php
-
 require('../control/ValidationLogin.php');
-$email = $_SESSION["email"];
+if (!isset($_SESSION['email'])) {
+    die('Not logged in');
+}
 
+if (isset($_POST['cancel'])) {
+    // Redirect the browser to CustomerHome.php
+    header("Location: CustomerHome.php");
+    return;
+}
+
+// Guardian: Make sure that pcar name is present
+if (!isset($_GET['carname'])) {
+    $_SESSION['error'] = "Missing car name";
+    header('Location: CustomerHome.php');
+    return;
+}
+$name = $_GET['carname'];
 $connection = new db();
 $conobj = $connection->OpenCon();
 
-$userQuery = $connection->ShowAll($conobj, "Customer", $email);
+$userQuery = $connection->ShowRequestedCar($conobj, "Car", $name);
 
 if ($userQuery->num_rows > 0) {
 
     while ($row = $userQuery->fetch_assoc()) {
-        $name = $row['name'];
-        $email = $row['email'];
-        $address = $row['address'];
-        $phone = $row['phone'];
+        $carname = $row['carname'];
+        $carmodel = $row['carmodel'];
+        $sitcount = $row['sitcount'];
+        $availablity = $row['availability'];
+    }
+    if (isset($_POST['update']) && isset($_GET['carname'])) {
+        $connection = new db();
+        $conobj = $connection->OpenCon();
+        $connection->InsertCarRequest($conobj, "requested_car", $carname, $carmodel, $sitcount, "Requested");
+        $connection->CloseCon($conobj);
+        header("Location: CustomerHome.php");
+        return;
     }
 } else {
     echo "0 results";
 }
+
 $connection->CloseCon($conobj);
 ?>
 
@@ -41,7 +64,7 @@ $connection->CloseCon($conobj);
 
     <div class="header">
         <h1>Welcome To RideHub</h1>
-        <h2>Customer Profile</h2>
+        <h2>Car Request</h2>
     </div>
 
     <nav>
@@ -51,22 +74,38 @@ $connection->CloseCon($conobj);
         <a href="logout.php">Log Out</a>
     </nav>
 
-    <p><img src="Pictures/customer.png" alt="Home"></p>
-
-
+    <p><img src="Pictures/home.jpg" alt="Home"></p>
+    <!-- main -->
     <section class="pad-70 right">
         <div class="container">
-            Name: <?php echo $name; ?>
+            Car Name: <?php echo $carname; ?>
             <hr>
-            Email: <?php echo $email; ?>
+            Car Model <?php echo $carmodel; ?>
             <hr>
-            Address: <?php echo $address; ?>
+            Sit Count: <?php echo $sitcount; ?>
             <hr>
-            Phone Number: <?php echo $phone; ?>
+            Availablity: <?php echo $availablity; ?>
             <br>
-            <a href="UpdateVendor.php">Update </a>
+
         </div>
     </section>
+    <section class="pad-70">
+        <div class="container">
+            <form action='' method='post'>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="submit" value="Request" name="update" class="btn btn-lg btn-primary btn-submit">
+                        <input type="submit" value="Cancel" name="cancel" class="btn btn-lg btn-primary btn-submit">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+
+    <!-- main -->
+    <!-- footer -->
     <footer>
         <div class="container footer-wrap">
             <div class="footer-left">
@@ -89,6 +128,7 @@ $connection->CloseCon($conobj);
 
 
     </footer>
+    <!-- footer -->
     <script src="https://kit.fontawesome.com/2065a5e896.js" crossorigin="anonymous"></script>
 </body>
 

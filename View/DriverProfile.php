@@ -1,3 +1,27 @@
+<?php
+
+require('../control/ValidationLogin.php');
+$email = $_SESSION["email"];
+
+$connection = new db();
+$conobj = $connection->OpenCon();
+
+$userQuery = $connection->ShowAll($conobj, "Driver", $email);
+
+if ($userQuery->num_rows > 0) {
+
+    while ($row = $userQuery->fetch_assoc()) {
+        $name = $row['name'];
+        $email = $row['email'];
+        $address = $row['address'];
+        $phone = $row['phone'];
+    }
+} else {
+    echo "0 results";
+}
+$connection->CloseCon($conobj);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,63 +29,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/driver.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/mycss.css">
+    <title>Driver Profile</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap"
+        rel="stylesheet">
+
+
 </head>
+
 <body>
-  
+
     <div class="header">
-  <h1>Driver Profile</h1>
-  </div>
+        <h1>Welcome To RideHub</h1>
+        <h2>Driver Profile</h2>
+    </div>
 
-  <div class="topnav">
     <nav>
-
-    <?php
-    include('../View/MenuFooter.php');
-
-
-    ?>
-
-    <nav class="topnav">
 
         <a href="DriverHome.php">Home</a> |
         <a href="DriverProfile.php">My Profile</a> |
         <a href="logout.php">Log Out</a>
-
     </nav>
 
+    <p><img src="Pictures/driver.jpg" alt="Home"></p>
 
-   <div class="pic">
-    <p><img src="Pictures/driver1.jpg" alt="Home"></p>
-    </div>
+    <section class="pad-70 right">
+        <div class="container">
+            Name: <?php echo $name; ?>
+            <hr>
+            Email: <?php echo $email; ?>
+            <hr>
+            Address: <?php echo $address; ?>
+            <hr>
+            Phone Number: <?php echo $phone; ?>
+            <br>
+            <a href="UpdateVendor.php">Update </a>
+        </div>
+    </section>
+    <footer>
+        <div class="container footer-wrap">
+            <div class="footer-left">
+                <ul class="footer-menu">
+                    <li><a href="">Terms and Conditions</a></li>
+                    <li><a href="">Privacy</a></li>
+                </ul>
+
+            </div>
+            <div class="footer-right">
+                <ul class="footer-menu">
+                    <li><a href="">Follow</a></li>
+                    <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                    <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
+
+                </ul>
+            </div>
+        </div>
 
 
-
-    <?php
-
-    require('../control/ValidationLogin.php');
-    $email = $_SESSION["email"];
-    echo "Driver Profile" . "<br>";
-
-    $connection = new db();
-    $conobj = $connection->OpenCon();
-    $connection->ShowAll($conobj, "Driver", $email);
-
-    $userQuery = $connection->ShowAll($conobj, "Driver", $email);
-
-    if ($userQuery->num_rows > 0) {
-        echo "<table><tr><th>Name</th><th>Email</th><th>Address</th><th>Phone</th></tr>";
-        // output data of each row
-        while ($row = $userQuery->fetch_assoc()) {
-            echo "<tr><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td><td>" . $row["address"] . "</td><td>" . $row["phone"] . "</td></tr>";
-        }
-        echo "</table>";
-    } else {
-        echo "0 results";
-    }
-    $connection->CloseCon($conobj);
-    ?>
+    </footer>
+    <script src="https://kit.fontawesome.com/2065a5e896.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

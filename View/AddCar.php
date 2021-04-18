@@ -1,4 +1,13 @@
 <?php
+session_start();
+if(empty($_SESSION["email"]))
+{
+header("Location: ../control/login.php"); // Redirecting To Home Page
+}
+
+?>
+
+<?php
 include('../Control/ValidateCar.php');
 ?>
 
