@@ -34,7 +34,7 @@
      </nav>
 
      <section class="pad-70">
-         <div class="container">
+         <div class="container log-form-pos">
              <h1>Login</h1>
              <img src=" Pictures/login1.jpg" alt="login">
              <?php

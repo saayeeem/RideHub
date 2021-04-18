@@ -108,6 +108,7 @@ VALUES('$carname','$carm','$scount','$carphoto','$availability')";
 
         function ValidateLogin($conn, $table, $email, $password, $type)
         {
+
             $result = $conn->query("SELECT email,password,type FROM $table WHERE email='$email' and password = '$password' and type = '$type'");
             #if ($conn->query($result) === TRUE) {
             //echo "Login Successfully";

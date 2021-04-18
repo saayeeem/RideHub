@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 if(empty($_SESSION["email"]))
@@ -38,10 +37,11 @@ include('../Control/validdriver.php');
                     </h1>
                     <img src="Pictures/driver.jpg" alt="Home" class="center">
 
-                    <?php echo "$msg"; ?>
+                    <?php echo "$error"; ?>
                     <p id="error">
 
-                    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()" method="post">
+                    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()"
+                        method="post">
                         <table>
 
                             <tr>
