@@ -26,12 +26,12 @@
             <div class="row">
                 <div class="post post-left">
 
-                    <img src="Pictures/img3.jpg" alt="show car">
+                    <img src="Pictures/img9.jpg" alt="show car">
                     <h2>Returning User?</h2>
                     <div class="tag"> <a class="div" href="login.php">Login Now!!</a></div>
                 </div>
                 <div class="post post-right">
-                    <img src="Pictures/img4.png" alt="show car">
+                    <img src="Pictures/img10.jpg" alt="show car">
                     <h2>Explore our World</h2>
                     <div class="tag">
                         <a class="div" href="RegisterHome.php">Register with us</a>

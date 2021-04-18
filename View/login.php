@@ -33,10 +33,10 @@
 
      </nav>
 
-     <img src="Pictures/login1.png" alt="login">
      <section class="pad-70">
          <div class="container">
              <h1>Login</h1>
+             <img src=" Pictures/login1.jpg" alt="login">
              <?php
                 // Note triple not equals and think how badly double
                 // not equals would work here...

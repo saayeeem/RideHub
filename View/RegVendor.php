@@ -35,31 +35,31 @@ include('../Control/validvendor.php');
                     <div class="form-row">
                         <div class="form-group">
                             Company Name:
-                            <input type="text" name="name" class="form-control">
+                            <input type="text" id="name" name="name" class="form-control">
                         </div>
                         <div class="form-group">
                             Email:
-                            <input type="text" name="email" class="form-control">
+                            <input type="text" id="email" name="email" class="form-control">
                         </div>
                         <div class="form-group">
                             Phone No:
-                            <input type="text" name="phone" class="form-control">
+                            <input type="text" id="phone" name="phone" class="form-control">
                         </div>
                         <div class="form-group">
                             Trade license No:
-                            <input type="text" name="tradel" class="form-control">
+                            <input type="text" id="tradel" name="tradel" class="form-control">
                         </div>
                         <div class="form-group">
                             Password:
-                            <input type="password" name="pass" class="form-control">
+                            <input type="password" id="pass" name="pass" class="form-control">
                         </div>
                         <div class="form-group">
                             Confirm Password:
-                            <input type="password" name="cpass" class="form-control">
+                            <input type="password" id="cpass" name="cpass" class="form-control">
                         </div>
                         <div class="form-group">
                             Address:
-                            <input type="text" name="address" class="form-control">
+                            <input type="text" id="address" name="address" class="form-control">
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Update" name="update" class="btn btn-lg btn-primary btn-submit">

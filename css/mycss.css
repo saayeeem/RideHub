@@ -207,7 +207,7 @@ a {
     text-decoration: none;
     margin: auto;
     margin-bottom: 2%;
-    width: 60%;
+    width: 15%;
       font-family: "Times New Roman",
       Times,
       serif;
@@ -271,7 +271,7 @@ footer {
 }
 
 .footer-menu li a {
-    
+    width: 60%;
     font-size: medium;
     font-weight: bold;
     text-decoration: none;
