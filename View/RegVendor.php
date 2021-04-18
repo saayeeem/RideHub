@@ -24,144 +24,57 @@ include('../Control/validvendor.php');
         <a href="Home.php">Home</a> |
         <a href="Profile.php">My Profile</a>
     </nav>
-main
-    <div id="page-container">
-        <div id="content-wrap">
-            <div class="bg" id="center">
-                <h1>Vendor Registation Form</h1>
-                <?php echo "$msg"; ?>
-                <p id="error"></p>
-                <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()" method="post">
-     <section class="pad-70">
-
-        <div class="container">
-            <form action='' method='post'>
-                <div class="form-row">
-                    <div class="form-group">
-                      Company Name:
-                        <input type="text" name="name" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        Email:
-                        <input type="text" name="email" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        Phone No:
-                        <input type="text" name="phone"  class="form-control">
-                    </div>
-                    <div class="form-group">
-                        Trade license No:
-                        <input type="text" name="trade1" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        Password:
-                        <input type="password" name="pass" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        Confirm Password:
-                        <input type="password" name="cpass" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        Address:
-                        <input type="text" name="address" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Update" name="update" class="btn btn-lg btn-primary btn-submit">
-                    </div>
-                    <div class="form-group">
-                        <input type="reset" value="reset" name="reset" class="btn btn-lg btn-primary btn-submit">
-                    </div>
-                </div>
-
-            </form>
-        </div>
-    </section>
-                </form>
-            </div>
-
-    <!-- main  -->
-    <section class="pad-70">
+    <!-- main -->
+    <section class="pad-70 form-pos">
         <div class="container">
             <h1>Vendor Registation Form</h1>
             <?php echo "$msg"; ?>
             <p id="error"></p>
             <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()" method="post">
-                <table>
-                    <tr>
-                        <td>
-                            Company name:
-                        </td>
-                        <td>
-                            <input type="text" id="name" name="name">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
+                <section class="pad-70">
+                    <div class="form-row">
+                        <div class="form-group">
+                            Company Name:
+                            <input type="text" name="name" class="form-control">
+                        </div>
+                        <div class="form-group">
                             Email:
-                        </td>
-                        <td>
-                            <input type="text" id="email" name="email">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
+                            <input type="text" name="email" class="form-control">
+                        </div>
+                        <div class="form-group">
                             Phone No:
-                        </td>
-                        <td>
-                            <input type="text" id="phone" name="phone">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
+                            <input type="text" name="phone" class="form-control">
+                        </div>
+                        <div class="form-group">
                             Trade license No:
-                        </td>
-                        <td>
-                            <input type="text" id="tradel" name="tradel">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
+                            <input type="text" name="tradel" class="form-control">
+                        </div>
+                        <div class="form-group">
                             Password:
-                        </td>
-                        <td>
-                            <input type="password" id="pass" name="pass">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
+                            <input type="password" name="pass" class="form-control">
+                        </div>
+                        <div class="form-group">
                             Confirm Password:
-                        </td>
-                        <td>
-                            <input type="password" id="cpass" name="cnpass">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
+                            <input type="password" name="cpass" class="form-control">
+                        </div>
+                        <div class="form-group">
                             Address:
-                        </td>
-                        <td>
-                            <textarea id="address" name="address" rows="3" cols="30"></textarea>
-                        </td>
-                    </tr>
+                            <input type="text" name="address" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Update" name="update" class="btn btn-lg btn-primary btn-submit">
+                        </div>
+                        <div class="form-group">
+                            <input type="reset" value="reset" name="reset" class="btn btn-lg btn-primary btn-submit">
+                        </div>
+                    </div>
 
-                    <tr>
-                        <td>
-                            <input type="submit" value="Submit">
-                            <input type="reset" value="Reset">
-                        </td>
-                    </tr>
-
-
-                </table>
             </form>
-
         </div>
     </section>
 
-    <!-- main -->
+    <!-- main  -->
+
     <!-- footer  -->
     <footer>
         <div class="container footer-wrap">

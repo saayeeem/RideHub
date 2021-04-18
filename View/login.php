@@ -25,7 +25,7 @@
          <h1>Welcome To RideHub</h1>
          <h2>Login</h2>
      </div>
-     <nav class="topnav">
+     <nav>
          <a href="home.php">Home</a>
          <a href="home.php">About Us</a>
          <a href="home.php">Profile</a>

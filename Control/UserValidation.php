@@ -14,7 +14,7 @@ include('../model/db.php');
 
 <body>
     <?php
-    $msg = "";
+    $error = "";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // $cuname = $_REQUEST["cuname"];
         $name = $_REQUEST["name"];
@@ -26,7 +26,7 @@ include('../model/db.php');
         $address = $_REQUEST["address"];
 
         if (empty($name) || empty($email) || empty($phone) || empty($pass) || empty($cpass) || empty($address)) {
-            $msg = "All fields are required";
+            $error = "All fields are required";
         } else if (!preg_match("/[a-zA-Z]$/", $name)) {
             $msg = "Customer name Should be alpha numeric";
         } else if (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email)) {

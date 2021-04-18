@@ -8,29 +8,35 @@ include('../Control/UserValidation.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/mycss.css">
     <script src="../js/UserValidation.js"></script>
     <title>User Registration</title>
 </head>
 
 <body>
-    <?php
-    include('../View/MenuFooter.php');
 
-
-    ?>
-    <nav class="topnav">
+    <nav>
         <a href="Home.php">Home</a> |
         <a href="Profile.php">My Profile</a> |
 
     </nav>
+    <!-- main -->
 
-    <h1>Customer Registration Form</h1>
-    <?php echo "$msg"; ?>
-    <p id="error">
-    </p>
-
-    <section class="pad-70">
+    <section class="pad-70 form-pos">
         <div class="container">
+            <h1>Customer Registration Form</h1>
+            <?php
+            // Note triple not equals and think how badly double
+            // not equals would work here...
+            if ($error !== false) {
+                // Look closely at the use of single and double quotes
+                echo ('<p style="color: red;" class="col-sm-10 col-sm-offset-2">' .
+                    htmlentities($error) .
+                    "</p>\n");
+            }
+            ?>
+            <p id="error">
+            </p>
             <form action=" <?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()" method="post">
                 <div class="form-row">
                     <div class="form-group">
@@ -73,9 +79,34 @@ include('../Control/UserValidation.php');
             </form>
         </div>
     </section>
-    </form>
+
+    <!-- main -->
+
+    <!-- footer -->
+    <footer>
+        <div class="container footer-wrap">
+            <div class="footer-left">
+                <ul class="footer-menu">
+                    <li><a href="">Terms and Conditions</a></li>
+                    <li><a href="">Privacy</a></li>
+                </ul>
+
+            </div>
+            <div class="footer-right">
+                <ul class="footer-menu">
+                    <li><a href="">Follow</a></li>
+                    <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                    <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
+
+                </ul>
+            </div>
+        </div>
 
 
+    </footer>
+    <!-- footer -->
+    <script src="https://kit.fontawesome.com/2065a5e896.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
