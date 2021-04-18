@@ -2,19 +2,19 @@
     include('../Control/ValidationLogin.php');
     ?>
  <?php
-    if (isset($_SESSION['type']) == "customer") {
-        header("Location: CustomerHome.php");
-        return;
-    } else if (isset($_SESSION['type']) == "Admin") {
-        header("Location: AdminHome.php");
-        return;
-    } else if (isset($_SESSION['type']) == "Vendor") {
-        header("Location: VendorHome.php");
-        return;
-    } else if (isset($_SESSION['type']) == "driver") {
-        header("Location: DriverHome.php");
-        return;
-    }
+    // if (isset($_SESSION['type']) == "customer") {
+    //     header("Location: CustomerHome.php");
+    //     return;
+    // } else if (isset($_SESSION['type']) == "Admin") {
+    //     header("Location: AdminHome.php");
+    //     return;
+    // } else if (isset($_SESSION['type']) == "Vendor") {
+    //     header("Location: VendorHome.php");
+    //     return;
+    // } else if (isset($_SESSION['type']) == "driver") {
+    //     header("Location: DriverHome.php");
+    //     return;
+    // }
     ?>
 
  <!DOCTYPE html>
