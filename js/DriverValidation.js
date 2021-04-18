@@ -24,10 +24,9 @@ function validateUserForm() {
         error.innerHTML = "Driver Name should be 5 characters long";
         return false;
     }
-    else if (phone < 11) {
+    else if (phone.length != 11) {
         error.innerHTML = "Invalid Phone Number";
         return false;
-
     }
     else if (!resem) {
         error.innerHTML = "Email format is not correct";
@@ -37,8 +36,8 @@ function validateUserForm() {
         error.innerHTML = "drivinglicense format is not correct";
         return false;
     }
-    else if (pass.length < 8) {
-        error.innerHTML = "Password should be 8 characters long";
+    else if (pass.length < 6) {
+        error.innerHTML = "Password should be 6 characters long";
         return false;
     }
     else if (pass.value != cpass.value) {
