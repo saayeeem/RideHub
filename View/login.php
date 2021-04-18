@@ -2,6 +2,7 @@
     include('../Control/ValidationLogin.php');
     ?>
  <?php
+<<<<<<< HEAD
   /*  if (isset($_SESSION['type']) == "customer") {
         header("Location: CustomerHome.php");
         return;
@@ -16,6 +17,21 @@
         return;
     }
     */
+=======
+    // if (isset($_SESSION['type']) == "customer") {
+    //     header("Location: CustomerHome.php");
+    //     return;
+    // } else if (isset($_SESSION['type']) == "Admin") {
+    //     header("Location: AdminHome.php");
+    //     return;
+    // } else if (isset($_SESSION['type']) == "Vendor") {
+    //     header("Location: VendorHome.php");
+    //     return;
+    // } else if (isset($_SESSION['type']) == "driver") {
+    //     header("Location: DriverHome.php");
+    //     return;
+    // }
+>>>>>>> b65de26fde8911cceac9d57cdd1c7e8f60852428
     ?>
 
  <!DOCTYPE html>
