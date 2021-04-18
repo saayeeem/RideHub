@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2021 at 10:26 AM
+-- Generation Time: Apr 18, 2021 at 07:32 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `ridehub`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `user_id` int(11) NOT NULL,
+  `name` varchar(128) DEFAULT NULL,
+  `email` varchar(128) DEFAULT NULL,
+  `password` varchar(128) DEFAULT NULL,
+  `phone` varchar(128) DEFAULT NULL,
+  `address` varchar(128) DEFAULT NULL,
+  `type` varchar(128) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`user_id`, `name`, `email`, `password`, `phone`, `address`, `type`) VALUES
+(1, 'Batman', 'sasha@gmail.com', '12345678', '1234567891011', 'Gotham City', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -75,7 +98,9 @@ INSERT INTO `customer` (`id`, `name`, `email`, `password`, `type`, `phone`, `bir
 (2, 'Rafshan Bin Razzak', 'rafshan.nds@gmail.com', '123', 'customer', 2147483647, '2021-03-02', 'fg'),
 (3, 'Sayem', 'rafshan.nds@gmail.com', '123', 'customer', 2147483647, '', 'fg'),
 (4, 'Habijabi', 'habijabi@gmail.com', '123', 'customer', 123, '2021-03-16', 'dfhgfdgh'),
-(5, 'Sayem MC', 'Sayem.mc@gmail.com', '123456', 'customer', 123456, '2021-03-16', 'dfghtdfhuj');
+(5, 'Sayem MC', 'Sayem.mc@gmail.com', '123456', 'customer', 123456, '2021-03-16', 'dfghtdfhuj'),
+(6, 'sa', 'sayem@gmail.com', '12345678', 'customer', 1971054583, '2021-04-12', 'ewr erwt43w erw t'),
+(7, 'sas', 'sayem@gmail.com', '12345678', 'customer', 1971054583, '2021-04-27', '434rreg thgtre rth');
 
 -- --------------------------------------------------------
 
@@ -124,8 +149,33 @@ CREATE TABLE `login` (
 INSERT INTO `login` (`id`, `email`, `password`, `type`) VALUES
 (1, 'Sayem.mc@gmail.com', '123456', 'customer'),
 (2, 'sayem@gmail.com', '1234', 'Vendor'),
-(3, 'john@gmail.com', '1234', 'driver'),
-(4, 'sasha@gmail.com', '1234', 'Admin');
+(3, 'john@gmail.com', '12345678', 'driver'),
+(4, 'sasha@gmail.com', '12345678', 'Admin'),
+(5, 'sayem@gmail.com', '12345678', 'customer');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `requested_car`
+--
+
+CREATE TABLE `requested_car` (
+  `id` int(30) NOT NULL,
+  `carname` text DEFAULT NULL,
+  `carmodel` text DEFAULT NULL,
+  `sitcount` int(20) DEFAULT NULL,
+  `status` varchar(128) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `requested_car`
+--
+
+INSERT INTO `requested_car` (`id`, `carname`, `carmodel`, `sitcount`, `status`) VALUES
+(3, 'Ferrari', '12', 2, 'Requested'),
+(4, 'Ferrari', '12', 2, 'Requested'),
+(5, 'Tesla', 'X', 4, 'Requested'),
+(6, 'Ferrari', '12', 2, 'Requested');
 
 -- --------------------------------------------------------
 
@@ -151,17 +201,27 @@ CREATE TABLE `vendor` (
 INSERT INTO `vendor` (`id`, `name`, `email`, `password`, `type`, `phone`, `address`, `tradelicense`) VALUES
 (1, 'Warnar Bruce', 'sky.ahamed123123@gmail.com', '123', 'Vendor', 2147483647, 'fg', '123'),
 (2, 'habijabi', 'habijabi@gmail.com', '123', 'Vendor', 123, 'fdgdg', '123'),
-(3, 'Sayem', 'sayem@gmail.com', '1234', 'Vendor', 1234, 'efdgdfg', '1234');
+(3, 'sa', 'sayem@gmail.com', '12345678', 'Vendor', 1971054583, 'Chittagong,Bangladesh', '1234'),
+(4, 'sa', 'sayem@gmail.com', '12345678', 'Vendor', 1971054583, 'Chittagong,Bangladesh', '12');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`user_id`),
+  ADD KEY `email` (`email`);
+
+--
 -- Indexes for table `car`
 --
 ALTER TABLE `car`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `carname` (`carname`(768)),
+  ADD KEY `carname_2` (`carname`(768));
 
 --
 -- Indexes for table `customer`
@@ -185,6 +245,13 @@ ALTER TABLE `login`
   ADD KEY `email` (`email`);
 
 --
+-- Indexes for table `requested_car`
+--
+ALTER TABLE `requested_car`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id` (`id`);
+
+--
 -- Indexes for table `vendor`
 --
 ALTER TABLE `vendor`
@@ -196,6 +263,12 @@ ALTER TABLE `vendor`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `car`
 --
 ALTER TABLE `car`
@@ -205,7 +278,7 @@ ALTER TABLE `car`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `driver`
@@ -217,13 +290,19 @@ ALTER TABLE `driver`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `requested_car`
+--
+ALTER TABLE `requested_car`
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `vendor`
 --
 ALTER TABLE `vendor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
