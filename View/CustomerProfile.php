@@ -64,7 +64,7 @@ $connection->CloseCon($conobj);
             <hr>
             Phone Number: <?php echo $phone; ?>
             <br>
-            <a href="UpdateVendor.php">Update </a>
+            <a href="UpdateCustomer.php">Update </a>
         </div>
     </section>
     <footer>

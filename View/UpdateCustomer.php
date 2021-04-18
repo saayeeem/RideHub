@@ -4,16 +4,16 @@ if (empty($_SESSION["email"])) {
     header("Location: ../control/login.php"); // Redirecting To Home Page
 }
 
-include('../control/UpdateCheckVendor.php');
+include('../control/UpdateCheckCustomer.php');
 
 $email = $_SESSION["email"];
 
 $connection = new db();
 $conobj = $connection->OpenCon();
-$connection->ShowAll($conobj, "Vendor", $email);
+$connection->ShowAll($conobj, "customer", $email);
 //$connection->UpdateVendor($conobj, "Vendor", $email);
 
-$userQuery = $connection->ShowAll($conobj, "Vendor", $email);
+$userQuery = $connection->ShowAll($conobj, "customer", $email);
 if ($userQuery->num_rows > 0) {
 
     // output data of each row
@@ -39,7 +39,7 @@ if ($userQuery->num_rows > 0) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/mycss.css">
-    <title>Vendor Profile Update</title>
+    <title>Customer Profile Update</title>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap"
         rel="stylesheet">
 
@@ -49,13 +49,13 @@ if ($userQuery->num_rows > 0) {
 <body>
     <div class="header">
         <h1>Welcome To RideHub</h1>
-        <h2>Update Vendor</h2>
+        <h2>Update Customer</h2>
     </div>
 
     <nav>
 
-        <a href="VendorHome.php">Home</a> |
-        <a href="VendorProfile.php">My Profile</a> |
+        <a href="CustomerHome.php">Home</a> |
+        <a href="CustomerProfile.php">My Profile</a> |
         <a href="logout.php">Log Out</a>
     </nav>
 
@@ -76,13 +76,14 @@ if ($userQuery->num_rows > 0) {
                         Password:
                         <input type="text" name="pass" value="<?php echo $pass; ?>" class="form-control">
                     </div>
-                    <div class="form-group">
-                        Phone Number:
-                        <input type="text" name="phone" value="<?php echo $phone; ?>" class="form-control">
-                    </div>
+
                     <div class="form-group">
                         Address:
                         <input type="text" name="address" value="<?php echo $address; ?>" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        Phone Number:
+                        <input type="text" name="phone" value="<?php echo $phone; ?>" class="form-control">
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Update" name="update" class="btn btn-lg btn-primary btn-submit">

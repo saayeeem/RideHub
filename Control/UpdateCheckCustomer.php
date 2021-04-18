@@ -6,14 +6,14 @@ $error = "";
 
 if (isset($_POST['update'])) {
 
-    if (empty($_POST['name'] || $_POST['pass'] || $_POST['address'] || $_POST['phone'])) {
+    if (empty($_POST['name'] || $_POST['password'] || $_POST['address'] || $_POST['phone'])) {
+
 
         echo  "input given is invalid";
-
     } else {
         $connection = new db();
         $conobj = $connection->OpenCon();
-        $userQuery = $connection->UpdateVendor($conobj, "vendor", $_POST['name'], $_SESSION['email'], $_POST['pass'], $_POST['address'], $_POST['phone']);
+        $userQuery = $connection->UpdateCustomer($conobj, "customer", $_POST['name'], $_SESSION['email'], $_POST['pass'], $_POST['address'], $_POST['phone']);
         if ($userQuery == TRUE) {
             $error = "update successful";
         } else {

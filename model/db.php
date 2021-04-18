@@ -64,17 +64,6 @@ VALUES('$name','$email','$password','$type','$phone','$birthday','$address','$dr
                 echo "Error: " . $result . "<br>" . $conn->error;
             }
         }
-        function InsertAdmin($conn, $table, $name, $email, $password, $type, $phone, $birthday, $address, $drivinglicense)
-        {
-            $result = "INSERT INTO " . $table . " (name,email,password,type,phone,birthday,address,drivinglicense)
-VALUES('$name','$email','$password','$type','$phone','$birthday','$address','$drivinglicense')";
-            if ($conn->query($result) === TRUE) {
-                echo "New record created successfully";
-                return $result;
-            } else {
-                echo "Error: " . $result . "<br>" . $conn->error;
-            }
-        }
         function InsertLogin($conn, $table, $email, $password, $type)
         {
             $result = "INSERT INTO " . $table . " (email,password,type)
@@ -152,9 +141,9 @@ VALUES('$carname','$carm','$scount','$carphoto','$availability')";
             $result = $conn->query("SELECT * FROM $table ");
             return $result;
         }
-        function ShowCar($conn, $table, $name)
+        function ShowCar($conn, $table)
         {
-            $result = $conn->query("SELECT * FROM $table WHERE carname ='$name'");
+            $result = $conn->query("SELECT * FROM $table");
 
             while ($row = mysqli_fetch_array($result)) {
                 echo '<img height ="300" width = "300" src="data:image;base64, ' . $row[4] . '">';
@@ -165,7 +154,7 @@ VALUES('$carname','$carm','$scount','$carphoto','$availability')";
         function UpdateVendor($conn, $table, $name, $email, $pass, $address, $phone)
 
         {
-            $result = "UPDATE $table SET name='$name', email='$email',password='$pass', address='$address' , phone='$phone' WHERE email='$email'";
+            $result = "UPDATE $table SET name='$name',password='$pass', address='$address' , phone='$phone' WHERE email='$email'";
             $msg = "";
             if ($conn->query($result) === TRUE) {
                 return $result;
@@ -174,22 +163,42 @@ VALUES('$carname','$carm','$scount','$carphoto','$availability')";
             }
         }
 
-        function ShowRequestedCar($conn, $table, $name)
+                function UpdateCustomer($conn, $table, $name, $email, $pass, $address, $phone)
+
+                {
+                    $result = "UPDATE $table SET name='$name',password='$pass', address='$address' , phone='$phone' WHERE email='$email'";
+                    $msg = "";
+                    if ($conn->query($result) === TRUE) {
+                        return $result;
+                    } else {
+                        echo "Error: " . $result . "<br>" . $conn->error;
+                    }
+                }
+        function ShowAvailable($conn, $table, $availability)
         {
-            $result = $conn->query("SELECT * FROM $table  WHERE carname= '$name'");
-            return $result;
+            $result = $conn->query("SELECT * FROM $table  WHERE availability= '$availability'");
+
+            while ($row = mysqli_fetch_array($result)) {
+                echo '<img height ="300" width = "300" src="data:image;base64, ' . $row[4] . '">';
+            }
         }
         function ShowAvailableCar($conn, $table, $availability)
         {
             $result = $conn->query("SELECT * FROM $table  WHERE availability= '$availability'");
             return $result;
         }
-        function InsertCarRequest($conn, $table, $carname, $carm, $scount, $status)
+        function InsertCarRequest($conn, $table, $carname, $carm, $scount, $carphoto, $status)
         {
-            $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,status)
-VALUES('$carname','$carm','$scount','$status')";
+            $carphoto = addslashes($_FILES["carphoto"]["tmp_name"]);
+            $name = addslashes($_FILES["name"]["tmp_name"]);
+            $carphoto = file_get_contents($carphoto);
+            $carphoto = base64_encode($carphoto);
+            $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto,status)
+VALUES('$carname','$carm','$scount','$carphoto','$status')";
 
             if ($conn->query($result) === TRUE) {
+                echo "Reuested successfully";
+                header('Location: CustomerHome.php');
                 return $result;
             } else {
                 echo "Error: " . $result . "<br>" . $conn->error;
