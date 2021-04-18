@@ -20,6 +20,7 @@ $name = $_GET['carname'];
 $connection = new db();
 $conobj = $connection->OpenCon();
 
+
 $userQuery = $connection->ShowRequestedCar($conobj, "Car", $name);
 
 if ($userQuery->num_rows > 0) {
@@ -42,7 +43,6 @@ if ($userQuery->num_rows > 0) {
     echo "0 results";
 }
 
-$connection->CloseCon($conobj);
 ?>
 
 <!DOCTYPE html>
@@ -74,27 +74,32 @@ $connection->CloseCon($conobj);
         <a href="logout.php">Log Out</a>
     </nav>
 
-    <p><img src="Pictures/home.jpg" alt="Home"></p>
     <!-- main -->
     <section class="pad-70 right">
         <div class="container">
-            Car Name: <?php echo $carname; ?>
-            <hr>
-            Car Model <?php echo $carmodel; ?>
-            <hr>
-            Sit Count: <?php echo $sitcount; ?>
-            <hr>
-            Availablity: <?php echo $availablity; ?>
-            <br>
 
-        </div>
-    </section>
-    <section class="pad-70">
-        <div class="container">
+            <div class="row">
+                <div class="post post-left">
+                    <br>
+                    Car Name: <?php echo $carname; ?>
+                    <hr>
+                    Car Model <?php echo $carmodel; ?>
+                    <hr>
+                    Sit Count: <?php echo $sitcount; ?>
+                    <hr>
+                    Availablity: <?php echo $availablity; ?>
+                    <br>
+                </div>
+                <div class="post post-right">
+                    <?php $car = $connection->ShowCar($conobj, "Car", $name);
+                    $connection->CloseCon($conobj); ?>
+                </div>
+            </div>
             <form action='' method='post'>
+                <h2>Do you want to Request It?</h2>
                 <div class="form-row">
                     <div class="form-group">
-                        <input type="submit" value="Request" name="update" class="btn btn-lg btn-primary btn-submit">
+                        <input type="submit" value="Proceed" name="update" class="btn btn-lg btn-primary btn-submit">
                         <input type="submit" value="Cancel" name="cancel" class="btn btn-lg btn-primary btn-submit">
                     </div>
                 </div>

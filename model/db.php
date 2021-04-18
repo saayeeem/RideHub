@@ -152,9 +152,9 @@ VALUES('$carname','$carm','$scount','$carphoto','$availability')";
             $result = $conn->query("SELECT * FROM $table ");
             return $result;
         }
-        function ShowCar($conn, $table)
+        function ShowCar($conn, $table, $name)
         {
-            $result = $conn->query("SELECT * FROM $table");
+            $result = $conn->query("SELECT * FROM $table WHERE carname ='$name'");
 
             while ($row = mysqli_fetch_array($result)) {
                 echo '<img height ="300" width = "300" src="data:image;base64, ' . $row[4] . '">';

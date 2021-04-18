@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap');
 body {
     margin: 1%;
-    background-color: rgb(15, 183, 189);
+    background-color:#3aafa9;
     text-align: center;
     
     
 }
 h1 {
     text-align: center;
-    color: #1f1e1c;
+    color:#17252a;
     font-size: 150%;
     text-align: center;
     text-transform: uppercase;
@@ -16,7 +16,7 @@ h1 {
 }
 h2 {
     text-align: center;
-    color: #1f1e1c;
+    color: #17252a;
     font-size: 150%;
     font-family: "Times New Roman", Times, serif;
 
@@ -52,13 +52,7 @@ form {
     display: inline-block;
     margin-top: 10px;
 }
-h2 {
-    text-align: center;
-    color: #1f1e1c;
-    font-size: 150%;
-    font-family: "Times New Roman", Times, serif;
 
-}
 section{
     margin: 0 auto;
 }

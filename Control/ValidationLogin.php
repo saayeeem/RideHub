@@ -38,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $connection = new db();
         $conobj = $connection->OpenCon();
         $connection->ValidateLogin($conobj, "login", $email, $pass, $type);
+
         $connection->CloseCon($conobj);
     }
 }
