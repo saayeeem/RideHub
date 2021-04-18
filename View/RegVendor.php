@@ -18,7 +18,7 @@ include('../Control/validvendor.php');
 <body>
     <div class="header">
         <h1>Welcome To RideHub</h1>
-        <h2>Vendor Home</h2>
+        <h2>Vendor Registration</h2>
     </div>
     <nav>
         <a href="Home.php">Home</a> |
