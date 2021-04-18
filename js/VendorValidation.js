@@ -9,24 +9,28 @@ function validateUserForm() {
     var address = document.getElementById("address");
     var patt = /^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/;
     var res = patt.test(email);
-   
+
     if (name == "" || email == "" || phone == "" || pass == "" || cpass == "" || birthday == "" || address == "") {
         error.innerHTML = "ALL fields required js";
         return false;
     }
     else if (!isNaN(name)) {
-      error.innerHTML = "User Name should be start with string";
+        error.innerHTML = "User Name should be start with string";
         return false;
     }
-    else if (name.length < 3) {
-        error.innerHTML = "Company Name should be 3 characters long";
+    else if (name.length < 1) {
+        error.innerHTML = "Company Name should be at least one character long";
+        return false;
+    }
+    else if (phone.length != 11) {
+        error.innerHTML = "Invalid Phone Number";
         return false;
     }
     else if (!res) {
         error.innerHTML = "Email format is not correct";
         return false;
     }
-    else if (pass.length < 8) {
+    else if (pass.length < 6) {
         error.innerHTML = "Password should be 8 characters long";
         return false;
     }
