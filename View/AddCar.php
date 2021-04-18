@@ -11,8 +11,20 @@ header("Location: ../control/login.php"); // Redirecting To Home Page
 include('../Control/ValidateCar.php');
 ?>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/mycss.css">
+    <title>Profile Update</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap"
+        rel="stylesheet">
+
+
+</head>
 <body>
     <nav>
         <a href="VendorHome.php">Home</a> |
@@ -21,16 +33,17 @@ include('../Control/ValidateCar.php');
     </nav>
 
     <h1>
-        <center>Car Add </center>
+       Car Add
     </h1>
     <p> <img src="Pictures/car_mg.gif" alt="Home">
     </p>
 
+    <section class="pad-70">
+        <div class="container">
 
     <?php echo "$msg"; ?>
     <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" enctype="multipart/form-data">
-    <section class="pad-70">
-        <div class="container">
+    
             <form action='' method='post'>
                 <div class="form-row">
                     <div class="form-group">
