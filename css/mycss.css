@@ -172,24 +172,21 @@ table {
 }
 
 tr th {
-    border: 1px solid #b6cb1b;
-    border-bottom: 3px solid #b6cb1b;
+    border: 1px solid #f1faee;
+    border-bottom: 3px solid #f1faee;
     border-radius: 5px 5px 0 0;
-    background: #38bdb6;
-    background: -moz-linear-gradient(top, #38bdb6 0%, #747d20 100%);
-    background: -webkit-linear-gradient(#38bdb6 0%, #747d20 100%);
-    background: -o-linear-gradient(#38bdb6 0%, #747d20 100%);
-    background: linear-gradient(#38bdb6 0%, #747d20 100%);
+    background: #ffffff;
     height: 50px;
     padding-left: 10px;
+    background-color: #ffffff;
 
 }
 
 tr td {
     opacity: 0.8;
     padding: 1%;
-    background-color: #dfefe6;
-    color: #6a752a;
+    background-color: #ffffff;
+    color: #1f1f1f;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
@@ -203,7 +200,18 @@ table tr th:first-child {
 
 tr:hover td {
     opacity: 1;
-    text-shadow: 2px 2px 2px #949e59;
+    background-color: #f1faee;
+    color: #39a7e6;
+    
+}
+table a {
+    width: 60%;
+    font-size: medium;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #f1faee;
+    color: #39a7e6;
+
 }
 a {
     display: block;
@@ -278,7 +286,7 @@ footer {
 }
 
 .footer-menu li a {
-    width: 60%;
+    width: 61%;
     font-size: medium;
     font-weight: bold;
     text-decoration: none;
