@@ -174,7 +174,17 @@ VALUES('$carname','$carm','$scount','$carphoto','$availability')";
                 echo "Error: " . $result . "<br>" . $conn->error;
             }
         }
+        function UpdateCustomer($conn, $table, $name, $email, $pass, $address, $phone)
 
+        {
+            $result = "UPDATE $table SET name='$name', email='$email',password='$pass', address='$address' , phone='$phone' WHERE email='$email'";
+            $msg = "";
+            if ($conn->query($result) === TRUE) {
+                return $result;
+            } else {
+                echo "Error: " . $result . "<br>" . $conn->error;
+            }
+        }
         function ShowRequestedCar($conn, $table, $name)
         {
             $result = $conn->query("SELECT * FROM $table  WHERE carname= '$name'");
