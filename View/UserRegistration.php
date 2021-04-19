@@ -12,7 +12,7 @@ include('../Control/UserValidation.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/mycss.css">
-    <!-- <script src="../js/UserValidation.js"></script> -->
+    <script src="../js/UserValidation.js"></script>
     <title>Customer Registration</title>
 </head>
 
@@ -24,12 +24,12 @@ include('../Control/UserValidation.php');
 
     <nav>
         <a href="Home.php">Home</a> |
-        <a href="Profile.php">My Profile</a> |
+        <a href="RegistrationHome.php">My Profile</a> |
 
     </nav>
     <!-- main  -->
     <section class="pad-70">
-        <div class="container log-form-pos">
+        <div class="container log-form-pos post">
             <h1>Customer Registration Form</h1>
             <?php
             // Note triple not equals and think how badly double
@@ -40,7 +40,7 @@ include('../Control/UserValidation.php');
                     htmlentities($error) .
                     "</p>\n");
             }
-            echo $error;
+
             ?>
             <p id="uerror">
             </p>

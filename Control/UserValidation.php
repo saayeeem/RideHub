@@ -10,10 +10,10 @@
 
 <body>
     <?php
-    include('../model/db.php');
     $error = "";
 
-    if ($_SERVER["REQUEST_METHOD"] == "REQUEST") {
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $name = $_REQUEST["name"];
         $email = $_REQUEST["email"];
@@ -38,6 +38,7 @@
         } else if (!isset($_REQUEST["birthday"])) {
             $error = "you have to select birthday";
         } else {
+
             // $_SESSION["eid"] = $id;
             $connection = new db();
             $conobj = $connection->OpenCon();
