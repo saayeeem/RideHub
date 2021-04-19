@@ -28,9 +28,18 @@ include('../Control/validvendor.php');
     <section class="pad-70">
         <div class="container log-form-pos">
             <h1>Vendor Registation Form</h1>
-            <?php echo "$msg"; ?>
-            <p id="error"></p>
-            <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()" method="post">
+            <?php
+            // Note triple not equals and think how badly double
+            // not equals would work here...
+            if ($error !== false) {
+                // Look closely at the use of single and double quotes
+                echo ('<p style="color: red;" class="col-sm-10 col-sm-offset-2">' .
+                    htmlentities($error) .
+                    "</p>\n");
+            }
+            ?>
+            <p id="verror"></p>
+            <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateVendorForm()" method="post">
                 <section class="pad-70">
                     <div class="form-row">
                         <div class="form-group">
