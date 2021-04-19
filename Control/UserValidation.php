@@ -12,6 +12,7 @@
     <?php
     $error = "";
 
+    include('../model/db.php');
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
