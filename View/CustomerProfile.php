@@ -53,7 +53,7 @@ $connection->CloseCon($conobj);
 
     <section class="pad-70 right">
         <div class="container">
-            <p><img src="Pictures/customer.jpg" alt="Home"></p>
+            <p><img src="Pictures/customer.jpg" alt="Home" class="center"></p>
             Name: <?php echo $name; ?>
             <hr>
             Email: <?php echo $email; ?>

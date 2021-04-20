@@ -13,8 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else if (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email)) {
 
         $error = "Email address must contain @";
-    } else if (!preg_match("/[0-9]/", $pass) || ((strlen($pass)) < 4)) {
-        $error = "Password Should be numeric and 4 words";
+    } else if (!preg_match("/[0-9]/", $pass) || ((strlen($pass)) < 6)) {
+        $error = "Password Should be numeric and 6 words";
     } else {
 
 
