@@ -11,7 +11,8 @@
 
 <body>
     <?php
-    $GLOBALS['msg'] = "";
+    $GLOBALS['error'] = "";
+    $GLOBALS['success'] = "";
     class db
     {
 
@@ -26,65 +27,71 @@
         }
         function CheckUser($conn, $table, $email, $password)
         {
+            $error = "";
             $result = $conn->query("SELECT * FROM " . $table . " WHERE email='" . $email . "' AND password='" . $password . "'");
             return $result;
         }
 
         function InsertCustomer($conn, $table, $name, $email, $password, $type, $phone, $birthdate, $address)
         {
+            $error = "";
             $result = "INSERT INTO " . $table . " (name,email,password,type,phone,birthday,address)
 VALUES('$name','$email','$password','$type','$phone','$birthdate','$address')";
             if ($conn->query($result) === TRUE) {
-                $msg = "New record created successfully";
-                return $result . $msg;
+                $success = "New record created successfully";
+                return $result . $success;
             } else {
-                echo "Error: " . $result . "<br>" . $conn->error;
+                $error = "Error: " . $result . "<br>" . $conn->error;
             }
         }
 
         function InsertVendor($conn, $table, $name, $email, $password, $type, $phone, $address, $tradelicense)
         {
+            $error = "";
             $result = "INSERT INTO " . $table . " (name, email,password,type,phone,address,tradelicense)
 VALUES('$name', '$email','$password','$type','$phone','$address','$tradelicense')";
             if ($conn->query($result) === TRUE) {
-                echo "New record created successfully";
-                return $result;
+                $success =  "New record created successfully";
+                return $result . $success;
             } else {
-                echo "Error: " . $result . "<br>" . $conn->error;
+                $error = "Error: " . $result . "<br>" . $conn->error;
             }
         }
         function InsertDriver($conn, $table, $name, $email, $password, $type, $phone, $birthday, $address, $drivinglicense)
         {
+            $error = "";
             $result = "INSERT INTO " . $table . " (name,email,password,type,phone,birthday,address,drivinglicense)
 VALUES('$name','$email','$password','$type','$phone','$birthday','$address','$drivinglicense')";
             if ($conn->query($result) === TRUE) {
-                echo "New record created successfully";
-                return $result;
+                $success = "New record created successfully";
+                return $result . $success;
             } else {
-                echo "Error: " . $result . "<br>" . $conn->error;
+                $error = "Error: " . $result . "<br>" . $conn->error;
             }
         }
         function InsertAdmin($conn, $table, $name, $email, $password, $type, $phone, $birthday, $address, $drivinglicense)
         {
+            $error = "";
             $result = "INSERT INTO " . $table . " (name,email,password,type,phone,birthday,address,drivinglicense)
 VALUES('$name','$email','$password','$type','$phone','$birthday','$address','$drivinglicense')";
             if ($conn->query($result) === TRUE) {
-                echo "New record created successfully";
-                return $result;
+                $success = "New record created successfully";
+                return $result . $success;
             } else {
-                echo "Error: " . $result . "<br>" . $conn->error;
+                $error = "Error: " . $result . "<br>" . $conn->error;
             }
         }
         function InsertLogin($conn, $table, $email, $password, $type)
         {
+            $error = "";
             $result = "INSERT INTO " . $table . " (email,password,type)
 VALUES('$email','$password','$type')";
             if ($conn->query($result) === TRUE) {
-                $msg = "Data inserted into login table successfully";
+                $success = "Data inserted into login table successfully";
                 header('Location:login.php');
-                return $result;
+                return $result . $success;
             } else {
-                echo "Error: " . $result . "<br>" . $conn->error;
+                $error = "Error: " . $result . "<br>" . $conn->error;
             }
         }
 
@@ -96,13 +103,13 @@ VALUES('$email','$password','$type')";
             $carphoto = base64_encode($carphoto);
             $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto,availability)
 VALUES('$carname','$carm','$scount','$carphoto','$availability')";
-
+            $error = "";
             if ($conn->query($result) === TRUE) {
-                $msg = "Data inserted into Car table successfully";
+                $success = "Data inserted into Car table successfully";
                 header('Location:VendorHome.php');
-                return $result;
+                return $result . $success;
             } else {
-                echo "Error: " . $result . "<br>" . $conn->error;
+                $error = "Error: " . $result . "<br>" . $conn->error;
             }
         }
 
@@ -110,38 +117,6 @@ VALUES('$carname','$carm','$scount','$carphoto','$availability')";
         {
 
             $result = $conn->query("SELECT email,password,type FROM $table WHERE email='$email' and password = '$password' and type = '$type'");
-            #if ($conn->query($result) === TRUE) {
-            //echo "Login Successfully";
-            // try {
-            //     $row = mysqli_fetch_array($result);
-            //     if ($row != False) {
-            //         if ($row["type"] == 'Vendor') {
-            //             header('Location: VendorHome.php');
-            //             return $result;
-            //         } else if ($row["type"] == 'driver') {
-
-            //             header('Location: DriverHome.php');
-            //             return $result;
-            //         } else if ($row["type"] == 'customer') {
-
-            //             header('Location: CustomerHome.php');
-            //             return $result;
-            //         } else if ($row["type"] == 'Admin') {
-
-            //             header('Location: AdminHome.php');
-            //             return $result;
-            //         } else {
-            //             $msg = "Invalid Login";
-            //             // echo "Invalid Login";
-            //             header('Location:login.php');
-            //             return $result;
-            //         }
-            //     }
-            // } catch (Exception $e) {
-            //     $msg = "Invalid Login";
-            //     // echo "Invalid Login";
-            //     header('Location:login.php');
-            // }
             return $result;
         }
 
@@ -169,22 +144,22 @@ VALUES('$carname','$carm','$scount','$carphoto','$availability')";
 
         {
             $result = "UPDATE $table SET name='$name', email='$email',password='$pass', address='$address' , phone='$phone' WHERE email='$email'";
-            $msg = "";
+            $error = "";
             if ($conn->query($result) === TRUE) {
-                return $result;
+                return $result . $error;
             } else {
-                echo "Error: " . $result . "<br>" . $conn->error;
+                $error = "Error: " . $result . "<br>" . $conn->error;
             }
         }
         function UpdateCustomer($conn, $table, $name, $email, $pass, $address, $phone)
 
         {
             $result = "UPDATE $table SET name='$name', email='$email',password='$pass', address='$address' , phone='$phone' WHERE email='$email'";
-            $msg = "";
+            $error = "";
             if ($conn->query($result) === TRUE) {
-                return $result;
+                return $result . $error;
             } else {
-                echo "Error: " . $result . "<br>" . $conn->error;
+                $error = "Error: " . $result . "<br>" . $conn->error;
             }
         }
         function ShowRequestedCar($conn, $table, $name)
@@ -201,11 +176,11 @@ VALUES('$carname','$carm','$scount','$carphoto','$availability')";
         {
             $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,status)
 VALUES('$carname','$carm','$scount','$status')";
-
+            $error = "";
             if ($conn->query($result) === TRUE) {
-                return $result;
+                return $result . $error;
             } else {
-                echo "Error: " . $result . "<br>" . $conn->error;
+                $error = "Error: " . $result . "<br>" . $conn->error;
             }
         }
 
