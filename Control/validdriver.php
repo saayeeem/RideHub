@@ -6,10 +6,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_REQUEST["name"];
     $email = $_REQUEST["email"];
     $phone = $_REQUEST["phone"];
-    $drivingl = $_REQUEST["drivingl"];
+    $drivingl = $_REQUEST["driving1"];
     $pass = $_REQUEST["pass"];
-    $cnpass = $_REQUEST["cnpass"];
-    $dob = $_REQUEST["dob"];
+    $cnpass = $_REQUEST["cpass"];
+    $dob = $_REQUEST["birthday"];
     $address = $_REQUEST["address"];
 
     if (empty($name) || empty($email) || empty($phone) || empty($drivingl) || empty($pass) || empty($cnpass)  || empty($address)) {

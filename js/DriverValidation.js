@@ -13,7 +13,7 @@ function validateUserForm() {
     var resem = pattem.test(email);
     var resdl = pattdl.test(dlicense);
     if (name == "" || email == "" || phone == "" || pass == "" || cpass == "" || birthday == "" || address == "") {
-        error.innerHTML = "All fields are required ";
+        error.innerHTML = "All fields are required js";
         return false;
     }
     else if (!isNaN(name)) {
