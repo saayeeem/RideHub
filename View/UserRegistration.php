@@ -1,6 +1,17 @@
 <?php
+session_start();
 include('../Control/UserValidation.php');
+include('../model/db.php');
+$valid = new validation();
+
+if (isset($_POST['updateuser'])) {
+    $valid->userValidation();
+} else if (isset($_POST['update'])) {
+    $valid->vendorValidation();
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,79 +20,143 @@ include('../Control/UserValidation.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/mycss.css">
-    <script src="../js/UserValidation.js"></script>
+    <!-- <script src="../js/UserValidation.js"></script>
+    <script src="../js/VendorValidation.js"></script> -->
     <title>User Registration</title>
 </head>
 
 <body>
+    <div class="header">
+        <h1>Welcome To RideHub</h1>
+        <h2>Login</h2>
+    </div>
 
     <nav>
         <a href="Home.php">Home</a> |
         <a href="Profile.php">My Profile</a> |
 
     </nav>
-    <!-- main -->
+    <!-- main  -->
+    <div class="row">
+        <section class="pad-70">
+            <div class="container log-form-pos  post post-right">
+                <h1>Customer Registration Form</h1>
+                <?php
+                // Note triple not equals and think how badly double
+                // not equals would work here...
+                // if ($error !== false) {
+                //     // Look closely at the use of single and double quotes
+                //     echo ('<p style="color: red;" class="col-sm-10 col-sm-offset-2">' .
+                //         htmlentities($error) .
+                //         "</p>\n");
+                // }
+                if (isset($_SESSION['error'])) {
+                    echo   $_SESSION['error'];
+                }
+                ?>
+                <p id="uerror">
+                </p>
+                <form action=" <?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()" method="post">
+                    <div class="form-row">
+                        <div class="form-group">
+                            Name:
+                            <input type="text" id="name" name="name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            Email:
+                            <input type="text" id="email" name="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            Phone No:
+                            <input type="text" id="phone" name=" phone" class="form-control">
+                        </div>
 
-    <section class="pad-70 form-pos">
-        <div class="container">
-            <h1>Customer Registration Form</h1>
-            <?php
-            // Note triple not equals and think how badly double
-            // not equals would work here...
-            if ($error !== false) {
-                // Look closely at the use of single and double quotes
-                echo ('<p style="color: red;" class="col-sm-10 col-sm-offset-2">' .
-                    htmlentities($error) .
-                    "</p>\n");
-            }
-            ?>
-            <p id="error">
-            </p>
-            <form action=" <?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()" method="post">
-                <div class="form-row">
-                    <div class="form-group">
-                        Name:
-                        <input type="text" name="name" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        Email:
-                        <input type="text" name="email" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        Phone No:
-                        <input type="text" name="phone" class="form-control">
+                        <div class="form-group">
+                            Password:
+                            <input type="password" id="pass" name=" pass" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            Confirm Password:
+                            <input type="password" id="cpass" name="cpass" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            Date of Birth:
+                            <input type="date" id="birthday" name=" birthday" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            Address:
+                            <input type="text" id="address" name="address" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Update" name="userupdate"
+                                class="btn btn-lg btn-primary btn-submit">
+                        </div>
+                        <div class="form-group">
+                            <input type="reset" value="reset" name="reset" class="btn btn-lg btn-primary btn-submit">
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        Password:
-                        <input type="password" name="pass" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        Confirm Password:
-                        <input type="password" name="cpass" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        Date of Birth:
-                        <input type="date" name="birthday" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        Address:
-                        <input type="text" name="address" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Update" name="update" class="btn btn-lg btn-primary btn-submit">
-                    </div>
-                    <div class="form-group">
-                        <input type="reset" value="reset" name="reset" class="btn btn-lg btn-primary btn-submit">
-                    </div>
-                </div>
+                </form>
+            </div>
 
-            </form>
-        </div>
-    </section>
+            <div class="container log-form-pos  post post-left">
+                <h1>Vendor Registation Form</h1>
+                <?php
+                // Note triple not equals and think how badly double
+                // not equals would work here...
+                // if ($error !== false) {
+                //     // Look closely at the use of single and double quotes
+                //     echo ('<p style="color: red;" class="col-sm-10 col-sm-offset-2">' .
+                //         htmlentities($error) .
+                //         "</p>\n");
+                // }
+                ?>
+                <p id="verror">
+                </p>
+                <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateVendorForm()" method="post">
+                    <div class="form-row">
+                        <div class="form-group">
+                            Company Name:
+                            <input type="text" id="name" name="name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            Email:
+                            <input type="text" id="email" name="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            Phone No:
+                            <input type="text" id="phone" name="phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            Trade license No:
+                            <input type="text" id="tradel" name="tradel" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            Password:
+                            <input type="password" id="pass" name="pass" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            Confirm Password:
+                            <input type="password" id="cpass" name="cpass" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            Address:
+                            <input type="text" id="address" name="address" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Update" name="update" class="btn btn-lg btn-primary btn-submit">
+                        </div>
+                        <div class="form-group">
+                            <input type="reset" value="reset" name="reset" class="btn btn-lg btn-primary btn-submit">
+                        </div>
+                    </div>
 
-    <!-- main -->
+                </form>
+            </div>
+        </section>
+    </div>
 
+    <!-- main  -->
     <!-- footer -->
     <footer>
         <div class="container footer-wrap">

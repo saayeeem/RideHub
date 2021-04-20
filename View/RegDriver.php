@@ -32,7 +32,7 @@ include('../Control/validdriver.php');
         </nav>
 
  <section class="pad-70 form-pos">
-  <div class="container">
+  <div class="container log-form-pos">
             <h1>Driver Registration Form</h1>
             <?php
             // Note triple not equals and think how badly double
@@ -89,11 +89,33 @@ include('../Control/validdriver.php');
         </div>
     </section>
 
-                    </form>
-                </div>
+ <!-- main  -->
+
+    <!-- footer  -->
+    <footer>
+        <div class="container footer-wrap">
+            <div class="footer-left">
+                <ul class="footer-menu">
+                    <li><a href="">Terms and Conditions</a></li>
+                    <li><a href="">Privacy</a></li>
+                </ul>
+
+            </div>
+            <div class="footer-right">
+                <ul class="footer-menu">
+                    <li><a href="">Follow</a></li>
+                    <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                    <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
+
+                </ul>
             </div>
         </div>
+    </footer>
+    <!-- footer  -->
+    <script src="https://kit.fontawesome.com/2065a5e896.js" crossorigin="anonymous"></script>
 
-    </body>
+
+</body>
 
 </html>

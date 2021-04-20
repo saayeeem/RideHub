@@ -4,7 +4,7 @@ function validateUserForm() {
   var cpass = document.getElementById("cpass").value;
   var phone = document.getElementById("phone").value;
   var email = document.getElementById("email").value;
-  var error = document.getElementById("error");
+  var error = document.getElementById("uerror");
   var birthday = document.getElementById("birthday");
   var address = document.getElementById("address");
   var patt = /^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/;
@@ -54,8 +54,8 @@ function validateLoginForm() {
     error.innerHTML = "Email format is not correct";
     return false;
   }
-  else if (pass.length < 4) {
-    error.innerHTML = "Password should be 4 characters long";
+  else if (pass.length < 6) {
+    error.innerHTML = "Password should be 6 characters long";
     return false;
   }
 

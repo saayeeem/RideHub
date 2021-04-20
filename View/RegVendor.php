@@ -25,8 +25,8 @@ include('../Control/validvendor.php');
         <a href="Profile.php">My Profile</a>
     </nav>
     <!-- main -->
-    <section class="pad-70 form-pos">
-        <div class="container">
+    <section class="pad-70">
+        <div class="container log-form-pos">
             <h1>Vendor Registation Form</h1>
             <?php echo "$msg"; ?>
             <p id="error"></p>

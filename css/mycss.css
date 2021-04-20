@@ -102,8 +102,9 @@ section{
     margin-bottom: 20px;
     
 }
-.form-pos {
-    width:80%;
+
+.log-form-pos {
+    width: 40%;
     display: inline-block;
     font-size: 125%;
     background: #dfefe6;
@@ -124,6 +125,12 @@ section{
     color: #22570e;
 }
 #error {
+    color: #e01717;
+}
+#verror {
+    color: #e01717;
+}
+#uerror{
     color: #e01717;
 }
 .btn {
