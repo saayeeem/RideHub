@@ -11,7 +11,7 @@
 
 <body>
     <?php
-    $msg = "";
+    $GLOBALS['msg'] = "";
     class db
     {
 
@@ -35,8 +35,8 @@
             $result = "INSERT INTO " . $table . " (name,email,password,type,phone,birthday,address)
 VALUES('$name','$email','$password','$type','$phone','$birthdate','$address')";
             if ($conn->query($result) === TRUE) {
-                echo "New record created successfully";
-                return $result;
+                $msg = "New record created successfully";
+                return $result . $msg;
             } else {
                 echo "Error: " . $result . "<br>" . $conn->error;
             }
@@ -112,35 +112,37 @@ VALUES('$carname','$carm','$scount','$carphoto','$availability')";
             $result = $conn->query("SELECT email,password,type FROM $table WHERE email='$email' and password = '$password' and type = '$type'");
             #if ($conn->query($result) === TRUE) {
             //echo "Login Successfully";
-            try {
-                $row = mysqli_fetch_array($result);
-                if ($row != False) {
-                    if ($row["type"] == 'Vendor') {
-                        header('Location: VendorHome.php');
-                        return;
-                    } else if ($row["type"] == 'driver') {
+            // try {
+            //     $row = mysqli_fetch_array($result);
+            //     if ($row != False) {
+            //         if ($row["type"] == 'Vendor') {
+            //             header('Location: VendorHome.php');
+            //             return $result;
+            //         } else if ($row["type"] == 'driver') {
 
-                        header('Location: DriverHome.php');
-                        return;
-                    } else if ($row["type"] == 'customer') {
+            //             header('Location: DriverHome.php');
+            //             return $result;
+            //         } else if ($row["type"] == 'customer') {
 
-                        header('Location: CustomerHome.php');
-                        return;
-                    } else if ($row["type"] == 'Admin') {
+            //             header('Location: CustomerHome.php');
+            //             return $result;
+            //         } else if ($row["type"] == 'Admin') {
 
-                        header('Location: AdminHome.php');
-                        return;
-                    } else {
-                        $msg = "Invalid Login";
-                        // echo "Invalid Login";
-                        header('Location:login.php');
-                    }
-                }
-            } catch (Exception $e) {
-                $msg = "Invalid Login";
-                // echo "Invalid Login";
-                header('Location:login.php');
-            }
+            //             header('Location: AdminHome.php');
+            //             return $result;
+            //         } else {
+            //             $msg = "Invalid Login";
+            //             // echo "Invalid Login";
+            //             header('Location:login.php');
+            //             return $result;
+            //         }
+            //     }
+            // } catch (Exception $e) {
+            //     $msg = "Invalid Login";
+            //     // echo "Invalid Login";
+            //     header('Location:login.php');
+            // }
+            return $result;
         }
 
         function ShowAll($conn, $table, $email)
