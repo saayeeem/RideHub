@@ -1,8 +1,7 @@
 <?php
 session_start();
-if(empty($_SESSION["email"]))
-{
-header("Location: ../control/login.php"); // Redirecting To Home Page
+if (empty($_SESSION["email"])) {
+    header("Location: ../control/login.php"); // Redirecting To Home Page
 }
 
 ?>
@@ -20,11 +19,11 @@ include('../Control/ValidateCar.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/mycss.css">
     <title>Profile Update</title>
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap" rel="stylesheet">
 
 
 </head>
+
 <body>
     <nav>
         <a href="VendorHome.php">Home</a> |
@@ -33,7 +32,7 @@ include('../Control/ValidateCar.php');
     </nav>
 
     <h1>
-       Car Add
+        Car Add
     </h1>
     <p> <img src="Pictures/car_mg.gif" alt="Home">
     </p>
@@ -41,37 +40,37 @@ include('../Control/ValidateCar.php');
     <section class="pad-70">
         <div class="container">
 
-    <?php echo "$msg"; ?>
-    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" enctype="multipart/form-data">
-    
-            <form action='' method='post'>
-                <div class="form-row">
-                    <div class="form-group">
-                       Car Name:
-                        <input type="text" name="carname" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        Car Model:
-                        <input type="text" name="carm"  class="form-control">
-                    </div>
-                    <div class="form-group">
-                        sit Count:
-                        <input type="text" name="scount"  class="form-control">
-                    </div>
-                    <div class="form-group">
-                        Upload Car Photo:
-                        <input type="file" name="carphptp" class="form-control">
-                    </div>
-                   
-                    <div class="form-group">
-                        <input type="submit" value="Update" name="update" class="btn btn-lg btn-primary btn-submit">
-                    </div>
-                    <div class="form-group">
-                        <input type="reset" value="reset" name="reset" class="btn btn-lg btn-primary btn-submit">
-                    </div>
-                </div>
+            <?php echo "$msg"; ?>
+            <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post" enctype="multipart/form-data">
 
-            </form>
+                <form action='' method='post'>
+                    <div class="form-row">
+                        <div class="form-group">
+                            Car Name:
+                            <input type="text" name="carname" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            Car Model:
+                            <input type="text" name="carm" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            Seat Count:
+                            <input type="text" name="scount" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            Upload Car Photo:
+                            <input type="file" name="carphptp" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Update" name="update" class="btn btn-lg btn-primary btn-submit">
+                        </div>
+                        <div class="form-group">
+                            <input type="reset" value="reset" name="reset" class="btn btn-lg btn-primary btn-submit">
+                        </div>
+                    </div>
+
+                </form>
         </div>
     </section>
     </form>
