@@ -34,8 +34,8 @@ include('../Control/ValidateCar.php');
     </nav>
 
     
-    <p> <img src="Pictures/car_mg.gif" alt="Home">
-    </p>
+    <!-- <p> <img src="Pictures/car_mg.gif" alt="Home">
+    </p> -->
 
     <section class="pad-70">
         <div class="container log-form-pos post">

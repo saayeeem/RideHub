@@ -12,7 +12,7 @@
     <?php
     // session_start();
     include('../model/db.php');
-    $msg = "";
+    $error = "";
     $connection = new db();
     $conobj = $connection->OpenCon();
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -22,16 +22,13 @@
         // $file = $_FILES["carphptp"];
 
         if (empty($carname) || empty($carm) || empty($scount) || empty($carphptp)) {
-            $msg = "All fields are required";
+            $error = "All fields are required";
         } else if (!preg_match("/[a-zA-Z]$/", $carname)) {
-            $msg = "Valid Name is required.";
+            $error = "Valid Name is required.";
         }else if(!preg_match("/[0-9]/", $carm)){
             $error = "Valid car model number is required.";
         }else if (!preg_match("/[0-9]/", $scount) || ((strlen($scount)) < 5)) {
             $error = "seat count should be not more then 5";
-        }else if (isset($_FILES['carphptp']))
-        {
-            $error = "Valid car model number is required.";
         }
 
 
