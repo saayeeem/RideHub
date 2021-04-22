@@ -99,8 +99,8 @@ if ($userQuery->num_rows > 0) {
                 <h2>Do you want to Request It?</h2>
                 <div class="form-row">
                     <div class="form-group">
-                        <input type="submit" value="Proceed" name="update" class="btn btn-lg btn-primary btn-submit">
-                        <input type="submit" value="Cancel" name="cancel" class="btn btn-lg btn-primary btn-submit">
+                        <input type="submit" value="Proceed" name="update" class="btn btn-lg btn-primary">
+                        <input type="submit" value="Cancel" name="cancel" class="btn btn-lg btn-primary">
                     </div>
                 </div>
 

@@ -1,25 +1,54 @@
 <?php
 
-require('../control/ValidationLogin.php');
-$email = $_SESSION["email"];
+session_start();
+include('../model/db.php');
+if (!isset($_SESSION['email'])) {
+    die('Not logged in');
+}
+if (isset($_POST['cancel'])) {
+    // Redirect the browser to AdminHome.php
+    header("Location: AdminHome.php");
+    return;
+}
 
+// Guardian: Make sure that customer_id is present
+if (!isset($_GET['customer_id'])) {
+    $_SESSION['error'] = "Missing customer id";
+    header('Location: AdminHome.php');
+    return;
+}
+
+
+$customer_id = $_GET['customer_id'];
 $connection = new db();
 $conobj = $connection->OpenCon();
 
-$userQuery = $connection->ShowAll($conobj, "Admin", $email);
+
+$userQuery = $connection->Show($conobj, "Customer", $customer_id);
 
 if ($userQuery->num_rows > 0) {
 
     while ($row = $userQuery->fetch_assoc()) {
         $name = $row['name'];
         $email = $row['email'];
-        $address = $row['address'];
-        $phone = $row['phone'];
+    }
+
+    if (isset($_POST['delete']) && isset($_GET['customer_id'])) {
+        $connection = new db();
+        $conobj = $connection->OpenCon();
+        $connection->DeleteUser($conobj, "customer", $customer_id);
+        $connection->DeleteFromLogin($conobj, "login", $email);
+        $_SESSION['success'] = 'Customer Profile Deleted';
+        $connection->CloseCon($conobj);
+        header("Location: AdminHome.php");
+        return;
     }
 } else {
-    echo "0 results";
+    $_SESSION['error'] = 'Bad value for Customer id';
+    header('Location: AdminHome.php');
+    return;
 }
-$connection->CloseCon($conobj);
+
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +70,7 @@ $connection->CloseCon($conobj);
 
     <div class="header">
         <h1>Welcome To RideHub</h1>
-        <h2>Admin Profile</h2>
+        <h2>Delete Customer</h2>
     </div>
 
     <nav>
@@ -50,25 +79,18 @@ $connection->CloseCon($conobj);
         <a href="AdminProfile.php">My Profile</a> |
         <a href="logout.php">Log Out</a>
     </nav>
-
-    <!-- main -->
-    <p><img src="Pictures/admin.jpg" alt="Home"></p>
-    <section class="pad-70 right">
-        <div class="container">
-            Name: <?php echo $name; ?>
-            <hr>
-            Email: <?php echo $email; ?>
-            <hr>
-            Address: <?php echo $address; ?>
-            <hr>
-            Phone Number: <?php echo $phone; ?>
-            <br>
-            <a href="UpdateAdmin.php">Update </a>
+    <section class="pad-70">
+        <div class="container log-form-pos">
+            <form method="post"><input type="hidden" name="customer_id" value="<?php echo $_GET['customer_id'] ?>">
+                <h1>Confirm: Deleting <?php echo $name ?></h1>
+                <p><img src="Pictures/customer.jpg" alt="Home" class="center"></p>
+                <input class="btn btn-lg btn-success" type="submit" value="Delete" name="delete">
+                <input class="btn btn-lg btn-danger" type="submit" name="cancel" value="Cancel">
+            </form>
         </div>
     </section>
 
-    <!-- main -->
-    <!-- footer -->
+    <!-- footer  -->
     <footer>
         <div class="container footer-wrap">
             <div class="footer-left">
@@ -88,10 +110,8 @@ $connection->CloseCon($conobj);
                 </ul>
             </div>
         </div>
-
-
     </footer>
-    <!-- footer -->
+    <!-- footer  -->
     <script src="https://kit.fontawesome.com/2065a5e896.js" crossorigin="anonymous"></script>
 </body>
 

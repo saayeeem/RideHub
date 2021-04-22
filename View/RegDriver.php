@@ -18,26 +18,26 @@ include('../Control/validdriver.php');
 
 
 
-    <body>
+<body>
     <div class="header">
         <h1>Welcome To RideHub</h1>
         <h2>Driver Registration</h2>
     </div>
 
 
-        <nav class="topnav">
-            <a href="DriverHome.php">Home</a> |
-            <a href="DriverProfile.php">My Profile</a> |
-            <a href="logout.php">Log Out</a>
-        </nav>
+    <nav class="topnav">
+        <a href="DriverHome.php">Home</a> |
+        <a href="DriverProfile.php">My Profile</a> |
+        <a href="logout.php">Log Out</a>
+    </nav>
 
- <section class="pad-70 form-pos">
-  <div class="container log-form-pos">
+    <section class="pad-70 form-pos">
+        <div class="container log-form-pos">
             <h1>Driver Registration Form</h1>
             <?php
             // Note triple not equals and think how badly double
             // not equals would work here...
-            
+
             //  echo $error;
             if ($error !== false) {
                 // Look closely at the use of single and double quotes
@@ -51,7 +51,7 @@ include('../Control/validdriver.php');
             <form action=" <?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()" method="post">
                 <div class="form-row">
                     <div class="form-group">
-                       Driver Name:
+                        Driver Name:
                         <input type="text" name="name" class="form-control">
                     </div>
                     <div class="form-group">
@@ -95,7 +95,7 @@ include('../Control/validdriver.php');
         </div>
     </section>
 
- <!-- main  -->
+    <!-- main  -->
 
     <!-- footer  -->
     <footer>

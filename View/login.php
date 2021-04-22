@@ -8,6 +8,9 @@
         if ($_SESSION["type"] == "Vendor") {
             header('Location: VendorHome.php');
         }
+        if ($_SESSION["type"] == "Admin") {
+            header('Location: AdminHome.php');
+        }
     }
     //  else {
     //     header('Location: login.php');

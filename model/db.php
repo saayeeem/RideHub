@@ -81,11 +81,11 @@ VALUES('$name','$email','$password','$type','$phone','$birthday','$address','$dr
                 $error = "Error: " . $result . "<br>" . $conn->error;
             }
         }
-        function InsertLogin($conn, $table, $email, $password, $type)
+        function InsertLogin($conn, $table, $name, $email, $password, $type)
         {
             $error = "";
-            $result = "INSERT INTO " . $table . " (email,password,type)
-VALUES('$email','$password','$type')";
+            $result = "INSERT INTO " . $table . " (name,email,password,type)
+VALUES('$name','$email','$password','$type')";
             if ($conn->query($result) === TRUE) {
                 $success = "Data inserted into login table successfully";
                 header('Location:login.php');
@@ -170,6 +170,16 @@ VALUES('$email','$password','$type')";
         function ShowAvailableCar($conn, $table, $availability)
         {
             $result = $conn->query("SELECT * FROM $table  WHERE availability= '$availability'");
+            return $result;
+        }
+        function DeleteUser($conn, $table, $customer_id)
+        {
+            $result = $conn->query("DELETE FROM $table WHERE customer_id = '$customer_id'");
+            return $result;
+        }
+        function DeleteFromLogin($conn, $table, $email)
+        {
+            $result = $conn->query("DELETE FROM $table WHERE email = '$email'");
             return $result;
         }
         function InsertCarRequest($conn, $table, $carname, $carm, $scount, $status)
