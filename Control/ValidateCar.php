@@ -19,15 +19,16 @@
         $carname = $_REQUEST["carname"];
         $carm = $_REQUEST["carm"];
         $scount = $_REQUEST["scount"];
+        $carphoto= $_REQUEST["carphptp"];
         // $file = $_FILES["carphptp"];
 
-        if (empty($carname) || empty($carm) || empty($scount) || empty($carphptp)) {
+        if (empty($carname) || empty($carm) || empty($scount)) {
             $error = "All fields are required";
         } else if (!preg_match("/[a-zA-Z]$/", $carname)) {
             $error = "Valid Name is required.";
         }else if(!preg_match("/[0-9]/", $carm)){
             $error = "Valid car model number is required.";
-        }else if (!preg_match("/[0-9]/", $scount) || ((strlen($scount)) < 5)) {
+        }else if (!preg_match("/[0-9]/", $scount) || ((strlen($scount)) > 1)) {
             $error = "seat count should be not more then 5";
         }
 
