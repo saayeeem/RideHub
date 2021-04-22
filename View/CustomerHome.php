@@ -32,7 +32,7 @@ if (!isset($_SESSION['email'])) {
     <div class="header">
         <h1>Welcome To RideHub</h1>
         <h2>Customer Home</h2>
-        <h2><?php echo $name; ?></h2>
+        <h2><?php echo $name; ?> </h2>
     </div>
     <nav>
         <a href="CustomerHome.php">Home</a> |
