@@ -1,11 +1,25 @@
 <?php
 session_start();
+
 if (!isset($_SESSION['email'])) {
-    header("Location: login.php");
-    return;
+    header('Location: login.php');
+} else if (isset($_SESSION['email'])) {
+    // if ($_SESSION['type'] == "Vendor") {
+    //     header('Location: VendorHome.php');
+    // }
+    if ($_SESSION['type'] == "customer") {
+        header('Location: CustomerHome.php');
+    }
 }
 
-
+// if (isset($_SESSION['email'])) {
+//     if ($_SESSION["type"] == "customer") {
+//         header('Location: CustomerHome.php');
+//     }
+//     if ($_SESSION["type"] == "Vendor") {
+//         header('Location: VendorHome.php');
+//     }
+// }
 
 ?>
 <!DOCTYPE html>

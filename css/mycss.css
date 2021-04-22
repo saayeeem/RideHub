@@ -79,6 +79,13 @@ section{
     font-family: "Times New Roman", Times, serif;
 
 }
+.center {
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 30%;
+
+}
 .left {
     background-color: #dfefe6;
     padding: 1%;
@@ -122,7 +129,17 @@ section{
 }
 
 #msg{
+    width: 10%;
     color: #22570e;
+     font-size: 125%;
+     background: #dfefe6;
+     margin: auto;
+     margin-top: 5%;
+     text-align: center;
+     font-family: "Times New Roman",
+     Times,
+     serif;
+     font-weight: 600;
 }
 #error {
     color: #e01717;
@@ -248,6 +265,7 @@ a:hover {
 .post img {
     width: 100%;
     margin-bottom: 30px;
+
 
 }
 .from-row {

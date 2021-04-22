@@ -1,8 +1,17 @@
  <?php
     include('../Control/ValidationLogin.php');
-    ?>
- <?php
 
+    if (isset($_SESSION['email'])) {
+        if ($_SESSION["type"] == "customer") {
+            header('Location: CustomerHome.php');
+        }
+        if ($_SESSION["type"] == "Vendor") {
+            header('Location: VendorHome.php');
+        }
+    }
+    //  else {
+    //     header('Location: login.php');
+    // }
     ?>
 
  <!DOCTYPE html>
