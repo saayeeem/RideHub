@@ -23,8 +23,8 @@ function validateUserForm() {
 
     }
     
-    else if (SitCount.length < 5) {
-        error.innerHTML = "Password should be 5 characters long";
+    else if (SitCount.length > 1) {
+        error.innerHTML = "seat should be 1 characters long";
         return false;
     }
 
