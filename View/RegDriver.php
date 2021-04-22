@@ -38,7 +38,13 @@ include('../Control/validdriver.php');
             // Note triple not equals and think how badly double
             // not equals would work here...
             
-            echo "$msg";
+            //  echo $error;
+            if ($error !== false) {
+                // Look closely at the use of single and double quotes
+                echo ('<p style="color: red;" class="col-sm-10 col-sm-offset-2">' .
+                    htmlentities($error) .
+                    "</p>\n");
+            }
             ?>
             <p id="error">
             </p>
