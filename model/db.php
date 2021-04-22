@@ -95,14 +95,14 @@ VALUES('$email','$password','$type')";
             }
         }
 
-        function InsertCar($conn, $table, $carname, $carm, $scount, $carphoto, $availability)
+        function InsertCar($conn, $table, $carname, $carm, $scount, $carphoto, $availability, $fare)
         {
             $carphoto = addslashes($_FILES["carphoto"]["tmp_name"]);
             $name = addslashes($_FILES["name"]["tmp_name"]);
             $carphoto = file_get_contents($carphoto);
             $carphoto = base64_encode($carphoto);
-            $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto,availability)
-VALUES('$carname','$carm','$scount','$carphoto','$availability')";
+            $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto,availability,fareperh)
+                VALUES('$carname','$carm','$scount','$carphoto','$availability',$fare)";
             $error = "";
             if ($conn->query($result) === TRUE) {
                 $success = "Data inserted into Car table successfully";
@@ -116,7 +116,7 @@ VALUES('$carname','$carm','$scount','$carphoto','$availability')";
         function ValidateLogin($conn, $table, $email, $password, $type)
         {
 
-            $result = $conn->query("SELECT email,password,type FROM $table WHERE email='$email' and password = '$password' and type = '$type'");
+            $result = $conn->query("SELECT name,email,password,type FROM $table WHERE email='$email' and password = '$password' and type = '$type'");
             return $result;
         }
 

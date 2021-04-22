@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($userQuery->num_rows > 0) {
             $row = mysqli_fetch_assoc($userQuery);
-
+            $_SESSION["name"] = $row['name'];
             $_SESSION["email"] = $row['email'];
             $_SESSION["pass"] = $row['password'];
             $_SESSION["type"] = $row['type'];

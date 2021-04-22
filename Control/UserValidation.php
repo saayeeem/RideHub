@@ -46,7 +46,7 @@
 
             // $userQuery = $connection->InsertUser($conobj, "registration", $fname,$uname,$email, $pass,"12","male");
             $connection->InsertCustomer($conobj, "customer", $name, $email, $pass, 'customer', $phone, $birthday, $address);
-            $connection->InsertLogin($conobj, "login", $email, $pass, 'customer');
+            $connection->InsertLogin($conobj, "login", $name, $email, $pass, 'customer');
             $connection->CloseCon($conobj);
         }
     }

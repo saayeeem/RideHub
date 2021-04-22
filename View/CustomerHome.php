@@ -10,11 +10,10 @@ if (!isset($_SESSION['email'])) {
     // if ($_SESSION['type'] == "customer") {
     //     header('Location: CustomerHome.php');
     // }
+    $name = $_SESSION['name'];
 }
 
 
-
-echo $_SESSION['type'];
 
 ?>
 <!DOCTYPE html>
@@ -33,6 +32,7 @@ echo $_SESSION['type'];
     <div class="header">
         <h1>Welcome To RideHub</h1>
         <h2>Customer Home</h2>
+        <h2><?php echo $name; ?></h2>
     </div>
     <nav>
         <a href="CustomerHome.php">Home</a> |

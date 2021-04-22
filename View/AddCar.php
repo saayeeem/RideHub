@@ -1,8 +1,7 @@
 <?php
 session_start();
-if(empty($_SESSION["email"]))
-{
-header("Location: ../control/login.php"); // Redirecting To Home Page
+if (empty($_SESSION["email"])) {
+    header("Location: ../control/login.php"); // Redirecting To Home Page
 }
 
 ?>
@@ -22,10 +21,11 @@ include('../Control/ValidateCar.php');
     <title>Profile Update</title>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap"
         rel="stylesheet">
-        <script src="../js/AddCarValidation.js"></script>
+    <script src="../js/AddCarValidation.js"></script>
 
 
 </head>
+
 <body>
     <nav>
         <a href="VendorHome.php">Home</a> |
@@ -33,17 +33,17 @@ include('../Control/ValidateCar.php');
         <a href="logout.php">Log Out</a>
     </nav>
 
-    
+
     <!-- <p> <img src="Pictures/car_mg.gif" alt="Home">
     </p> -->
 
     <section class="pad-70">
         <div class="container log-form-pos post">
-        <h1>
-       Car Add
-        </h1>
+            <h1>
+                Car Add
+            </h1>
 
-        <?php
+            <?php
             // Note triple not equals and think how badly double
             // not equals would work here...
             if ($error !== false) {
@@ -54,32 +54,37 @@ include('../Control/ValidateCar.php');
             }
 
             ?>
-            
+
             <p id="error">
             </p>
-    <form action=" <?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()" method="post" entype="multipart/form-data">
-    
-           
-   
+            <form action=" <?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()" method="post"
+                enctype="multipart/form-data">
+
+
+
 
                 <div class="form-row">
                     <div class="form-group">
-                       Car Name:
-                        <input type="text"id="carname" name="carname" class="form-control">
+                        Car Name:
+                        <input type="text" id="carname" name="carname" class="form-control">
                     </div>
                     <div class="form-group">
                         Car Model:
-                        <input type="text" id="carm" name="carm"  class="form-control">
+                        <input type="text" id="carm" name="carm" class="form-control">
                     </div>
                     <div class="form-group">
-                        sit Count:
-                        <input type="text" id="scount" name="scount"  class="form-control">
+                        Sit Count:
+                        <input type="text" id="scount" name="scount" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        Fare Per Hour:
+                        <input type="text" id="fare" name="fare" class="form-control">
                     </div>
                     <div class="form-group">
                         Upload Car Photo:
-                        <input type="file" name="carphptp" class="form-control">
+                        <input type="file" name="carphoto" class="form-control">
                     </div>
-                   
+
                     <div class="form-group">
                         <input type="submit" value="Update" name="update" class="btn btn-lg btn-primary btn-submit">
                     </div>
@@ -92,8 +97,8 @@ include('../Control/ValidateCar.php');
         </div>
     </section>
 
-     <!-- footer  -->
-     <footer>
+    <!-- footer  -->
+    <footer>
         <div class="container footer-wrap">
             <div class="footer-left">
                 <ul class="footer-menu">
@@ -115,7 +120,7 @@ include('../Control/ValidateCar.php');
     </footer>
     <!-- footer  -->
     <script src="https://kit.fontawesome.com/2065a5e896.js" crossorigin="anonymous"></script>
-   
+
 </body>
 
 </html>
