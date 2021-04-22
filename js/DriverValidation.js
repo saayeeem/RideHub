@@ -24,8 +24,8 @@ function validateUserForm() {
         error.innerHTML = "Driver Name should be 5 characters long";
         return false;
     }
-    else if (phone.length != 11) {
-        error.innerHTML = "Invalid Phone Number";
+    else if (phone.length == 11) {
+        error.innerHTML = "Invalid Phone Number should be 11 number";
         return false;
     }
     else if (!resem) {

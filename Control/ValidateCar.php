@@ -19,7 +19,7 @@
         $carname = $_REQUEST["carname"];
         $carm = $_REQUEST["carm"];
         $scount = $_REQUEST["scount"];
-        $file = $_FILES["carphptp"];
+        // $file = $_FILES["carphptp"];
 
         if (empty($carname) || empty($carm) || empty($scount) || empty($carphptp)) {
             $msg = "All fields are required";

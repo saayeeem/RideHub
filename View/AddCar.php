@@ -33,31 +33,47 @@ include('../Control/ValidateCar.php');
         <a href="logout.php">Log Out</a>
     </nav>
 
-    <h1>
-       Car Add
-    </h1>
+    
     <p> <img src="Pictures/car_mg.gif" alt="Home">
     </p>
 
-    <section class="pad-80 form-pos">
-        <div class="container log-form-pos">
+    <section class="pad-70">
+        <div class="container log-form-pos post">
+        <h1>
+       Car Add
+        </h1>
 
-    <?php echo "$msg"; ?>
-    <form action=" <?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()" method="post"entype="multipart/form-data">
+        <?php
+            // Note triple not equals and think how badly double
+            // not equals would work here...
+            if ($error !== false) {
+                // Look closely at the use of single and double quotes
+                echo ('<p style="color: red;" class="col-sm-10 col-sm-offset-2">' .
+                    htmlentities($error) .
+                    "</p>\n");
+            }
+
+            ?>
+            
+            <p id="error">
+            </p>
+    <form action=" <?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()" method="post" entype="multipart/form-data">
     
            
+   
+
                 <div class="form-row">
                     <div class="form-group">
                        Car Name:
-                        <input type="text" name="carname" class="form-control">
+                        <input type="text"id="carname" name="carname" class="form-control">
                     </div>
                     <div class="form-group">
                         Car Model:
-                        <input type="text" name="carm"  class="form-control">
+                        <input type="text" id="carm" name="carm"  class="form-control">
                     </div>
                     <div class="form-group">
                         sit Count:
-                        <input type="text" name="scount"  class="form-control">
+                        <input type="text" id="scount" name="scount"  class="form-control">
                     </div>
                     <div class="form-group">
                         Upload Car Photo:

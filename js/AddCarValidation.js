@@ -2,9 +2,10 @@ function validateUserForm() {
     var name = document.getElementById("carname").value;
     var model = document.getElementById("carm").value;
     var SitCount = document.getElementById("scount").value;
-    var uploadcar = document.getElementById("carphptp").value;
+    var error = document.getElementById("error");
+    // var uploadcar = document.getElementById("carphptp").value;
     
-    if (name == "" || model == "" || SitCount == "" || uploadcar =="") {
+    if (name == "" || model == "" || SitCount == "") {
         error.innerHTML = "All fields are required js ";
         return false;
     }
