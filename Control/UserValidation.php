@@ -40,11 +40,9 @@
             $error = "you have to select birthday";
         } else {
 
-            // $_SESSION["eid"] = $id;
             $connection = new db();
             $conobj = $connection->OpenCon();
 
-            // $userQuery = $connection->InsertUser($conobj, "registration", $fname,$uname,$email, $pass,"12","male");
             $connection->InsertCustomer($conobj, "customer", $name, $email, $pass, 'customer', $phone, $birthday, $address);
             $connection->InsertLogin($conobj, "login", $name, $email, $pass, 'customer');
             $connection->CloseCon($conobj);

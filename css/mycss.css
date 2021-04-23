@@ -175,6 +175,34 @@ section{
     background-color: #39a7e6;
     color: #ffffff;
 }
+.btn-success {
+    background-color: #1f6607;
+    color: #f8f8f8;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    transition: .5s;
+     margin-bottom: 10%;
+}
+
+.btn-success:hover {
+    background-color: #04471c;
+    color: #ffffff;
+}
+.btn-danger {
+    background-color: #e23018;
+    color: #f1eeee;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    transition: .5s;
+    margin-bottom: 10%;
+}
+
+.btn-danger:hover {
+    background-color: #a31c04;
+    color: #ffffff;
+}
 /* Change color on hover */
 
 
