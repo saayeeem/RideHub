@@ -29,6 +29,8 @@ if ($userQuery->num_rows > 0) {
         $carname = $row['carname'];
         $carmodel = $row['carmodel'];
         $sitcount = $row['sitcount'];
+          $from = $row['from'];
+            $to = $row['to'];
         $availablity = $row['availability'];
     }
     if (isset($_POST['update']) && isset($_GET['carname'])) {
@@ -86,6 +88,10 @@ if ($userQuery->num_rows > 0) {
                     Car Model <?php echo $carmodel; ?>
                     <hr>
                     Sit Count: <?php echo $sitcount; ?>
+                    <hr>
+                    From: <?php echo $from; ?>
+                    <hr>
+                    To: <?php echo $to; ?>
                     <hr>
                     Availablity: <?php echo $availablity; ?>
                     <br>

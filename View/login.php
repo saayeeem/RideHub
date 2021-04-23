@@ -11,6 +11,9 @@
         if ($_SESSION["type"] == "Admin") {
             header('Location: AdminHome.php');
         }
+        if ($_SESSION["type"] == "driver") {
+            header('Location: DriverHome.php');
+        }
     }
     //  else {
     //     header('Location: login.php');

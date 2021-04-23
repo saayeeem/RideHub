@@ -162,6 +162,20 @@ VALUES('$name','$email','$password','$type')";
                 $error = "Error: " . $result . "<br>" . $conn->error;
             }
         }
+
+        function UpdateDriver($conn, $table, $name, $email, $pass, $phone, $address)
+
+        {
+            $result = "UPDATE $table SET name='$name', email='$email',password='$pass',  phone='$phone' , address='$address'  WHERE email='$email'";
+            $error = "";
+            if ($conn->query($result) === TRUE) {
+                return $result . $error;
+            } else {
+                $error = "Error: " . $result . "<br>" . $conn->error;
+            }
+        }
+
+
         function ShowRequestedCar($conn, $table, $name)
         {
             $result = $conn->query("SELECT * FROM $table  WHERE carname= '$name'");
