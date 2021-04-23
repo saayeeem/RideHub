@@ -26,8 +26,8 @@ include('../Control/validdriver.php');
 
 
     <nav class="topnav">
-        <a href="DriverHome.php">Home</a> |
-        <a href="DriverProfile.php">My Profile</a> |
+        <a href="VendorHome.php">Home</a> |
+        <a href="VendorProfile.php">My Profile</a> |
         <a href="logout.php">Log Out</a>
     </nav>
 

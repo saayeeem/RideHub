@@ -83,7 +83,7 @@ if ($userQuery->num_rows > 0) {
         <div class="container log-form-pos">
             <form method="post"><input type="hidden" name="vendor_id" value="<?php echo $_GET['vendor_id'] ?>">
                 <h1>Confirm: Deleting <?php echo $name ?></h1>
-                <p><img src="Pictures/customer.jpg" alt="Home" class="center"></p>
+                <p><img src="Pictures/vendor.jpg" alt="Home" class="center"></p>
                 <input class="btn btn-lg btn-success" type="submit" value="Delete" name="delete">
                 <input class="btn btn-lg btn-danger" type="submit" name="cancel" value="Cancel">
             </form>

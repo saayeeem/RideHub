@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/mycss.css">
     <title>All Vendors</title>
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap"
+        rel="stylesheet">
 
 
 </head>
@@ -25,7 +26,6 @@
         <a href="AdminProfile.php">My Profile</a> |
         <a href="logout.php">Log Out</a>
     </nav>
-    <p><img src="Pictures/vendor.jpg" alt="Home"></p>
 
     <!-- main -->
     <section class="pad-70 right">

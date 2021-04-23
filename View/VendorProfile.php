@@ -51,10 +51,10 @@ $connection->CloseCon($conobj);
         <a href="logout.php">Log Out</a>
     </nav>
 
-    <p><img src="Pictures/vendor.jpg" alt="Home"></p>
-
     <section class="pad-70 right">
         <div class="container">
+            <p><img src="Pictures/vendor.jpg" alt="Home" class="center"></p>
+            <br>
             Name: <?php echo $name; ?>
             <hr>
             Email: <?php echo $email; ?>

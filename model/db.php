@@ -162,6 +162,17 @@ VALUES('$name','$email','$password','$type')";
                 $error = "Error: " . $result . "<br>" . $conn->error;
             }
         }
+        function UpdateCustomerAll($conn, $table, $name, $customer_id, $pass, $address, $phone)
+
+        {
+            $result = "UPDATE $table SET name='$name',password='$pass', address='$address' , phone='$phone' WHERE customer_id='$customer_id'";
+            $error = "";
+            if ($conn->query($result) === TRUE) {
+                return $result . $error;
+            } else {
+                $error = "Error: " . $result . "<br>" . $conn->error;
+            }
+        }
 
         function UpdateDriver($conn, $table, $name, $email, $pass, $phone, $address)
 

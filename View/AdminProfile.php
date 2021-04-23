@@ -52,9 +52,11 @@ $connection->CloseCon($conobj);
     </nav>
 
     <!-- main -->
-    <p><img src="Pictures/admin.jpg" alt="Home"></p>
+
     <section class="pad-70 right">
         <div class="container">
+            <p><img src="Pictures/admin.jpg" alt="Admin" class="center"></p>
+            <br>
             Name: <?php echo $name; ?>
             <hr>
             Email: <?php echo $email; ?>
