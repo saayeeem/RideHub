@@ -36,7 +36,7 @@ if ($userQuery->num_rows > 0) {
     if (isset($_POST['delete']) && isset($_GET['driver_id'])) {
         $connection = new db();
         $conobj = $connection->OpenCon();
-        $connection->DeleteVendor($conobj, "driver", $driver_id);
+        $connection->DeleteDriver($conobj, "driver", $driver_id);
         $connection->DeleteFromLogin($conobj, "login", $email);
         $_SESSION['success'] = 'Driver Profile Deleted';
         $connection->CloseCon($conobj);
@@ -60,7 +60,8 @@ if ($userQuery->num_rows > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/mycss.css">
     <title>Vendor Profile</title>
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap"
+        rel="stylesheet">
 
 
 </head>

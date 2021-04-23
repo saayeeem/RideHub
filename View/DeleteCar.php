@@ -30,7 +30,7 @@ if ($userQuery->num_rows > 0) {
 
     while ($row = $userQuery->fetch_assoc()) {
         $name = $row['carname'];
-        $email = $row['carmodel'];
+        $model = $row['carmodel'];
     }
 
     if (isset($_POST['delete']) && isset($_GET['car_id'])) {
@@ -60,7 +60,8 @@ if ($userQuery->num_rows > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/mycss.css">
     <title>Car Profile</title>
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap"
+        rel="stylesheet">
 
 
 </head>
