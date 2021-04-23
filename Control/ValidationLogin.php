@@ -4,6 +4,7 @@ include('../model/db.php');
 
 
 $error = "";
+$success = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_REQUEST["email"];
     $pass = $_REQUEST["pass"];
@@ -28,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["email"] = $row['email'];
             $_SESSION["pass"] = $row['password'];
             $_SESSION["type"] = $row['type'];
+            $_SESSION['success'] = "Login Succesful";
         } else {
             $error = "Username or Password or type  is invalid";
         }

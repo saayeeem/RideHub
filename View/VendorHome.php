@@ -1,6 +1,6 @@
 <?php
-session_start();
 
+require('../control/ValidationLogin.php');
 if (!isset($_SESSION['email'])) {
     header('Location: login.php');
 } else if (isset($_SESSION['email'])) {
@@ -20,6 +20,7 @@ if (!isset($_SESSION['email'])) {
 //         header('Location: VendorHome.php');
 //     }
 // }
+
 
 ?>
 <!DOCTYPE html>
@@ -50,17 +51,15 @@ if (!isset($_SESSION['email'])) {
         <a href="logout.php">Log Out</a>
     </nav>
 
-    <?php 
-            
-            if ($success !== false) {
-                // Look closely at the use of single and double quotes
-                echo ('<p style="color: green;" class="col-sm-10 col-sm-offset-2">' .
-                    htmlentities($success) .
-                    "</p>\n");
-            }
+    <?php
+    if (isset($_SESSION['success'])) {
+        echo ('<p id="msg">' . htmlentities($_SESSION['success']) . "</p>");
+        unset($_SESSION['success']);
+    }
 
 
-             ?>
+
+    ?>
 
     <!-- main  -->
     <section class="pad-70">
