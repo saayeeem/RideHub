@@ -49,18 +49,19 @@ if (!isset($_SESSION['email'])) {
         <a href="VendorProfile.php">My Profile</a> |
         <a href="logout.php">Log Out</a>
     </nav>
+    <?php
+    if (isset($_SESSION['success'])) {
+        echo ('<p id="msg">' . htmlentities($_SESSION['success']) . "</p>");
+        unset($_SESSION['success']);
+    }
+    if (isset($_SESSION['error'])) {
+        echo ('<p id="error">' . htmlentities($_SESSION['error']) . "</p>");
+        unset($_SESSION['error']);
+    }
 
-    <?php 
-            
-            if ($error !== false) {
-                // Look closely at the use of single and double quotes
-                echo ('<p style="color: green;" class="col-sm-10 col-sm-offset-2">' .
-                    htmlentities($error) .
-                    "</p>\n");
-            }
 
 
-             ?>
+    ?>
 
     <!-- main  -->
     <section class="pad-70">
