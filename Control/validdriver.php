@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conobj = $connection->OpenCon();
         // $userQuery = $connection->InsertUser($conobj, "registration", $fname,$uname,$email, $pass,"12","male");
         $connection->InsertDriver($conobj, "driver", $name, $email, $pass, 'driver', $phone, $dob, $address, $drivingl);
-        $connection->InsertLogin($conobj, "login", $email, $pass, 'driver');
+        $connection->InsertLogin($conobj, "login",$name, $email, $pass, 'driver');
         $connection->CloseCon($conobj);
     }
 }

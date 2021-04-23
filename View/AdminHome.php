@@ -31,7 +31,19 @@ if (empty($_SESSION["email"])) {
         <a href="AdminProfile.php">Admin Profile</a> |
         <a href="logout.php">Log Out</a>
     </nav>
+    <?php
+    if (isset($_SESSION['success'])) {
+        echo ('<p id="msg">' . htmlentities($_SESSION['success']) . "</p>");
+        unset($_SESSION['success']);
+    }
+    if (isset($_SESSION['error'])) {
+        echo ('<p id="error">' . htmlentities($_SESSION['error']) . "</p>");
+        unset($_SESSION['error']);
+    }
 
+
+
+    ?>
     <!-- main  -->
     <section class="pad-70">
         <div class="container">
