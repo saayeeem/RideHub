@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/mycss.css">
     <title>All Vendors</title>
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap" rel="stylesheet">
 
 
 </head>
@@ -37,33 +36,16 @@
 
             $connection = new db();
             $conobj = $connection->OpenCon();
-            $connection->Show($conobj, "Vendor");
+            //$connection->Show($conobj, "Vendor");
 
-            $userQuery = $connection->Show($conobj, "Vendor");
+            $userQuery = $connection->Show($conobj, "vendor");
 
             if ($userQuery->num_rows > 0) {
-
-                echo "<table><tr><th>Name</th><th>Email</th><th>Password</th><th>Type</th><th>Phone</th><th>Address</th><th>TradeLicense</th><th>Action</th></tr>";
+                echo "<table><tr><th>Name</th><th>Email</th><th>Address</th><th>Phone</th><th>Action</th></tr>";
                 // output data of each row
                 while ($row = $userQuery->fetch_assoc()) {
-                    echo "<tr><td>";
-                    echo (htmlentities($row['name']));
-                    echo ("</td><td>");
-                    echo (htmlentities($row['email']));
-                    echo ("</td><td>");
-                    echo (htmlentities($row['password']));
-                    echo ("</td><td>");
-                    echo (htmlentities($row['type']));
-                    echo ("</td><td>");
-                    echo (htmlentities($row['phone']));
-                    echo ("</td><td>");
-                    echo (htmlentities($row['address']));
-                    echo ("</td><td>");
-                    echo (htmlentities($row['tradelicense']));
-                    echo ("</td><td>");
-                    echo ('<a href="AdminHome.php">' . 'Edit</a> / ');
-                    echo ('<a href="AdminHome.php">' . 'Delete</a> ');
-                    echo ("</td></tr>\n");
+                    echo "<tr><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td><td>" . $row["address"] . "</td><td>" . $row["phone"] . "</td><td>" . '<a href="UpdateVendor.php">Edit </a>/' .
+                        '<a href="DeleteVendor.php?vendor_id=' . $row["vendor_id"] . '">Delete</a>' . "</td></tr>";
                 }
                 echo "</table>";
             } else {
