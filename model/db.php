@@ -182,6 +182,16 @@ VALUES('$name','$email','$password','$type')";
             $result = $conn->query("DELETE FROM $table WHERE vendor_id = '$vendor_id'");
             return $result;
         }
+        function DeleteDriver($conn, $table, $driver_id)
+        {
+            $result = $conn->query("DELETE FROM $table WHERE driver_id = '$driver_id'");
+            return $result;
+        }
+        function DeleteCar($conn, $table, $car_id)
+        {
+            $result = $conn->query("DELETE FROM $table WHERE car_id = '$car_id'");
+            return $result;
+        }
         function DeleteFromLogin($conn, $table, $email)
         {
             $result = $conn->query("DELETE FROM $table WHERE email = '$email'");

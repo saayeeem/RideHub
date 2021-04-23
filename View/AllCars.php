@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/mycss.css">
     <title>Available Car</title>
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap" rel="stylesheet">
 
 
 </head>
@@ -33,26 +32,21 @@
             include('../model/db.php');
             $connection = new db();
             $conobj = $connection->OpenCon();
-            $userQuery  = $connection->Show($conobj, "Car");
+            $userQuery = $connection->Show($conobj, "car");
 
             if ($userQuery->num_rows > 0) {
-
+                echo "<table><tr><th>Name</th><th>Model</th><th>Seat Count</th><th>Fare Per Hour</th><th>Action</th></tr>";
+                // output data of each row
                 while ($row = $userQuery->fetch_assoc()) {
-                    $Carname = $row['carname'];
-                    $Carmodel = $row['carmodel'];
-                    $Sitcount = $row['sitcount'];
-                    $availablity = $row['availability'];
-                    echo "<table><tr><th>Car Name</th><th>Model</th><th>Sit Count</th><th>Availability</th><th>Action</th></tr>";
-                    // output data of each row
-                    while ($row = $userQuery->fetch_assoc()) {
-                        echo "<tr><td>" . $row["carname"] . "</td><td>" . $row["carmodel"] . "</td><td>" . $row["sitcount"] . "</td><td>" . $row["availability"] . "</td><td>"
-                            . '<a href="UpdateVendor.php">Edit </a>/' . '<a href="AdminHome.php">Delete </a>' . "</td></tr>";
-                    }
-                    echo "</table>";
+                    echo "<tr><td>" . $row["carname"] . "</td><td>" . $row["carmodel"] . "</td><td>" . $row["sitcount"] . "</td><td>" . $row["fareperh"] . "</td><td>" . '<a href="UpdateVendor.php">Edit </a>/' .
+                        '<a href="DeleteCar.php?car_id=' . $row["car_id"] . '">Delete</a>' . "</td></tr>";
                 }
+                echo "</table>";
             } else {
                 echo "0 results";
             }
+            $connection->CloseCon($conobj);
+            ?>
 
 
             ?>
