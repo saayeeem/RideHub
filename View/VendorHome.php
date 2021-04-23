@@ -50,6 +50,18 @@ if (!isset($_SESSION['email'])) {
         <a href="logout.php">Log Out</a>
     </nav>
 
+    <?php 
+            
+            if ($success !== false) {
+                // Look closely at the use of single and double quotes
+                echo ('<p style="color: green;" class="col-sm-10 col-sm-offset-2">' .
+                    htmlentities($success) .
+                    "</p>\n");
+            }
+
+
+             ?>
+
     <!-- main  -->
     <section class="pad-70">
         <div class="container">

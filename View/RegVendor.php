@@ -30,6 +30,14 @@ include('../Control/validvendor.php');
             <h1>Vendor Registation Form</h1>
             <?php 
             
+            if ($error !== false) {
+                // Look closely at the use of single and double quotes
+                echo ('<p style="color: red;" class="col-sm-10 col-sm-offset-2">' .
+                    htmlentities($error) .
+                    "</p>\n");
+            }
+
+
              ?>
             <p id="error"></p>
             <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()" method="post">
