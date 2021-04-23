@@ -177,6 +177,11 @@ VALUES('$name','$email','$password','$type')";
             $result = $conn->query("DELETE FROM $table WHERE customer_id = '$customer_id'");
             return $result;
         }
+        function DeleteVendor($conn, $table, $vendor_id)
+        {
+            $result = $conn->query("DELETE FROM $table WHERE vendor_id = '$vendor_id'");
+            return $result;
+        }
         function DeleteFromLogin($conn, $table, $email)
         {
             $result = $conn->query("DELETE FROM $table WHERE email = '$email'");
