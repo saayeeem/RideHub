@@ -1,6 +1,6 @@
 <?php
 
-require('../control/ValidationLogin.php');
+include('../control/ValidationLogin.php');
 $email = $_SESSION["email"];
 
 $connection = new db();

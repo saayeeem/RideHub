@@ -1,9 +1,18 @@
 <?php
 session_start();
-if (empty($_SESSION["email"])) {
-    header("Location: ../control/login.php"); // Redirecting To Home Page
+if (!isset($_SESSION['email'])) {
+    header('Location: login.php');
+} else if (isset($_SESSION['email'])) {
+    if ($_SESSION['type'] == "Vendor") {
+        header('Location: VendorHome.php');
+    }
+    if ($_SESSION['type'] == "customer") {
+        header('Location: CustomerHome.php');
+    }
+    if ($_SESSION['type'] == "driver") {
+        header('Location: DriverHome.php');
+    }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
