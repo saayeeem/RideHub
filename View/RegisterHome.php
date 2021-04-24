@@ -10,6 +10,10 @@
 </head>
 
 <body>
+    <div class="header">
+        <h1>Welcome To RideHub</h1>
+        <h2>Registration Home</h2>
+    </div>
     <nav>
         <a href="home.php">Home</a>
         <a href="home.php">About Us</a>
