@@ -69,18 +69,7 @@ VALUES('$name','$email','$password','$type','$phone','$birthday','$address','$dr
                 $error = "Error: " . $result . "<br>" . $conn->error;
             }
         }
-        function InsertAdmin($conn, $table, $name, $email, $password, $type, $phone, $birthday, $address, $drivinglicense)
-        {
-            $error = "";
-            $result = "INSERT INTO " . $table . " (name,email,password,type,phone,birthday,address,drivinglicense)
-VALUES('$name','$email','$password','$type','$phone','$birthday','$address','$drivinglicense')";
-            if ($conn->query($result) === TRUE) {
-                $success = "New record created successfully";
-                return $result . $success;
-            } else {
-                $error = "Error: " . $result . "<br>" . $conn->error;
-            }
-        }
+
         function InsertLogin($conn, $table, $name, $email, $password, $type)
         {
             $error = "";
@@ -95,15 +84,30 @@ VALUES('$name','$email','$password','$type')";
             }
         }
 
+<<<<<<< HEAD
+        function InsertCar($conn, $table, $carname, $carm, $scount, $carphoto, $availability, $fare)
+=======
+
         function InsertCar($conn, $table, $carname, $carm, $scount, $carphoto, $availability, $fare, $from, $to)
+
+>>>>>>> 37b8a75d0a53dd65a3a83a0009309ad1ffcdb6e1
         {
 
             $carphoto = addslashes($_FILES["carphoto"]["tmp_name"]);
             $name = addslashes($_FILES["name"]["tmp_name"]);
             $carphoto = file_get_contents($carphoto);
             $carphoto = base64_encode($carphoto);
+<<<<<<< HEAD
+            $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto,availability,fareperh)
+                VALUES('$carname','$carm','$scount','$carphoto','$availability','$fare')";
+=======
             $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto,availability,fareperh,from,to)
-                VALUES('$carname','$carm','$scount','$carphoto','$availability','$fare','$from','$to')";
+
+                VALUES('$carname','$carm','$scount','$carphoto','$availability',$fare, '$from', '$to')";
+
+
+
+>>>>>>> 37b8a75d0a53dd65a3a83a0009309ad1ffcdb6e1
             $error = "";
             if ($conn->query($result) === TRUE) {
                 $success = "Data inserted into Car table successfully";
@@ -142,9 +146,9 @@ VALUES('$carname','$carm','$scount','$status','$fare')";
             $result = $conn->query("SELECT * FROM $table ");
             return $result;
         }
-        function ShowCar($conn, $table, $name)
+        function ShowCar($conn, $table, $car_id)
         {
-            $result = $conn->query("SELECT * FROM $table WHERE carname ='$name'");
+            $result = $conn->query("SELECT * FROM $table WHERE car_id ='$car_id'");
 
             while ($row = mysqli_fetch_array($result)) {
                 echo '<img height ="300" width = "300" src="data:image;base64, ' . $row['carphoto'] . '">';
@@ -210,9 +214,9 @@ VALUES('$carname','$carm','$scount','$status','$fare')";
         }
 
 
-        function ShowRequestedCar($conn, $table, $name)
+        function ShowRequestedCar($conn, $table, $car_id)
         {
-            $result = $conn->query("SELECT * FROM $table  WHERE carname= '$name'");
+            $result = $conn->query("SELECT * FROM $table  WHERE car_id= '$car_id'");
             return $result;
         }
         function ShowAvailableCar($conn, $table, $availability)

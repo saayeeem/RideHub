@@ -2,10 +2,12 @@ function validateUserForm() {
     var name = document.getElementById("carname").value;
     var model = document.getElementById("carm").value;
     var SitCount = document.getElementById("scount").value;
+    var from = document.getElementById("from").value;
+    var to = document.getElementById("to").value;
     var error = document.getElementById("error");
     // var uploadcar = document.getElementById("carphptp").value;
-    
-    if (name == "" || model == "" || SitCount == "") {
+
+    if (name == "" || model == "" || SitCount == "" || from == "" || to == "") {
         error.innerHTML = "All fields are required js ";
         return false;
     }
@@ -22,7 +24,7 @@ function validateUserForm() {
         return false;
 
     }
-    
+
     else if (SitCount.length > 1) {
         error.innerHTML = "seat should be 1 characters long";
         return false;
