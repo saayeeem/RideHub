@@ -19,11 +19,12 @@
         $carname = $_REQUEST["carname"];
         $carm = $_REQUEST["carm"];
         $scount = $_REQUEST["scount"];
-        // $carphoto = $_REQUEST["carphoto"];
-        // $file = $_FILES["carphoto"];
+      //$carphoto = $_REQUEST["carphoto"];
+       //   $file = $_FILES["carphoto"];
         $fare = $_REQUEST["fare"];
-
-        if (empty($carname) || empty($carm) || empty($scount)) {
+  $from = $_REQUEST["from"];
+    $to = $_REQUEST["to"];
+        if (empty($carname) || empty($carm) || empty($scount) || empty($from) || empty($to)) {
             $error = "All fields are required";
         } else if (!preg_match("/[a-zA-Z]$/", $carname)) {
             $error = "Valid Name is required.";
@@ -35,7 +36,7 @@
             $connection = new db();
             $conobj = $connection->OpenCon();
             // $userQuery = $connection->InsertUser($conobj, "registration", $fname,$uname,$email, $pass,"12","male");
-            $connection->InsertCar($conobj, "car", $carname, $carm, $scount, $carphoto, "Yes", $fare);
+            $connection->InsertCar($conobj, "car", $carname, $carm, $scount, $carphoto, "Yes", $fare,$from , $to);
             $connection->CloseCon($conobj);
         }
     }

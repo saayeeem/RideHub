@@ -81,6 +81,14 @@ include('../Control/ValidateCar.php');
                         <input type="text" id="fare" name="fare" class="form-control">
                     </div>
                     <div class="form-group">
+                        From:
+                        <input type="text" id="from" name="from" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        To:
+                        <input type="text" id="to" name="to" class="form-control">
+                    </div>
+                    <div class="form-group">
                         Upload Car Photo:
                         <input type="file" name="carphoto" class="form-control">
                     </div>
