@@ -95,19 +95,30 @@ VALUES('$name','$email','$password','$type')";
             }
         }
 
-        function InsertCar($conn, $table, $carname, $carm, $scount, $carphoto, $availability, $fare)
+        function InsertCar($conn, $table, $carname, $carm, $scount, $from, $to, $carphoto, $availability, $fare)
         {
             $carphoto = addslashes($_FILES["carphoto"]["tmp_name"]);
             $name = addslashes($_FILES["name"]["tmp_name"]);
             $carphoto = file_get_contents($carphoto);
             $carphoto = base64_encode($carphoto);
-            $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto,availability,fareperh)
-                VALUES('$carname','$carm','$scount','$carphoto','$availability',$fare)";
+            $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,from,to,carphoto,availability,fareperh)
+                VALUES('$carname','$carm','$scount','$from','$to','$carphoto','$availability',$fare)";
             $error = "";
             if ($conn->query($result) === TRUE) {
                 $success = "Data inserted into Car table successfully";
                 header('Location:VendorHome.php');
                 return $result . $success;
+            } else {
+                $error = "Error: " . $result . "<br>" . $conn->error;
+            }
+        }
+        function InsertCarRequest($conn, $table, $carname, $carm, $scount, $from, $to, $status, $fare)
+        {
+            $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,from,to,status,fareperh)
+VALUES('$carname','$carm','$scount','$from','$to','$status','$fare')";
+            $error = "";
+            if ($conn->query($result) === TRUE) {
+                return $result . $error;
             } else {
                 $error = "Error: " . $result . "<br>" . $conn->error;
             }
@@ -135,7 +146,7 @@ VALUES('$name','$email','$password','$type')";
             $result = $conn->query("SELECT * FROM $table WHERE carname ='$name'");
 
             while ($row = mysqli_fetch_array($result)) {
-                echo '<img height ="300" width = "300" src="data:image;base64, ' . $row[4] . '">';
+                echo '<img height ="300" width = "300" src="data:image;base64, ' . $row['carphoto'] . '">';
             }
         }
 
@@ -222,17 +233,7 @@ VALUES('$name','$email','$password','$type')";
             $result = $conn->query("DELETE FROM $table WHERE email = '$email'");
             return $result;
         }
-        function InsertCarRequest($conn, $table, $carname, $carm, $scount, $status)
-        {
-            $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,status)
-VALUES('$carname','$carm','$scount','$status')";
-            $error = "";
-            if ($conn->query($result) === TRUE) {
-                return $result . $error;
-            } else {
-                $error = "Error: " . $result . "<br>" . $conn->error;
-            }
-        }
+
 
         function CloseCon($conn)
         {
