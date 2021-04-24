@@ -21,13 +21,8 @@
         $carm = $_REQUEST["carm"];
         $scount = $_REQUEST["scount"];
 
-<<<<<<< HEAD
         //$carphoto = $_REQUEST["carphoto"];
         //   $file = $_FILES["carphoto"];
-=======
-      //$carphoto = $_REQUEST["carphoto"];
-       //   $file = $_FILES["carphoto"];
->>>>>>> 37b8a75d0a53dd65a3a83a0009309ad1ffcdb6e1
 
         $from = $_REQUEST["from"];
         $to = $_REQUEST["to"];
@@ -53,11 +48,7 @@
             $conobj = $connection->OpenCon();
             // $userQuery = $connection->InsertUser($conobj, "registration", $fname,$uname,$email, $pass,"12","male");
 
-<<<<<<< HEAD
             $connection->InsertCar($conobj, "car", $carname, $carm, $scount, $carphoto, "Yes", $fare, $from, $to);
-=======
-            $connection->InsertCar($conobj, "car", $carname, $carm, $scount, $carphoto, "Yes", $fare,$from , $to);
->>>>>>> 37b8a75d0a53dd65a3a83a0009309ad1ffcdb6e1
 
 
             $connection->CloseCon($conobj);
