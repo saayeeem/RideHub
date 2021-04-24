@@ -78,7 +78,7 @@ $connection->CloseCon($conobj);
             <hr>
             Phone Number: <?php echo $phone; ?>
             <br>
-            <a href="UpdateAdmin.php">Update </a>
+
         </div>
     </section>
 

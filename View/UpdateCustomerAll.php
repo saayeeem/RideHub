@@ -40,6 +40,8 @@ if (isset($_POST['update'])) {
         $userQuery = $connection->UpdateCustomerAll($conobj, "customer", $_POST['name'], $customer_id, $_POST['pass'], $_POST['address'], $_POST['phone']);
         if ($userQuery == TRUE) {
             $_SESSION['success'] = "update successful";
+            header("Location: ../view/AdminHome.php");
+            return;
         } else {
             $_SESSION['error'] = "could not update";
         }
