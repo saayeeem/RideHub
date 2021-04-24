@@ -35,21 +35,21 @@
                 echo "<table><tr><th>Name</th><th>Model</th><th>Sit Count</th><th>From</th><th>To</th><th>Fare/Hour</th><th>Status</th><th>Action</th></tr>";
                 // output data of each row
                 while ($row = $userQuery->fetch_assoc()) {
-                  echo "<tr><td>";
-                  echo (htmlentities($row['carname']));
-                  echo ("</td><td>");
-                  echo (htmlentities($row['carmodel']));
-                  echo ("</td><td>");
-                  echo (htmlentities($row['sitcount']));
-                  echo ("</td><td>");
-                  echo (htmlentities($row['from']));
-                  echo ("</td><td>");
-                  echo (htmlentities($row['to']));
-                  echo ("</td><td>");
-                  echo (htmlentities($row['fareperh']));
-                  echo ("</td><td>");
-                  echo (htmlentities($row['status']));
-                  echo ("</td></tr>\n");
+                    echo "<tr><td>";
+                    echo (htmlentities($row['carname']));
+                    echo ("</td><td>");
+                    echo (htmlentities($row['carmodel']));
+                    echo ("</td><td>");
+                    echo (htmlentities($row['sitcount']));
+                    echo ("</td><td>");
+                    echo (htmlentities($row['from']));
+                    echo ("</td><td>");
+                    echo (htmlentities($row['to']));
+                    echo ("</td><td>");
+                    echo (htmlentities($row['fareperh']));
+                    echo ("</td><td>");
+                    echo (htmlentities($row['status']));
+                    echo ("</td><td>");
                     echo ('<a href="Home.php">Confirm</a> / ');
                     echo ('<a href="Home.php">Cancel</a> ');
                     echo ("</td></tr>\n");

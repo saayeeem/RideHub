@@ -13,14 +13,23 @@
 
     include('../model/db.php');
     $error = "";
+    $name = "";
     $connection = new db();
     $conobj = $connection->OpenCon();
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $carname = $_REQUEST["carname"];
         $carm = $_REQUEST["carm"];
         $scount = $_REQUEST["scount"];
+<<<<<<< HEAD
       //$carphoto = $_REQUEST["carphoto"];
        //   $file = $_FILES["carphoto"];
+=======
+        $from = $_REQUEST["from"];
+        $to = $_REQUEST["to"];
+
+        // $carphoto = $_REQUEST["carphoto"];
+        // $file = $_FILES["carphoto"];
+>>>>>>> 151317b26027e473f0f4a7a2d4115a6644a3c714
         $fare = $_REQUEST["fare"];
   $from = $_REQUEST["from"];
     $to = $_REQUEST["to"];
@@ -30,13 +39,19 @@
             $error = "Valid Name is required.";
         } else if (!preg_match("/[0-9]/", $carm)) {
             $error = "Valid car model number is required.";
-        } else if (!preg_match("/[0-9]/", $scount) || ((strlen($scount)) > 1)) {
-            $error = "seat count should be not more then 5";
+        } else if (!preg_match("/[0-9]/", $scount)) {
+            $error = "seat count should be numeric";
+        } else if (strlen($scount) > 1) {
+            $error = "seat count should be not more then 1";
         } else {
             $connection = new db();
             $conobj = $connection->OpenCon();
             // $userQuery = $connection->InsertUser($conobj, "registration", $fname,$uname,$email, $pass,"12","male");
+<<<<<<< HEAD
             $connection->InsertCar($conobj, "car", $carname, $carm, $scount, $carphoto, "Yes", $fare,$from , $to);
+=======
+            $connection->InsertCar($conobj, "car", $carname, $carm, $scount, $carphoto, "Yes", $fare, $from, $to);
+>>>>>>> 151317b26027e473f0f4a7a2d4115a6644a3c714
             $connection->CloseCon($conobj);
         }
     }

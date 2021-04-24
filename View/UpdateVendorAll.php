@@ -5,14 +5,14 @@ if (empty($_SESSION["email"])) {
 }
 
 include('../model/db.php');
-$customer_id = $_GET["customer_id"];
+$vendor_id = $_GET["vendor_id"];
 
 $connection = new db();
 $conobj = $connection->OpenCon();
 // $connection->ShowAll($conobj, "customer", $email);
 //$connection->UpdateVendor($conobj, "Vendor", $email);
 
-$userQuery = $connection->Show($conobj, "customer", $customer_id);
+$userQuery = $connection->Show($conobj, "vendor", $vendor_id);
 if ($userQuery->num_rows > 0) {
 
     // output data of each row
@@ -37,7 +37,7 @@ if (isset($_POST['update'])) {
     } else {
         $connection = new db();
         $conobj = $connection->OpenCon();
-        $userQuery = $connection->UpdateCustomerAll($conobj, "customer", $_POST['name'], $customer_id, $_POST['pass'], $_POST['address'], $_POST['phone']);
+        $userQuery = $connection->UpdateVendorAll($conobj, "vendor", $_POST['name'], $vendor_id, $_POST['pass'], $_POST['address'], $_POST['phone']);
         if ($userQuery == TRUE) {
             $_SESSION['success'] = "update successful";
             header("Location: ../view/AdminHome.php");

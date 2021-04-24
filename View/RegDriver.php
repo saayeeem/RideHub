@@ -31,7 +31,7 @@ include('../Control/validdriver.php');
         <a href="logout.php">Log Out</a>
     </nav>
 
-    <section class="pad-70 form-pos">
+    <section class="pad-70">
         <div class="container log-form-pos">
             <h1>Driver Registration Form</h1>
             <?php

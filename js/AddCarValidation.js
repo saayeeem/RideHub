@@ -15,8 +15,8 @@ function validateUserForm() {
         error.innerHTML = "User Name should be string";
         return false;
     }
-    else if (name.length < 7) {
-        error.innerHTML = "car Name should be 7 characters long";
+    else if (name.length < 1) {
+        error.innerHTML = "Car Name should be 1characters long";
         return false;
     }
     else if (model < 8) {
