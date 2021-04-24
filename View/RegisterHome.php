@@ -19,15 +19,18 @@
 
     <!-- main  -->
     <section class="pad-70">
-        <div class="container">
-            <div class="row">
+        <div class="row">
+            <div class="container right">
+
                 <div class="post post-left">
                     <h2>Want to enjoy our awesome services? Register As</h2>
                     <p><img src="Pictures/customer.jpg" alt="Home" class="center"></p>
                     <div class="tag"> <a href="UserRegistration.php">
                             Customer!!</a></div>
                 </div>
-                <div class="post post-right">
+            </div>
+            <div class="container right">
+                <div class="post post-right ">
                     <h2>Want to expand your business?Register As</h2>
                     <p><img src="Pictures/vendor.jpg" alt="Home" class="center"></p>
                     <div class="tag"> <a href="RegVendor.php">Vendor!!</a></div>
