@@ -86,16 +86,16 @@ section{
      width: 30%;
 
 }
-.equal {
-  width: 50%;
-  display: inline-block;
-  font-size: 125%;
-  background:#dfefe6;
-  margin-bottom: 2%;
-  text-align: left;
-  font-family: "Times New Roman",
-  Times,
-  serif;
+.same {
+    width: 50%;
+    display: inline-block;
+    font-size: 125%;
+    background:#dfefe6;
+    margin-bottom: 2%;
+    text-align: center;
+    font-family: "Times New Roman",
+    Times,
+    serif;
 
 }
 .left {

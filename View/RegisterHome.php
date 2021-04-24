@@ -20,18 +20,15 @@
     <!-- main  -->
     <section class="pad-70">
         <div class="row">
-            <div class="container right">
-
-                <div class="post post-left">
-                    <h2>Want to enjoy our awesome services? Register As</h2>
+            <div class="container">
+                <div class="post post-left same">
+                    <h3>Want to enjoy our awesome services? Register As</h3>
                     <p><img src="Pictures/customer.jpg" alt="Home" class="center"></p>
                     <div class="tag"> <a href="UserRegistration.php">
                             Customer!!</a></div>
                 </div>
-            </div>
-            <div class="container right">
-                <div class="post post-right ">
-                    <h2>Want to expand your business?Register As</h2>
+                <div class="post post-right same">
+                    <h3>Want to expand your business?Register As</h3>
                     <p><img src="Pictures/vendor.jpg" alt="Home" class="center"></p>
                     <div class="tag"> <a href="RegVendor.php">Vendor!!</a></div>
                 </div>
@@ -39,6 +36,32 @@
         </div>
     </section>
     <!-- main  -->
+</body>
+<!-- footer -->
+<footer>
+    <div class="container footer-wrap">
+        <div class="footer-left">
+            <ul class="footer-menu">
+                <li><a href="">Terms and Conditions</a></li>
+                <li><a href="">Privacy</a></li>
+            </ul>
+
+        </div>
+        <div class="footer-right">
+            <ul class="footer-menu">
+                <li><a href="">Follow</a></li>
+                <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                <li><a href=""><i class="fab fa-instagram"></i></a></li>
+
+            </ul>
+        </div>
+    </div>
+
+
+</footer>
+<!-- footer -->
+<script src="https://kit.fontawesome.com/2065a5e896.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
