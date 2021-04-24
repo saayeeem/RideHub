@@ -1,46 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php
-include('../View/MenuFooter.php');
-
-
-?>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/mycss.css">
+    <title>Register Home</title>
 </head>
 
 <body>
-    <nav class="topnav">
+    <nav>
         <a href="home.php">Home</a>
         <a href="home.php">About Us</a>
         <a href="home.php">Profile</a>
         <a href="home.php">Cars</a>
     </nav>
-    <div id="page-container">
-        <div id="content-wrap">
-            <div class="bg" id="center">
 
-                <img src="Pictures/registerhome.jpeg" alt="RegisterHome" class="center">
-
-
-                <h2>Want to enjoy our awesome services? Register As</h2>
-                <a class="div" href="UserRegistration.php">
-                    Customer!!</a>
-
-                <br>
-
-                <h2>Want to expand your business?Register As</h2>
-                <a class="div" href="RegVendor.php">Vendor!!</a>
+    <!-- main  -->
+    <section class="pad-70">
+        <div class="container">
+            <div class="row">
+                <div class="post post-left">
+                    <h2>Want to enjoy our awesome services? Register As</h2>
+                    <p><img src="Pictures/customer.jpg" alt="Home" class="center"></p>
+                    <div class="tag"> <a href="UserRegistration.php">
+                            Customer!!</a></div>
+                </div>
+                <div class="post post-right">
+                    <h2>Want to expand your business?Register As</h2>
+                    <p><img src="Pictures/vendor.jpg" alt="Home" class="center"></p>
+                    <div class="tag"> <a href="RegVendor.php">Vendor!!</a></div>
+                </div>
             </div>
         </div>
-    </div>
-
-</body>
+    </section>
+    <!-- main  -->
 </body>
 
 </html>
