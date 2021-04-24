@@ -72,14 +72,7 @@ include('../Control/ValidateCar.php');
                         Sit Count:
                         <input type="text" id="scount" name="scount" class="form-control">
                     </div>
-                    <div class="form-group">
-                        From:
-                        <input type="text" id="from" name="from" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        To:
-                        <input type="text" id="to" name="to" class="form-control">
-                    </div>
+              
                     <div class="form-group">
                         Fare Per Hour:
                         <input type="text" id="fare" name="fare" class="form-control">

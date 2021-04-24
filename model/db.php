@@ -101,19 +101,18 @@ VALUES('$name','$email','$password','$type')";
         {
 
             $carphoto = addslashes($_FILES["carphoto"]["tmp_name"]);
-            $name = addslashes($_FILES["name"]["tmp_name"]);
+         $name = addslashes($_FILES["name"]["tmp_name"]);
             $carphoto = file_get_contents($carphoto);
             $carphoto = base64_encode($carphoto);
             $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto,availability,fareperh,from,to)
 
-                VALUES('$carname','$carm','$scount','$carphoto','$availability',$fare, '$from', '$to')";
-
-
+                VALUES('$carname','$carm','$scount','$carphoto','$availability','$fare', '$from', '$to')";
 
             $error = "";
             if ($conn->query($result) === TRUE) {
+              echo "Done";
                 $success = "Data inserted into Car table successfully";
-                header('Location:VendorHome.php');
+               header('Location:VendorHome.php');
                 return $result . $success;
             } else {
                 $error = "Error: " . $result . "<br>" . $conn->error;

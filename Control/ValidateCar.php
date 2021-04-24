@@ -21,7 +21,7 @@
         $carm = $_REQUEST["carm"];
         $scount = $_REQUEST["scount"];
 
-      //$carphoto = $_REQUEST["carphoto"];
+     $carphoto = $_FILES["carphoto"];
        //   $file = $_FILES["carphoto"];
 
         $from = $_REQUEST["from"];
@@ -49,7 +49,6 @@
             // $userQuery = $connection->InsertUser($conobj, "registration", $fname,$uname,$email, $pass,"12","male");
 
             $connection->InsertCar($conobj, "car", $carname, $carm, $scount, $carphoto, "Yes", $fare,$from , $to);
-
 
             $connection->CloseCon($conobj);
         }
