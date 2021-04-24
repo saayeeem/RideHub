@@ -37,7 +37,7 @@ if ($userQuery->num_rows > 0) {
     if (isset($_POST['update']) && isset($_GET['carname'])) {
         $connection = new db();
         $conobj = $connection->OpenCon();
-        $connection->InsertCarRequest($conobj, "requested_car", $carname, $carmodel, $sitcount, $from, $to, "Requested", $fare);
+        $connection->InsertCarRequest($conobj, "requested_car", $carname, $carmodel, $sitcount, "Requested", $fare);
         $connection->CloseCon($conobj);
         $_SESSION['success'] = "Request Succesful";
         header("Location: CustomerHome.php");

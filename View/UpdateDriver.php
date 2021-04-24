@@ -19,12 +19,9 @@ if ($userQuery->num_rows > 0) {
     // output data of each row
     while ($row = $userQuery->fetch_assoc()) {
         $name = $row["name"];
-  $pass = $row["password"];
-  $phone = $row["phone"];
+        $pass = $row["password"];
+        $phone = $row["phone"];
         $address = $row["address"];
-
-
-
     }
 } else {
     echo "0 results";

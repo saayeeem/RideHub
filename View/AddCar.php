@@ -59,10 +59,6 @@ include('../Control/ValidateCar.php');
             </p>
             <form action=" <?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()" method="post"
                 enctype="multipart/form-data">
-
-
-
-
                 <div class="form-row">
                     <div class="form-group">
                         Car Name:
@@ -75,6 +71,14 @@ include('../Control/ValidateCar.php');
                     <div class="form-group">
                         Sit Count:
                         <input type="text" id="scount" name="scount" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        From:
+                        <input type="text" id="from" name="from" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        To:
+                        <input type="text" id="to" name="to" class="form-control">
                     </div>
                     <div class="form-group">
                         Fare Per Hour:
