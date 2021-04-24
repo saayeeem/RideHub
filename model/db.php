@@ -95,11 +95,9 @@ VALUES('$name','$email','$password','$type')";
             }
         }
 
-<<<<<<< HEAD
-        function InsertCar($conn, $table, $carname, $carm, $scount, $carphoto, $availability, $fare , $from , $to)
-=======
+
         function InsertCar($conn, $table, $carname, $carm, $scount, $carphoto, $availability, $fare, $from, $to)
->>>>>>> 151317b26027e473f0f4a7a2d4115a6644a3c714
+
         {
 
             $carphoto = addslashes($_FILES["carphoto"]["tmp_name"]);
@@ -107,11 +105,11 @@ VALUES('$name','$email','$password','$type')";
             $carphoto = file_get_contents($carphoto);
             $carphoto = base64_encode($carphoto);
             $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto,availability,fareperh,from,to)
-<<<<<<< HEAD
+
                 VALUES('$carname','$carm','$scount','$carphoto','$availability',$fare, '$from', '$to')";
-=======
-                VALUES('$carname','$carm','$scount','$carphoto','$availability','$fare','$from','$to')";
->>>>>>> 151317b26027e473f0f4a7a2d4115a6644a3c714
+
+
+
             $error = "";
             if ($conn->query($result) === TRUE) {
                 $success = "Data inserted into Car table successfully";
