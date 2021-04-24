@@ -31,27 +31,10 @@
             $conobj = $connection->OpenCon();
             $userQuery = $connection->Show($conobj, "requested_car");
             if ($userQuery->num_rows > 0) {
-
-                echo "<table><tr><th>Name</th><th>Model</th><th>Sit Count</th><th>From</th><th>To</th><th>Fare/Hour</th><th>Status</th></tr>";
+                echo "<table><tr><th>Name</th><th>Model</th><th>Seat Count</th><th>Fare/Hour</th><th>Status</th></tr>";
                 // output data of each row
                 while ($row = $userQuery->fetch_assoc()) {
-                    echo "<tr><td>";
-                    echo (htmlentities($row['carname']));
-                    echo ("</td><td>");
-                    echo (htmlentities($row['carmodel']));
-                    echo ("</td><td>");
-                    echo (htmlentities($row['sitcount']));
-                    echo ("</td><td>");
-                    echo (htmlentities($row['from']));
-                    echo ("</td><td>");
-                    echo (htmlentities($row['to']));
-                    echo ("</td><td>");
-                    echo (htmlentities($row['fareperh']));
-                    echo ("</td><td>");
-                    echo (htmlentities($row['status']));
-                    echo ("</td></tr>\n");
-
-
+                    echo "<tr><td>" . $row["carname"] . "</td><td>" . $row["carmodel"] . "</td><td>" . $row["sitcount"] . "</td><td>" . $row["fareperh"] . "</td><td>" . $row["status"] . "</td><td>";
                 }
                 echo "</table>";
             } else {

@@ -12,8 +12,7 @@
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <link rel="stylesheet" href="../css/mycss.css">
        <title>Available Car</title>
-       <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap"
-           rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap" rel="stylesheet">
 
 
    </head>
@@ -44,15 +43,15 @@
                     while ($row = $userQuery->fetch_assoc()) {
                         $carname = $row['carname'];
                         $carmodel = $row['carmodel'];
-                          $carmodel = $row['from'];
-                            $carmodel = $row['to'];
+                        //$carmodel = $row['from'];
+                        //$carmodel = $row['to'];
                         $sitcount = $row['sitcount'];
                         $fareperh = $row['fareperh'];
                         $availablity = $row['availability'];
-                        echo "<table><tr><th>Car Name</th><th>Model</th><th>Sit Count</th><th>From</th><th>To</th><th>Fare/Hour</th><th>Availability</th><th>Action</th></tr>";
+                        echo "<table><tr><th>Car Name</th><th>Model</th><th>Sit Count</th><th>Fare/Hour</th><th>Availability</th><th>Action</th></tr>";
                         // output data of each row
                         while ($row = $userQuery->fetch_assoc()) {
-                            echo "<tr><td>" . $row["carname"] . "</td><td>" . $row["carmodel"] . "</td><td>" . $row["sitcount"] ."</td><td>" . $row["from"] ."</td><td>" . $row["to"] . "</td><td>" . $row["fareperh"] . "</td><td>" . $row["availability"] . "</td><td>" . '<a href="Request.php?carname=' . $row["carname"] . '">Request</a>' . "</td></tr>";
+                            echo "<tr><td>" . $row["carname"] . "</td><td>" . $row["carmodel"] . "</td><td>" . $row["sitcount"] . "</td><td>" . $row["fareperh"] . "</td><td>" . $row["availability"] . "</td><td>" . '<a href="Request.php?carname=' . $row["carname"] . '">Request</a>' . "</td></tr>";
                         }
                         echo "</table>";
                     }
