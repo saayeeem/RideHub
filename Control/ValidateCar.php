@@ -20,19 +20,8 @@
         $carname = $_REQUEST["carname"];
         $carm = $_REQUEST["carm"];
         $scount = $_REQUEST["scount"];
-
-        //$carphoto = $_REQUEST["carphoto"];
-        //   $file = $_FILES["carphoto"];
-
-        $from = $_REQUEST["from"];
-        $to = $_REQUEST["to"];
-
-        // $carphoto = $_REQUEST["carphoto"];
-        // $file = $_FILES["carphoto"];
-
         $fare = $_REQUEST["fare"];
-        $from = $_REQUEST["from"];
-        $to = $_REQUEST["to"];
+  
         if (empty($carname) || empty($carm) || empty($scount) || empty($from) || empty($to)) {
             $error = "All fields are required";
         } else if (!preg_match("/[a-zA-Z]$/", $carname)) {

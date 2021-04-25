@@ -148,7 +148,19 @@ VALUES('$carname','$carm','$scount','$status','$fare','$customer_id')";
         function UpdateCustomerAll($conn, $table, $name, $customer_id, $pass, $address, $phone)
 
         {
+
             $result = "UPDATE $table SET name='$name',password='$pass', address='$address' , phone='$phone' WHERE customer_id='$customer_id'";
+            $error = "";
+            if ($conn->query($result) === TRUE) {
+                return $result . $error;
+            } else {
+                $error = "Error: " . $result . "<br>" . $conn->error;
+            }
+        }
+        function UpdateCarAll($conn, $table, $car_id, $carname, $carm, $scount, $availability, $fare)
+
+        {
+            $result = "UPDATE $table SET carname='$carname',carmodel='$carm', sitcount='$scount' , availability='$availability', fareperh= '$fare' WHERE car_id='$car_id'";
             $error = "";
             if ($conn->query($result) === TRUE) {
                 return $result . $error;

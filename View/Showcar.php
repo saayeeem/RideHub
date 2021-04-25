@@ -20,7 +20,10 @@
 
    <body>
 
-
+       <div class="header">
+           <h1>Welcome To RideHub</h1>
+           <h2>Show Car</h2>
+       </div>
        <nav>
            <a href="CustomerHome.php">Home</a> |
            <a href="CustomerProfile.php">My Profile</a> |
