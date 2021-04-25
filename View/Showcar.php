@@ -44,8 +44,6 @@
                     while ($row = $userQuery->fetch_assoc()) {
                         $carname = $row['carname'];
                         $carmodel = $row['carmodel'];
-                        $from = $row['from'];
-                        $to = $row['to'];
                         $sitcount = $row['sitcount'];
                         $fareperh = $row['fareperh'];
                         $availablity = $row['availability'];

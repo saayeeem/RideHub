@@ -102,10 +102,10 @@ VALUES('$name','$email','$password','$type')";
                 $error = "Error: " . $result . "<br>" . $conn->error;
             }
         }
-        function InsertCarRequest($conn, $table, $carname, $carm, $scount, $status, $fare)
+        function InsertCarRequest($conn, $table, $carname, $carm, $scount, $status, $fare, $customer_id)
         {
-            $result = "INSERT INTO " . $table . "(carname,carmodel,sitcount,status,fareperh)
-VALUES('$carname','$carm','$scount','$status','$fare')";
+            $result = "INSERT INTO " . $table . "(carname,carmodel,sitcount,status,fareperh,customer_id)
+VALUES('$carname','$carm','$scount','$status','$fare','$customer_id')";
             $error = "";
             if ($conn->query($result) === TRUE) {
                 return $result . $error;
@@ -121,24 +121,6 @@ VALUES('$carname','$carm','$scount','$status','$fare')";
             return $result;
         }
 
-        function ShowAll($conn, $table, $email)
-        {
-            $result = $conn->query("SELECT * FROM $table WHERE email='$email' ");
-            return $result;
-        }
-        function Show($conn, $table)
-        {
-            $result = $conn->query("SELECT * FROM $table ");
-            return $result;
-        }
-        function ShowCar($conn, $table, $car_id)
-        {
-            $result = $conn->query("SELECT * FROM $table WHERE car_id ='$car_id'");
-
-            while ($row = mysqli_fetch_array($result)) {
-                echo '<img height ="300" width = "300" src="data:image;base64, ' . $row['carphoto'] . '">';
-            }
-        }
 
 
         function UpdateVendor($conn, $table, $name, $email, $pass, $address, $phone)
@@ -185,17 +167,6 @@ VALUES('$carname','$carm','$scount','$status','$fare')";
                 $error = "Error: " . $result . "<br>" . $conn->error;
             }
         }
-        function UpdateDriverAll($conn, $table, $name, $driver_id, $pass, $address, $phone)
-
-        {
-            $result = "UPDATE $table SET name='$name',password='$pass', address='$address' , phone='$phone' WHERE driver_id='$driver_id'";
-            $error = "";
-            if ($conn->query($result) === TRUE) {
-                return $result . $error;
-            } else {
-                $error = "Error: " . $result . "<br>" . $conn->error;
-            }
-        }
 
         function UpdateDriver($conn, $table, $name, $email, $pass, $phone, $address)
 
@@ -208,7 +179,29 @@ VALUES('$carname','$carm','$scount','$status','$fare')";
                 $error = "Error: " . $result . "<br>" . $conn->error;
             }
         }
+        function ShowAll($conn, $table, $email)
+        {
+            $result = $conn->query("SELECT * FROM $table WHERE email='$email' ");
+            return $result;
+        }
+        function ShowAllByCustomerID($conn, $table, $customer_id)
+        {
+            $result = $conn->query("SELECT * FROM $table WHERE customer_id='$customer_id' ");
+            return $result;
+        }
+        function Show($conn, $table)
+        {
+            $result = $conn->query("SELECT * FROM $table ");
+            return $result;
+        }
+        function ShowCar($conn, $table, $car_id)
+        {
+            $result = $conn->query("SELECT * FROM $table WHERE car_id ='$car_id'");
 
+            while ($row = mysqli_fetch_array($result)) {
+                echo '<img height ="300" width = "300" src="data:image;base64, ' . $row['carphoto'] . '">';
+            }
+        }
 
         function ShowRequestedCar($conn, $table, $car_id)
         {

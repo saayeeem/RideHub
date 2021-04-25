@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["email"] = $row['email'];
             $_SESSION["pass"] = $row['password'];
             $_SESSION["type"] = $row['type'];
-            $_SESSION['success'] = "Login Succesful";
+            $_SESSION['success'] = "Login Successful";
         } else {
             $error = "Username or Password or type  is invalid";
         }

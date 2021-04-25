@@ -42,7 +42,6 @@
                     echo ("</td><td>");
                     echo (htmlentities($row['sitcount']));
                     echo ("</td><td>");
-
                     echo (htmlentities($row['fareperh']));
                     echo ("</td><td>");
                     echo (htmlentities($row['status']));
