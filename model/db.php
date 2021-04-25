@@ -185,6 +185,17 @@ VALUES('$carname','$carm','$scount','$status','$fare')";
                 $error = "Error: " . $result . "<br>" . $conn->error;
             }
         }
+        function UpdateDriverAll($conn, $table, $name, $driver_id, $pass, $address, $phone)
+
+        {
+            $result = "UPDATE $table SET name='$name',password='$pass', address='$address' , phone='$phone' WHERE driver_id='$driver_id'";
+            $error = "";
+            if ($conn->query($result) === TRUE) {
+                return $result . $error;
+            } else {
+                $error = "Error: " . $result . "<br>" . $conn->error;
+            }
+        }
 
         function UpdateDriver($conn, $table, $name, $email, $pass, $phone, $address)
 
