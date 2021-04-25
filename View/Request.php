@@ -29,15 +29,14 @@ if ($userQuery->num_rows > 0) {
         $carname = $row['carname'];
         $carmodel = $row['carmodel'];
         $sitcount = $row['sitcount'];
-        $from = $row['from'];
-        $to = $row['to'];
         $availablity = $row['availability'];
         $fare = $row['fareperh'];
+        $car_id = $row['car_id'];
     }
     if (isset($_POST['update']) && isset($_GET['car_id'])) {
         $connection = new db();
         $conobj = $connection->OpenCon();
-        $connection->InsertCarRequest($conobj, "requested_car", $carname, $carmodel, $sitcount, "Requested", $fare);
+        $connection->InsertCarRequest($conobj, "requested_car", $car_id, $carname, $carmodel, $sitcount, "Requested", $fare);
         $connection->CloseCon($conobj);
         $_SESSION['success'] = "Request Succesful";
         header("Location: CustomerHome.php");
@@ -92,10 +91,6 @@ if ($userQuery->num_rows > 0) {
                     Car Model <?php echo $carmodel; ?>
                     <hr>
                     Sit Count: <?php echo $sitcount; ?>
-                    <hr>
-                    From: <?php echo $from; ?>
-                    <hr>
-                    To: <?php echo $to; ?>
                     <hr>
                     Fare Per Hour: <?php echo $fare; ?>
                     <br>
