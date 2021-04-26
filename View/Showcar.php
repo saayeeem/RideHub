@@ -37,6 +37,17 @@
                    Available Cars For <?php echo $_SESSION['email'] ?>
 
                </h1>
+
+               <div class="form-group post center">
+                   <input type="text" id="searchbycarname" name="searchbyarnamec" placeholder="Search By Car Name...."
+                       class="form-control">
+               </div>
+               <div class="form-group post center">
+                   <input type="submit" value="Search" name="search" class="btn btn-lg btn-primary btn-submit">
+               </div>
+
+
+
                <?php
                 $connection = new db();
                 $conobj = $connection->OpenCon();
