@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_REQUEST["email"];
     $pass = $_REQUEST["pass"];
     $type = $_REQUEST["type"];
-    if (empty($email) || empty($pass) || empty($type)) {
+    if (empty($email) || empty($pass)) {
         $error = "All fields are required";
     } else if (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email)) {
 
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $connection = new db();
         $conobj = $connection->OpenCon();
-        $userQuery = $connection->ValidateLogin($conobj, "login", $email, $pass, $type);
+        $userQuery = $connection->ValidateLogin($conobj, "login", $email, $pass);
 
         if ($userQuery->num_rows > 0) {
             $row = mysqli_fetch_assoc($userQuery);
@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["type"] = $row['type'];
             $_SESSION['success'] = "Login Successful";
         } else {
-            $error = "Username or Password or type  is invalid";
+            $error = "Username or Password is invalid";
         }
         $connection->CloseCon($conobj);
     }

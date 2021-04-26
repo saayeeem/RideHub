@@ -114,10 +114,10 @@ VALUES('$carname','$carm','$scount','$status','$fare','$customer_id')";
             }
         }
 
-        function ValidateLogin($conn, $table, $email, $password, $type)
+        function ValidateLogin($conn, $table, $email, $password)
         {
 
-            $result = $conn->query("SELECT name,email,password,type FROM $table WHERE email='$email' and password = '$password' and type = '$type'");
+            $result = $conn->query("SELECT name,email,password,type FROM $table WHERE email='$email' and password = '$password'");
             return $result;
         }
 

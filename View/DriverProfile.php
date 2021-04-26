@@ -1,4 +1,5 @@
 <?php
+require('../control/ValidationLogin.php');
 if (!isset($_SESSION['email'])) {
     header('Location: login.php');
 } else if (isset($_SESSION['email'])) {
@@ -12,7 +13,6 @@ if (!isset($_SESSION['email'])) {
         header('Location: CustomerHome.php');
     }
 }
-require('../control/ValidationLogin.php');
 $email = $_SESSION["email"];
 
 $connection = new db();
