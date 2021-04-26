@@ -225,6 +225,11 @@ VALUES('$carname','$carm','$scount','$status','$fare','$customer_id')";
             $result = $conn->query("SELECT * FROM $table  WHERE availability= '$availability'");
             return $result;
         }
+        function GetCarByName($conn, $table, $name)
+        {
+            $result = $conn->query("SELECT * FROM $table  WHERE carname= '$name'");
+            return $result;
+        }
         function DeleteUser($conn, $table, $customer_id)
         {
             $result = $conn->query("DELETE FROM $table WHERE customer_id = '$customer_id'");

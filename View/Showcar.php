@@ -14,6 +14,7 @@
        <title>Available Car</title>
        <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap"
            rel="stylesheet">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
    </head>
@@ -39,42 +40,34 @@
                </h1>
 
                <div class="form-group post center">
-                   <input type="text" id="searchbycarname" name="searchbyarnamec" placeholder="Search By Car Name...."
+                   <input type="text" id="carname" name="carname" placeholder="Search By Car Name...."
                        class="form-control">
                </div>
                <div class="form-group post center">
-                   <input type="submit" value="Search" name="search" class="btn btn-lg btn-primary btn-submit">
+                   <button id="search" onclick="showmycar()" class="btn btn-lg btn-primary btn-submit">Search
+                   </button>
                </div>
+               <p id="mytext"></p>
+               <p class="hide">
+                   <?php
+                    $connection = new db();
+                    $conobj = $connection->OpenCon();
+                    $userQuery = $connection->ShowAvailableCar($conobj, "Car", "Yes");
 
+                    if ($userQuery->num_rows > 0) {
 
-
-               <?php
-                $connection = new db();
-                $conobj = $connection->OpenCon();
-                $userQuery = $connection->ShowAvailableCar($conobj, "Car", "Yes");
-
-                if ($userQuery->num_rows > 0) {
-
-                    while ($row = $userQuery->fetch_assoc()) {
-                        $carname = $row['carname'];
-                        $carmodel = $row['carmodel'];
-                        $sitcount = $row['sitcount'];
-                        $fareperh = $row['fareperh'];
-                        $availablity = $row['availability'];
-                        $car_id = $row['car_id'];
-                        echo "<table><tr><th>Car Name</th><th>Model</th><th>Sit Count</th><th>Fare/Hour</th><th>Availability</th><th>Action</th></tr>";
+                        echo "<table class='hide'><tr><th>Car Name</th><th>Model</th><th>Sit Count</th><th>Fare/Hour</th><th>Availability</th><th>Action</th></tr>";
                         // output data of each row
                         while ($row = $userQuery->fetch_assoc()) {
                             echo "<tr><td>" . $row["carname"] . "</td><td>" . $row["carmodel"] . "</td><td>" . $row["sitcount"] .  "</td><td>" . $row["fareperh"] . "</td><td>" . $row["availability"] . "</td><td>" . '<a href="Request.php?car_id=' . $row["car_id"] . '">Request</a>' . "</td></tr>";
                         }
                         echo "</table>";
+                    } else {
+                        echo "0 results";
                     }
-                } else {
-                    echo "0 results";
-                }
 
 
-                ?>
+                    ?> </p>
            </div>
        </section>
        <!-- main -->
@@ -103,6 +96,31 @@
        </footer>
        <!-- footer -->
        <script src="https://kit.fontawesome.com/2065a5e896.js" crossorigin="anonymous"></script>
+       <script>
+       function showmycar() {
+
+           var carname = document.getElementById("carname").value;
+           var xhttp = new XMLHttpRequest();
+           xhttp.onreadystatechange = function() {
+
+               if (this.readyState == 4 && this.status == 200) {
+                   document.getElementById("mytext").innerHTML = this.responseText;
+               } else {
+                   document.getElementById("mytext").innerHTML = this.status;
+               }
+           };
+           xhttp.open("POST", "../Control/getcar.php", true);
+           xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+           xhttp.send("carname=" + carname);
+
+
+       }
+       $(document).ready(function() {
+           $("button").click(function() {
+               $(".hide").hide();
+           });
+       });
+       </script>
    </body>
 
    </html>
