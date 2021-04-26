@@ -74,7 +74,7 @@
                          Password:
                          <input type="text" name="pass" id="pass" class="form-control">
                      </div>
-                     <div class="form-group">
+                     <!-- <div class="form-group">
                          <label for="type">Choose a type:</label>
 
                          <select name="type">
@@ -83,7 +83,7 @@
                              <option value="customer">Customer</option>
                              <option value="driver">Driver</option>
                          </select>
-                     </div>
+                     </div> -->
                      <div class="form-group">
                          <input type="submit" id="loginButton" value="Login" name="login"
                              class="btn btn-lg btn-primary btn-submit">
