@@ -25,14 +25,20 @@ if (!isset($_SESSION['email'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/mycss.css">
-    <title>Document</title>
+    <title>Driver Home</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap"
+        rel="stylesheet">
+   
 </head>
 
 <body>
+   
+    
     <div class="header">
         <h1>Welcome To RideHub</h1>
         <h2>Driver Home</h2>
     </div>
+
 
     <nav>
         <a href="DriverHome.php">Home</a> |
@@ -58,7 +64,7 @@ if (!isset($_SESSION['email'])) {
             <div class="container">
                 <div class="row">
 
-                    <div class="post post-left">
+                    <div class="post post-center">
                         <img src="Pictures/img4.png" alt="show car">
                         <div class="tag"> <a href="ShowCarDriver.php">Requested Car By User</a></div>
                     </div>
