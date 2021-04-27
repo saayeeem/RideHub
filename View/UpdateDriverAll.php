@@ -4,48 +4,40 @@ if (empty($_SESSION["email"])) {
     header("Location: ../control/login.php"); // Redirecting To Home Page
 }
 
-include('../Control/ValidateCar.php');
-
-$car_id = $_GET["car_id"];
+include('../model/db.php');
+$driver_id = $_GET["driver_id"];
 
 $connection = new db();
 $conobj = $connection->OpenCon();
-// $connection->ShowAll($conobj, "car", $email);
+// $connection->ShowAll($conobj, "customer", $email);
 //$connection->UpdateVendor($conobj, "Vendor", $email);
 
-$userQuery = $connection->Show($conobj, "car", $car_id);
+$userQuery = $connection->Show($conobj, "driver", $driver_id);
 if ($userQuery->num_rows > 0) {
 
     // output data of each row
     while ($row = $userQuery->fetch_assoc()) {
-        $name = $row["carname"];
-        $model = $row["carmodel"];
-        $sitcount = $row["sitcount"];
-        $availability = $row["availability"];
-        $fare = $row["fareperh"];
+        $name = $row["name"];
+
+
+        $address = $row["address"];
+        $phone = $row["phone"];
+
+        $pass = $row["password"];
     }
 } else {
     echo "0 results";
 }
 if (isset($_POST['update'])) {
 
-    if (empty($_POST['carname'] || $_POST['carm'] || $_POST['scount'] || $_POST['fare'])) {
+    if (empty($_POST['name'] || $_POST['password'] || $_POST['address'] || $_POST['phone'])) {
 
 
-        echo "input given is invalid";
+        echo  "input given is invalid";
     } else {
         $connection = new db();
         $conobj = $connection->OpenCon();
-        $userQuery = $connection->UpdateCarAll(
-            $conobj,
-            "car",
-            $car_id,
-            $_POST['carname'],
-            $_POST['carm'],
-            $_POST['scount'],
-            $_POST['availability'],
-            $_POST['fare']
-        );
+        $userQuery = $connection->UpdateDriverAll($conobj, "driver", $_POST['name'], $driver_id, $_POST['pass'], $_POST['address'], $_POST['phone']);
         if ($userQuery == TRUE) {
             $_SESSION['success'] = "update successful";
             header("Location: ../view/AdminHome.php");
@@ -66,10 +58,9 @@ if (isset($_POST['update'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/mycss.css">
-    <title>car Profile Update</title>
+    <title>Customer Profile Update</title>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap"
         rel="stylesheet">
-    <script src="../js/AddCarValidation.js"></script>
 
 
 </head>
@@ -77,7 +68,7 @@ if (isset($_POST['update'])) {
 <body>
     <div class="header">
         <h1>Welcome To RideHub</h1>
-        <h2>Update car</h2>
+        <h2>Update Driver</h2>
     </div>
 
     <nav>
@@ -106,27 +97,22 @@ if (isset($_POST['update'])) {
             <form action='' method='post'>
                 <div class="form-row">
                     <div class="form-group">
-                        Car Name:
-                        <input type="text" name="carname" value="<?php echo $name; ?>" class="form-control">
+                        Name:
+                        <input type="text" name="name" value="<?php echo $name; ?>" class="form-control">
                     </div>
                     <div class="form-group">
 
-                        Model:
-                        <input type="text" name="carm" value="<?php echo $model; ?>" class="form-control">
+                        Password:
+                        <input type="text" name="pass" value="<?php echo $pass; ?>" class="form-control">
                     </div>
 
                     <div class="form-group">
-                        Sit Count:
-                        <input type="text" name="scount" value="<?php echo $sitcount; ?>" class="form-control">
+                        Address:
+                        <input type="text" name="address" value="<?php echo $address; ?>" class="form-control">
                     </div>
                     <div class="form-group">
-                        Availability:
-                        <input type="text" name="availability" value="<?php echo $availability; ?>"
-                            class="form-control">
-                    </div>
-                    <div class="form-group">
-                        Fare Per Hour:
-                        <input type="text" name="fare" value="<?php echo $fare; ?>" class="form-control">
+                        Phone Number:
+                        <input type="text" name="phone" value="<?php echo $phone; ?>" class="form-control">
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Update" name="update" class="btn btn-lg btn-primary btn-submit">

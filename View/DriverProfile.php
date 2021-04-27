@@ -1,4 +1,5 @@
 <?php
+require('../control/ValidationLogin.php');
 if (!isset($_SESSION['email'])) {
     header('Location: login.php');
 } else if (isset($_SESSION['email'])) {
@@ -12,7 +13,6 @@ if (!isset($_SESSION['email'])) {
         header('Location: CustomerHome.php');
     }
 }
-require('../control/ValidationLogin.php');
 $email = $_SESSION["email"];
 
 $connection = new db();
@@ -63,10 +63,10 @@ $connection->CloseCon($conobj);
         <a href="logout.php">Log Out</a>
     </nav>
 
-    <p><img src="Pictures/driver.jpg" alt="Home"></p>
 
     <section class="pad-70 right">
         <div class="container">
+            <p><img class="center" src="Pictures/driver.jpg" alt="Home"></p>
             Name: <?php echo $name; ?>
             <hr>
             Email: <?php echo $email; ?>

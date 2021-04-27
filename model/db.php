@@ -69,18 +69,7 @@ VALUES('$name','$email','$password','$type','$phone','$birthday','$address','$dr
                 $error = "Error: " . $result . "<br>" . $conn->error;
             }
         }
-        function InsertAdmin($conn, $table, $name, $email, $password, $type, $phone, $birthday, $address, $drivinglicense)
-        {
-            $error = "";
-            $result = "INSERT INTO " . $table . " (name,email,password,type,phone,birthday,address,drivinglicense)
-VALUES('$name','$email','$password','$type','$phone','$birthday','$address','$drivinglicense')";
-            if ($conn->query($result) === TRUE) {
-                $success = "New record created successfully";
-                return $result . $success;
-            } else {
-                $error = "Error: " . $result . "<br>" . $conn->error;
-            }
-        }
+
         function InsertLogin($conn, $table, $name, $email, $password, $type)
         {
             $error = "";
@@ -95,19 +84,22 @@ VALUES('$name','$email','$password','$type')";
             }
         }
 
-
-        function InsertCar($conn, $table, $carname, $carm, $scount, $carphoto, $availability, $fare, $from, $to)
-
+        function InsertCar($conn, $table, $carname, $carm, $scount, $carphoto, $availability, $fare)
         {
 
             $carphoto = addslashes($_FILES["carphoto"]["tmp_name"]);
          $name = addslashes($_FILES["name"]["tmp_name"]);
             $carphoto = file_get_contents($carphoto);
             $carphoto = base64_encode($carphoto);
+<<<<<<< HEAD
             $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto,availability,fareperh,from,to)
 
                 VALUES('$carname','$carm','$scount','$carphoto','$availability','$fare', '$from', '$to')";
 
+=======
+            $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto,availability,fareperh)
+                VALUES('$carname','$carm','$scount','$carphoto','$availability','$fare')";
+>>>>>>> a79b7555606891099e02a198d9da9d8612482922
             $error = "";
             if ($conn->query($result) === TRUE) {
               echo "Done";
@@ -118,10 +110,10 @@ VALUES('$name','$email','$password','$type')";
                 $error = "Error: " . $result . "<br>" . $conn->error;
             }
         }
-        function InsertCarRequest($conn, $table, $carname, $carm, $scount, $status, $fare)
+        function InsertCarRequest($conn, $table, $carname, $carm, $scount, $status, $fare, $customer_id)
         {
-            $result = "INSERT INTO " . $table . "(carname,carmodel,sitcount,status,fareperh)
-VALUES('$carname','$carm','$scount','$status','$fare')";
+            $result = "INSERT INTO " . $table . "(carname,carmodel,sitcount,status,fareperh,customer_id)
+VALUES('$carname','$carm','$scount','$status','$fare','$customer_id')";
             $error = "";
             if ($conn->query($result) === TRUE) {
                 return $result . $error;
@@ -130,31 +122,13 @@ VALUES('$carname','$carm','$scount','$status','$fare')";
             }
         }
 
-        function ValidateLogin($conn, $table, $email, $password, $type)
+        function ValidateLogin($conn, $table, $email, $password)
         {
 
-            $result = $conn->query("SELECT name,email,password,type FROM $table WHERE email='$email' and password = '$password' and type = '$type'");
+            $result = $conn->query("SELECT name,email,password,type FROM $table WHERE email='$email' and password = '$password'");
             return $result;
         }
 
-        function ShowAll($conn, $table, $email)
-        {
-            $result = $conn->query("SELECT * FROM $table WHERE email='$email' ");
-            return $result;
-        }
-        function Show($conn, $table)
-        {
-            $result = $conn->query("SELECT * FROM $table ");
-            return $result;
-        }
-        function ShowCar($conn, $table, $name)
-        {
-            $result = $conn->query("SELECT * FROM $table WHERE carname ='$name'");
-
-            while ($row = mysqli_fetch_array($result)) {
-                echo '<img height ="300" width = "300" src="data:image;base64, ' . $row['carphoto'] . '">';
-            }
-        }
 
 
         function UpdateVendor($conn, $table, $name, $email, $pass, $address, $phone)
@@ -182,7 +156,19 @@ VALUES('$carname','$carm','$scount','$status','$fare')";
         function UpdateCustomerAll($conn, $table, $name, $customer_id, $pass, $address, $phone)
 
         {
+
             $result = "UPDATE $table SET name='$name',password='$pass', address='$address' , phone='$phone' WHERE customer_id='$customer_id'";
+            $error = "";
+            if ($conn->query($result) === TRUE) {
+                return $result . $error;
+            } else {
+                $error = "Error: " . $result . "<br>" . $conn->error;
+            }
+        }
+        function UpdateCarAll($conn, $table, $car_id, $carname, $carm, $scount, $availability, $fare)
+
+        {
+            $result = "UPDATE $table SET carname='$carname',carmodel='$carm', sitcount='$scount' , availability='$availability', fareperh= '$fare' WHERE car_id='$car_id'";
             $error = "";
             if ($conn->query($result) === TRUE) {
                 return $result . $error;
@@ -213,16 +199,43 @@ VALUES('$carname','$carm','$scount','$status','$fare')";
                 $error = "Error: " . $result . "<br>" . $conn->error;
             }
         }
-
-
-        function ShowRequestedCar($conn, $table, $name)
+        function ShowAll($conn, $table, $email)
         {
-            $result = $conn->query("SELECT * FROM $table  WHERE carname= '$name'");
+            $result = $conn->query("SELECT * FROM $table WHERE email='$email' ");
+            return $result;
+        }
+        function ShowAllByCustomerID($conn, $table, $customer_id)
+        {
+            $result = $conn->query("SELECT * FROM $table WHERE customer_id='$customer_id' ");
+            return $result;
+        }
+        function Show($conn, $table)
+        {
+            $result = $conn->query("SELECT * FROM $table ");
+            return $result;
+        }
+        function ShowCar($conn, $table, $car_id)
+        {
+            $result = $conn->query("SELECT * FROM $table WHERE car_id ='$car_id'");
+
+            while ($row = mysqli_fetch_array($result)) {
+                echo '<img height ="300" width = "300" src="data:image;base64, ' . $row['carphoto'] . '">';
+            }
+        }
+
+        function ShowRequestedCar($conn, $table, $car_id)
+        {
+            $result = $conn->query("SELECT * FROM $table  WHERE car_id= '$car_id'");
             return $result;
         }
         function ShowAvailableCar($conn, $table, $availability)
         {
             $result = $conn->query("SELECT * FROM $table  WHERE availability= '$availability'");
+            return $result;
+        }
+        function GetCarByName($conn, $table, $name)
+        {
+            $result = $conn->query("SELECT * FROM $table  WHERE carname= '$name'");
             return $result;
         }
         function DeleteUser($conn, $table, $customer_id)

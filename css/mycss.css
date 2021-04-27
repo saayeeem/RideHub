@@ -153,6 +153,22 @@ section{
      serif;
      font-weight: 600;
 }
+.success {
+    width: 10%;
+    color: #2c7a10;
+    font-size: 125%;
+    background: #dfefe6;
+    margin: auto;
+    margin-top: 5%;
+    text-align: center;
+    font-family: "Times New Roman",
+        Times,
+        serif;
+    font-weight: 600;
+}
+.error {
+    color: #e01717;
+}
 #error {
     color: #e01717;
 }

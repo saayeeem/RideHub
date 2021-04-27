@@ -27,14 +27,15 @@
             <?php
             session_start();
             include('../model/db.php');
+            $customer_id = $_SESSION["customer_id"];
             $connection = new db();
             $conobj = $connection->OpenCon();
-            $userQuery = $connection->Show($conobj, "requested_car");
+            $userQuery = $connection->ShowAllByCustomerID($conobj, "requested_car", $customer_id);
             if ($userQuery->num_rows > 0) {
                 echo "<table><tr><th>Name</th><th>Model</th><th>Seat Count</th><th>Fare/Hour</th><th>Status</th></tr>";
                 // output data of each row
                 while ($row = $userQuery->fetch_assoc()) {
-                    echo "<tr><td>" . $row["carname"] . "</td><td>" . $row["carmodel"] . "</td><td>" . $row["sitcount"] . "</td><td>" . $row["fareperh"] . "</td><td>" . $row["status"] . "</td><td>";
+                    echo "<tr><td>" . $row["carname"] . "</td><td>" . $row["carmodel"] . "</td><td>" . $row["sitcount"] . "</td><td>" . $row["fareperh"] . "</td><td>" . $row["status"] . "</td><tr>";
                 }
                 echo "</table>";
             } else {

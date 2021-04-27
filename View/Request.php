@@ -11,17 +11,17 @@ if (isset($_POST['cancel'])) {
 }
 
 // Guardian: Make sure that pcar name is present
-if (!isset($_GET['carname'])) {
-    $_SESSION['error'] = "Missing car name";
+if (!isset($_GET['car_id'])) {
+    $_SESSION['error'] = "Missing car id";
     header('Location: CustomerHome.php');
     return;
 }
-$name = $_GET['carname'];
+$car_id = $_GET["car_id"];
 $connection = new db();
 $conobj = $connection->OpenCon();
+$customer_id = $_SESSION["customer_id"];
 
-
-$userQuery = $connection->ShowRequestedCar($conobj, "Car", $name);
+$userQuery = $connection->ShowRequestedCar($conobj, "Car", $car_id);
 
 if ($userQuery->num_rows > 0) {
 
@@ -29,15 +29,14 @@ if ($userQuery->num_rows > 0) {
         $carname = $row['carname'];
         $carmodel = $row['carmodel'];
         $sitcount = $row['sitcount'];
-        $from = $row['from'];
-        $to = $row['to'];
         $availablity = $row['availability'];
         $fare = $row['fareperh'];
+        $car_id = $row['car_id'];
     }
-    if (isset($_POST['update']) && isset($_GET['carname'])) {
+    if (isset($_POST['update']) && isset($_GET['car_id'])) {
         $connection = new db();
         $conobj = $connection->OpenCon();
-        $connection->InsertCarRequest($conobj, "requested_car", $carname, $carmodel, $sitcount, "Requested", $fare);
+        $connection->InsertCarRequest($conobj, "requested_car", $carname, $carmodel, $sitcount, "Requested", $fare, $customer_id);
         $connection->CloseCon($conobj);
         $_SESSION['success'] = "Request Succesful";
         header("Location: CustomerHome.php");
@@ -93,15 +92,11 @@ if ($userQuery->num_rows > 0) {
                     <hr>
                     Sit Count: <?php echo $sitcount; ?>
                     <hr>
-                    From: <?php echo $from; ?>
-                    <hr>
-                    To: <?php echo $to; ?>
-                    <hr>
                     Fare Per Hour: <?php echo $fare; ?>
                     <br>
                 </div>
                 <div class="post post-right">
-                    <?php $car = $connection->ShowCar($conobj, "Car", $name);
+                    <?php $car = $connection->ShowCar($conobj, "Car", $car_id);
                     $connection->CloseCon($conobj); ?>
                 </div>
             </div>

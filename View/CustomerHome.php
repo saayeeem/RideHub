@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include('../model/db.php');
 if (!isset($_SESSION['email'])) {
     header('Location: login.php');
 } else if (isset($_SESSION['email'])) {
@@ -15,7 +15,19 @@ if (!isset($_SESSION['email'])) {
     }
 }
 $name = $_SESSION['name'];
+$email = $_SESSION['email'];
 
+$connection = new db();
+$conobj = $connection->OpenCon();
+$userQuery = $connection->ShowAll($conobj, "customer", $email);
+
+if ($userQuery->num_rows > 0) {
+    $row = mysqli_fetch_assoc($userQuery);
+    $_SESSION["customer_id"] = $row['customer_id'];
+} else {
+    $error = "Username or Password or type  is invalid";
+}
+$connection->CloseCon($conobj);
 
 ?>
 <!DOCTYPE html>

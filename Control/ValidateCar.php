@@ -20,6 +20,7 @@
         $carname = $_REQUEST["carname"];
         $carm = $_REQUEST["carm"];
         $scount = $_REQUEST["scount"];
+<<<<<<< HEAD
 
      $carphoto = $_FILES["carphoto"];
        //   $file = $_FILES["carphoto"];
@@ -30,9 +31,10 @@
         // $carphoto = $_REQUEST["carphoto"];
         // $file = $_FILES["carphoto"];
 
+=======
+>>>>>>> a79b7555606891099e02a198d9da9d8612482922
         $fare = $_REQUEST["fare"];
-  $from = $_REQUEST["from"];
-    $to = $_REQUEST["to"];
+  
         if (empty($carname) || empty($carm) || empty($scount) || empty($from) || empty($to)) {
             $error = "All fields are required";
         } else if (!preg_match("/[a-zA-Z]$/", $carname)) {
@@ -48,7 +50,7 @@
             $conobj = $connection->OpenCon();
             // $userQuery = $connection->InsertUser($conobj, "registration", $fname,$uname,$email, $pass,"12","male");
 
-            $connection->InsertCar($conobj, "car", $carname, $carm, $scount, $carphoto, "Yes", $fare,$from , $to);
+            $connection->InsertCar($conobj, "car", $carname, $carm, $scount, $carphoto, "Yes", $fare, $from, $to);
 
             $connection->CloseCon($conobj);
         }
