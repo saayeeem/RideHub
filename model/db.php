@@ -88,32 +88,24 @@ VALUES('$name','$email','$password','$type')";
         {
 
             $carphoto = addslashes($_FILES["carphoto"]["tmp_name"]);
-         $name = addslashes($_FILES["name"]["tmp_name"]);
+            $name = addslashes($_FILES["name"]["tmp_name"]);
             $carphoto = file_get_contents($carphoto);
             $carphoto = base64_encode($carphoto);
-<<<<<<< HEAD
-            $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto,availability,fareperh,from,to)
-
-                VALUES('$carname','$carm','$scount','$carphoto','$availability','$fare', '$from', '$to')";
-
-=======
             $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto,availability,fareperh)
                 VALUES('$carname','$carm','$scount','$carphoto','$availability','$fare')";
->>>>>>> a79b7555606891099e02a198d9da9d8612482922
             $error = "";
             if ($conn->query($result) === TRUE) {
-              echo "Done";
                 $success = "Data inserted into Car table successfully";
-               header('Location:VendorHome.php');
+                header('Location:VendorHome.php');
                 return $result . $success;
             } else {
                 $error = "Error: " . $result . "<br>" . $conn->error;
             }
         }
-        function InsertCarRequest($conn, $table, $carname, $carm, $scount, $status, $fare, $customer_id)
+        function InsertCarRequest($conn, $table, $carname, $carm, $scount, $status, $fare, $customer_id, $driver_id, $status_driver)
         {
-            $result = "INSERT INTO " . $table . "(carname,carmodel,sitcount,status,fareperh,customer_id)
-VALUES('$carname','$carm','$scount','$status','$fare','$customer_id')";
+            $result = "INSERT INTO " . $table . "(carname,carmodel,sitcount,status_vendor,fareperh,customer_id,driver_id,status_driver)
+VALUES('$carname','$carm','$scount','$status','$fare','$customer_id','$driver_id','$status_driver')";
             $error = "";
             if ($conn->query($result) === TRUE) {
                 return $result . $error;
@@ -263,7 +255,18 @@ VALUES('$carname','$carm','$scount','$status','$fare','$customer_id')";
             $result = $conn->query("DELETE FROM $table WHERE email = '$email'");
             return $result;
         }
+        function UpdateCarRequest($conn, $table, $req_id, $status_vendor)
+        {
 
+            $result = "UPDATE $table SET status_vendor='$status_vendor' WHERE req_id='$req_id'";
+            $error = "";
+            if ($conn->query($result) === TRUE) {
+                return $result;
+            } else {
+                $error = "Error: " . $result . "<br>" . $conn->error;
+            }
+            return $result;
+        }
 
         function CloseCon($conn)
         {
