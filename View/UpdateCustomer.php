@@ -10,7 +10,6 @@ $email = $_SESSION["email"];
 
 $connection = new db();
 $conobj = $connection->OpenCon();
-$connection->ShowAll($conobj, "customer", $email);
 //$connection->UpdateVendor($conobj, "Vendor", $email);
 
 $userQuery = $connection->ShowAll($conobj, "customer", $email);
@@ -19,8 +18,6 @@ if ($userQuery->num_rows > 0) {
     // output data of each row
     while ($row = $userQuery->fetch_assoc()) {
         $name = $row["name"];
-
-
         $address = $row["address"];
         $phone = $row["phone"];
 
