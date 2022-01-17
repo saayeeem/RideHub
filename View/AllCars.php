@@ -39,8 +39,8 @@
                 echo "<table><tr><th>Name</th><th>Model</th><th>Seat Count</th><th>Fare Per Hour</th><th>Action</th></tr>";
                 // output data of each row
                 while ($row = $userQuery->fetch_assoc()) {
-                    echo "<tr><td>" . $row["carname"] . "</td><td>" . $row["carmodel"] . "</td><td>" . $row["sitcount"] . "</td><td>" . $row["fareperh"] . "</td><td>" . '<a href="CarEdit.php?car_id=' . $row["car_id"] . '">Edit </a>/' .
-                        '<a href="DeleteCar.php?car_id=' . $row["car_id"] . '">Delete</a>' . "</td></tr>";
+                    echo "<tr><td>" . $row["carname"] . "</td><td>" . $row["carmodel"] . "</td><td>" . $row["sitcount"] . "</td><td>" . $row["fareperh"] . "</td><td>"  .
+                        '<a class="btn btn-sm btn-danger" href="DeleteCar.php?car_id=' . $row["car_id"] . '">Delete</a>' . "</td></tr>";
                 }
                 echo "</table>";
             } else {

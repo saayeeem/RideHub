@@ -37,7 +37,7 @@ if (isset($_POST['update'])) {
     } else {
         $connection = new db();
         $conobj = $connection->OpenCon();
-        $userQuery = $connection->UpdateDriverAll($conobj, "driver", $_POST['name'], $driver_id, $_POST['pass'], $_POST['address'], $_POST['phone']);
+        $userQuery = $connection->UpdateDriver($conobj, "driver", $_POST['name'], $driver_id, $_POST['pass'], $_POST['address'], $_POST['phone']);
         if ($userQuery == TRUE) {
             $_SESSION['success'] = "update successful";
             header("Location: ../view/AdminHome.php");
@@ -58,7 +58,7 @@ if (isset($_POST['update'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/mycss.css">
-    <title>Customer Profile Update</title>
+    <title>Driver Profile Update</title>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap"
         rel="stylesheet">
 

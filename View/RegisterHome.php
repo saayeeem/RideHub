@@ -17,8 +17,7 @@
     <nav>
         <a href="home.php">Home</a>
         <a href="home.php">About Us</a>
-        <a href="home.php">Profile</a>
-        <a href="home.php">Cars</a>
+        <a href="home.php">Contact Us</a>
     </nav>
 
     <!-- main  -->

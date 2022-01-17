@@ -53,7 +53,83 @@ form {
 section{
     margin: 0 auto;
 }
+table {
+    width: 100%;
+    /* margin: 0 auto; */
+    font-size: 100%;
+    font-weight: bold;
+    line-height: 100%;
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+}
 
+tr th {
+    border: 1px solid #f1faee;
+    border-bottom: 3px solid #f1faee;
+    border-radius: 5px 5px 0 0;
+    background: #ffffff;
+    height: 50px;
+    padding-left: 10px;
+    background-color: #ffffff;
+
+}
+
+tr td {
+    opacity: 0.8;
+    padding: 1%;
+    background-color: #ffffff;
+    color: #1f1f1f;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    font-size: 90%;
+}
+
+tr td:first-child,
+table tr th:first-child {
+    text-align: left;
+}
+
+tr:hover td {
+    opacity: 1;
+    background-color: #f1faee;
+    color: #39a7e6;
+
+}
+
+table a {
+    width: 60%;
+    font-size: medium;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #f1faee;
+    color: #39a7e6;
+
+}
+
+a {
+    display: block;
+    background-color: #f1faee;
+    color: #1d3557;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    margin: auto;
+    margin-bottom: 2%;
+    width: 17%;
+    font-family: "Times New Roman",
+        Times,
+        serif;
+    font-size: 15px;
+    font-weight: 600;
+
+}
+
+a:hover {
+    background-color: #39a7e6;
+    color: #ffffff;
+
+}
 .container {
     width: 1140px;
     margin: 0 auto;
@@ -234,80 +310,6 @@ section{
 /* Change color on hover */
 
 
-table {
-    width: 80%;
-    margin: 0 auto;
-    font-size: 100%;
-    font-weight: bold;
-    line-height: 100%;
-    font-family: "Times New Roman", Times, serif;
-    text-align: center;
-}
-
-tr th {
-    border: 1px solid #f1faee;
-    border-bottom: 3px solid #f1faee;
-    border-radius: 5px 5px 0 0;
-    background: #ffffff;
-    height: 50px;
-    padding-left: 10px;
-    background-color: #ffffff;
-
-}
-
-tr td {
-    opacity: 0.8;
-    padding: 1%;
-    background-color: #ffffff;
-    color: #1f1f1f;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-    font-size: 90%;
-}
-
-tr td:first-child,
-table tr th:first-child {
-    text-align: left;
-}
-
-tr:hover td {
-    opacity: 1;
-    background-color: #f1faee;
-    color: #39a7e6;
-    
-}
-table a {
-    width: 60%;
-    font-size: medium;
-    font-weight: bold;
-    text-decoration: none;
-    background-color: #f1faee;
-    color: #39a7e6;
-
-}
-a {
-    display: block;
-    background-color: #f1faee;
-    color: #1d3557;
-    text-align: center;
-    padding: 10px 10px;
-    text-decoration: none;
-    margin: auto;
-    margin-bottom: 2%;
-    width: 17%;
-      font-family: "Times New Roman",
-      Times,
-      serif;
-      font-size: 15px;
-      font-weight: 600;
-    
-}
-a:hover {
-    background-color: #39a7e6;
-    color: #ffffff;
-
-}
 /* main */
 .tag{
     text-transform: uppercase;

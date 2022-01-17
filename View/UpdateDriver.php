@@ -10,7 +10,7 @@ $email = $_SESSION["email"];
 
 $connection = new db();
 $conobj = $connection->OpenCon();
-$connection->ShowAll($conobj, "driver", $email);
+// $connection->ShowAll($conobj, "driver", $email);
 //$connection->UpdateVendor($conobj, "Vendor", $email);
 
 $userQuery = $connection->ShowAll($conobj, "driver", $email);

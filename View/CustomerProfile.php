@@ -65,7 +65,7 @@ $connection->CloseCon($conobj);
     </nav>
 
     <section class="pad-70 right">
-        <div class="container">
+        <div class="container m-5">
             <p><img src="Pictures/customer.jpg" alt="Home" class="center"></p>
             Name: <?php echo $name; ?>
             <hr>

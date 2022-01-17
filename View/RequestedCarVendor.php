@@ -11,7 +11,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" type="text/css" href="../css/mycss.css">
       <title>Vendor Home</title>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
 
   </head>
@@ -61,7 +61,7 @@
                         echo ("</td><td id='req_id'>");
                         echo (htmlentities($row['req_id']));
                         echo ("</td><td>");
-                        echo ('<button class="btn btn-lg btn-success">Confirm</button> <button onclick="MyAjaxFunc()" class="btn btn-lg btn-danger">Cancel</button>');
+                        echo ('<button class="btn btn-sm btn-success">Confirm</button> <button onclick="MyAjaxFunc()" class="btn btn-sm btn-danger">Reject</button>');
                         echo ("</td></tr>\n");
                     }
                     echo "</table>";
@@ -99,7 +99,7 @@
       <script src="https://kit.fontawesome.com/2065a5e896.js" crossorigin="anonymous"></script>
 
 
-
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script>
       //When the DOM is fully loaded
       window.addEventListener('DOMContentLoaded', _e => {

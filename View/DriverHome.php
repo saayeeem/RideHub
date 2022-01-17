@@ -1,5 +1,6 @@
 <?php
 session_start();
+    include('../model/db.php');
 
 if (!isset($_SESSION['email'])) {
     header('Location: login.php');
@@ -14,7 +15,20 @@ if (!isset($_SESSION['email'])) {
         header('Location: CustomerHome.php');
     }
 }
+$name = $_SESSION['name'];
+$email = $_SESSION['email'];
 
+$connection = new db();
+$conobj = $connection->OpenCon();
+$userQuery = $connection->ShowAll($conobj, "driver", $email);
+
+if ($userQuery->num_rows > 0) {
+    $row = mysqli_fetch_assoc($userQuery);
+    $_SESSION["driver_id"] = $row['driver_id'];
+} else {
+    $error = "Username or Password or type  is invalid";
+}
+$connection->CloseCon($conobj);
 ?>
 
 <!DOCTYPE html>
@@ -28,12 +42,12 @@ if (!isset($_SESSION['email'])) {
     <title>Driver Home</title>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,900&display=swap"
         rel="stylesheet">
-   
+
 </head>
 
 <body>
-   
-    
+
+
     <div class="header">
         <h1>Welcome To RideHub</h1>
         <h2>Driver Home</h2>

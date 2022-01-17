@@ -21,15 +21,16 @@ include('../Control/validvendor.php');
         <h2>Vendor Registration</h2>
     </div>
     <nav>
-        <a href="Home.php">Home</a> |
-        <a href="Profile.php">My Profile</a>
+        <a href="home.php">Home</a>
+        <a href="home.php">About Us</a>
+        <a href="home.php">Contact Us</a>
     </nav>
     <!-- main -->
     <section class="pad-70">
         <div class="container log-form-pos">
             <h1>Vendor Registation Form</h1>
-            <?php 
-            
+            <?php
+
             if ($error !== false) {
                 // Look closely at the use of single and double quotes
                 echo ('<p style="color: red;" class="col-sm-10 col-sm-offset-2">' .
@@ -38,7 +39,7 @@ include('../Control/validvendor.php');
             }
 
 
-             ?>
+            ?>
             <p id="error"></p>
             <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" onsubmit="return validateUserForm()" method="post">
                 <section class="pad-70">

@@ -84,15 +84,15 @@ VALUES('$name','$email','$password','$type')";
             }
         }
 
-        function InsertCar($conn, $table, $carname, $carm, $scount, $carphoto, $availability, $fare)
+        function InsertCar($conn, $table, $carname, $carm, $scount, $carphoto, $availability, $fare, $from, $to)
         {
 
             $carphoto = addslashes($_FILES["carphoto"]["tmp_name"]);
             $name = addslashes($_FILES["name"]["tmp_name"]);
             $carphoto = file_get_contents($carphoto);
             $carphoto = base64_encode($carphoto);
-            $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto,availability,fareperh)
-                VALUES('$carname','$carm','$scount','$carphoto','$availability','$fare')";
+            $result = "INSERT INTO " . $table . " (carname,carmodel,sitcount,carphoto,availability,fareperh,destination_from,destination_to)
+                VALUES('$carname','$carm','$scount','$carphoto','$availability','$fare','$from','$to')";
             $error = "";
             if ($conn->query($result) === TRUE) {
                 $success = "Data inserted into Car table successfully";
@@ -201,6 +201,11 @@ VALUES('$carname','$carm','$scount','$status','$fare','$customer_id','$driver_id
             $result = $conn->query("SELECT * FROM $table WHERE customer_id='$customer_id' ");
             return $result;
         }
+        function ShowCarToDriver($conn, $table, $status_vendor)
+        {
+            $result = $conn->query("SELECT * FROM $table WHERE  status_vendor='$status_vendor' ");
+            return $result;
+        }
         function Show($conn, $table)
         {
             $result = $conn->query("SELECT * FROM $table ");
@@ -259,6 +264,18 @@ VALUES('$carname','$carm','$scount','$status','$fare','$customer_id','$driver_id
         {
 
             $result = "UPDATE $table SET status_vendor='$status_vendor' WHERE req_id='$req_id'";
+            $error = "";
+            if ($conn->query($result) === TRUE) {
+                return $result;
+            } else {
+                $error = "Error: " . $result . "<br>" . $conn->error;
+            }
+            return $result;
+        }
+        function UpdateCarDriverRequest($conn, $table, $req_id,  $driver_id, $status_driver)
+        {
+
+            $result = "UPDATE $table SET driver_id='$driver_id', status_driver='$status_driver' WHERE req_id='$req_id'";
             $error = "";
             if ($conn->query($result) === TRUE) {
                 return $result;
